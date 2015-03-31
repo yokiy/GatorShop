@@ -19,7 +19,7 @@ class Single extends CI_Controller {
 	 */
 	public function index()
 	{
-		$this->load->view('single');
+		$this->load->view('single.html');
 	}
 }
 

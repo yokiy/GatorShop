@@ -19,8 +19,7 @@ class Product extends CI_Controller {
 	 */
 	public function index()
 	{
-		//echo site_url();
-			$this->load->view('product.html');
+		$this->load->view('product.html');
 	}
 }
 

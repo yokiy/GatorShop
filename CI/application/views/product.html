@@ -2,18 +2,18 @@
 <html>
 <head>
 <title>Product</title>
-<link href="style/css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+<link href="<?php echo base_url().'style/css/bootstrap.css';?>" rel="stylesheet" type="text/css" media="all" />
 <!--theme-style-->
-<link href="style/css/style.css" rel="stylesheet" type="text/css" media="all" />	
+<link href="<?php echo base_url().'style/css/style.css';?>" rel="stylesheet" type="text/css" media="all" />	
 <!--//theme-style-->
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
 <!--fonts-->
 <link href='http://fonts.useso.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'>
 <!--//fonts-->
-<script src="style/js/jquery.min.js"></script>
+<script src="<?php echo base_url().'style/js/jquery.min.js';?>"></script>
 
-<script src="style/js/jquery.easydropdown.js"></script>
+<script src="<?php echo base_url().'style/js/jquery.easydropdown.js';?>"></script>
 <!--script-->
 </head>
 <body> 
@@ -29,7 +29,7 @@
 			<div class="container">
 				<div class="header-bottom-left">
                 <div class="logo">
-                <a href="product.html"><img src="images/logo.jpg" alt=" " style="width:150px;height:100px"/></a>
+                <a href="<?php echo site_url().'/index/product';?>"><img src="<?php echo base_url().'images/logo.jpg';?>" alt=" " style="width:150px;height:100px"/></a>
                 </div>
 					<div class="search">
 					  <input type="text" value="" onFocus="this.value = '';" onBlur="if (this.value == '') {this.value = '';}" >
@@ -40,12 +40,12 @@
 				</div>
 				<div class="header-bottom-right">
 					<ul class="men-grid">
-						<li><a href="login.html"><span> </span>YOUR ACCOUNT</a></li>
+						<li><a href="<?php echo site_url().'/index/login';?>"><span> </span>YOUR ACCOUNT</a></li>
 						<li class="login"><a href="<?php echo site_url().'/index/login';?>"><span> </span>LOGIN</a>|</li>
 						<li class="cart"><a href="#"><span> </span>CART</a></li>
 					</ul>
 					<div class="sign-up-right">
-						<a href="register.html">SIGNUP</a>
+						<a href="<?php echo site_url().'/index/register';?>">SIGNUP</a>
 					</div>
 				</div>
 				<div class="clearfix"> </div>	
@@ -73,80 +73,38 @@
 		</div>
 		<!-- grids_of_4 -->
 		<div class="grid-product">
-		  <div class="  product-grid">
-			<div class="content_box"><a href="single.html">
-			   	<div class="left-grid-view grid-view-left">
-			   	   	 <img src="images/pic13.jpg" class="img-responsive watch-right" alt=""/>
-				   	   	<div class="mask">
-	                        <div class="info">Quick View</div>
-			            </div>
-				   	  </a>
+		  	<div class="  product-grid">
+				<div class="content_box"><a href="<?php echo site_url().'/index/single';?>">
+			   		<div class="left-grid-view grid-view-left">
+			   	   		 <img src="<?php echo base_url().'images/pic13.jpg';?>" class="img-responsive watch-right" alt=""/>
+				   	   		<div class="mask">
+	                        	<div class="info">Quick View</div>
+			            	</div>
+				   	  	</a>
+					</div>
+				    	<h4><a href="#"> Duis autem</a></h4>
+				     	<p>It is a long established fact that a reader</p>
+				     	Rs. 499
 				</div>
+           	</div>
+			<div class="  product-grid">
+				<div class="content_box"><a href="<?php echo site_url().'/index/single';?>">
+			   		<div class="left-grid-view grid-view-left">
+			   	   		 <img src="<?php echo base_url().'images/pic2.jpg';?>" class="img-responsive watch-right" alt=""/>
+				   	   		<div class="mask">
+	                        	<div class="info">Quick View</div>
+			            	</div>
+				   	  	</a>
+				   	</div>
 				    <h4><a href="#"> Duis autem</a></h4>
-				     <p>It is a long established fact that a reader</p>
+				    <p>It is a long established fact that a reader</p>
 				     Rs. 499
 			   	</div>
-              </div>
-			 <div class="  product-grid">
-			<div class="content_box"><a href="single.html">
+            </div>
+			<div class="  product-grid">
+			<div class="content_box"><a href="<?php echo site_url().'/index/single';?>">
 			   	<div class="left-grid-view grid-view-left">
-			   	   	 <img src="images/pic2.jpg" class="img-responsive watch-right" alt=""/>
-				   	   	<div class="mask">
-	                        <div class="info">Quick View</div>
-			            </div>
-				   	  </a>
-				   </div>
-				    <h4><a href="#"> Duis autem</a></h4>
-				     <p>It is a long established fact that a reader</p>
-				     Rs. 499
-			   	</div>
-                 </div>
-			 <div class="  product-grid">
-			<div class="content_box"><a href="single.html">
-			   	<div class="left-grid-view grid-view-left">
-			   	   	 <img src="images/pic3.jpg" class="img-responsive watch-right" alt=""/>
-				   	   	<div class="mask">
-	                        <div class="info">Quick View</div>
-			            </div>
-				   	  </a>
-				   </div>
-				    <h4><a href="#"> Duis autem</a></h4>
-				     <p>It is a long established fact that a reader</p>
-				     Rs. 499
-			   	</div>
-                 </div>
-		  <div class="  product-grid">
-			<div class="content_box"><a href="single.html">
-			   	<div class="left-grid-view grid-view-left">
-			   	   	 <img src="images/pic4.jpg" class="img-responsive watch-right" alt=""/>
-				   	   	<div class="mask">
-	                        <div class="info">Quick View</div>
-			            </div>
-				   	  </a>
-				   </div>
-				    <h4><a href="#"> Duis autem</a></h4>
-				     <p>It is a long established fact that a reader</p>
-				     Rs. 499
-			   	</div>
-              </div>
-			 <div class="  product-grid">
-			<div class="content_box"><a href="single.html">
-			   	<div class="left-grid-view grid-view-left">
-			   	   	 <img src="images/pic6.jpg" class="img-responsive watch-right" alt=""/>
-				   	   	<div class="mask">
-	                        <div class="info">Quick View</div>
-			            </div>
-				   	  </a>
-				   </div>
-				    <h4><a href="#"> Duis autem</a></h4>
-				     <p>It is a long established fact that a reader</p>
-				     Rs. 499
-			   	</div>
-                 </div>
-			 <div class="  product-grid">
-			<div class="content_box"><a href="single.html">
-			   	<div class="left-grid-view grid-view-left">
-			   	   	 <img src="images/pic7.jpg" class="img-responsive watch-right" alt=""/>
+			   	   	 <img src="<?php echo base_url().'images/pic3.jpg';?>" class="img-responsive watch-right" alt=""/>
 				   	   	<div class="mask">
 	                        <div class="info">Quick View</div>
 			            </div>
@@ -158,9 +116,9 @@
 			   	</div>
                  </div>
 		  <div class="  product-grid">
-			<div class="content_box"><a href="single.html">
+			<div class="content_box"><a href="<?php echo site_url().'/index/single';?>">
 			   	<div class="left-grid-view grid-view-left">
-			   	   	 <img src="images/pic8.jpg" class="img-responsive watch-right" alt=""/>
+			   	   	 <img src="<?php echo base_url().'images/pic4.jpg';?>" class="img-responsive watch-right" alt=""/>
 				   	   	<div class="mask">
 	                        <div class="info">Quick View</div>
 			            </div>
@@ -172,9 +130,51 @@
 			   	</div>
               </div>
 			 <div class="  product-grid">
-			<div class="content_box"><a href="single.html">
+			<div class="content_box"><a href="<?php echo site_url().'/index/single';?>">
 			   	<div class="left-grid-view grid-view-left">
-			   	   	 <img src="images/pic11.jpg" class="img-responsive watch-right" alt=""/>
+			   	   	 <img src="<?php echo base_url().'images/pic6.jpg';?>" class="img-responsive watch-right" alt=""/>
+				   	   	<div class="mask">
+	                        <div class="info">Quick View</div>
+			            </div>
+				   	  </a>
+				   </div>
+				    <h4><a href="#"> Duis autem</a></h4>
+				     <p>It is a long established fact that a reader</p>
+				     Rs. 499
+			   	</div>
+                 </div>
+			 <div class="  product-grid">
+			<div class="content_box"><a href="<?php echo site_url().'/index/single';?>">
+			   	<div class="left-grid-view grid-view-left">
+			   	   	 <img src="<?php echo base_url().'images/pic7.jpg';?>" class="img-responsive watch-right" alt=""/>
+				   	   	<div class="mask">
+	                        <div class="info">Quick View</div>
+			            </div>
+				   	  </a>
+				   </div>
+				    <h4><a href="#"> Duis autem</a></h4>
+				     <p>It is a long established fact that a reader</p>
+				     Rs. 499
+			   	</div>
+                 </div>
+		  <div class="  product-grid">
+			<div class="content_box"><a href="<?php echo site_url().'/index/single';?>">
+			   	<div class="left-grid-view grid-view-left">
+			   	   	 <img src="<?php echo base_url().'images/pic8.jpg';?>" class="img-responsive watch-right" alt=""/>
+				   	   	<div class="mask">
+	                        <div class="info">Quick View</div>
+			            </div>
+				   	  </a>
+				   </div>
+				    <h4><a href="#"> Duis autem</a></h4>
+				     <p>It is a long established fact that a reader</p>
+				     Rs. 499
+			   	</div>
+              </div>
+			 <div class="  product-grid">
+			<div class="content_box"><a href="<?php echo site_url().'/index/single';?>">
+			   	<div class="left-grid-view grid-view-left">
+			   	   	 <img src="<?php echo base_url().'images/pic11.jpg';?>" class="img-responsive watch-right" alt=""/>
 				   	   	<div class="mask">
 	                        <div class="info">Quick View</div>
 			            </div>
@@ -186,9 +186,9 @@
 			   	</div>
                  </div>
 			 <div class=" product-grid">
-			<div class="content_box"><a href="single.html">
+			<div class="content_box"><a href="<?php echo site_url().'/index/single';?>">
 			   	<div class="left-grid-view grid-view-left">
-			   	   	 <img src="images/pic12.jpg" class="img-responsive watch-right" alt=""/>
+			   	   	 <img src="<?php echo base_url().'images/pic12.jpg';?>" class="img-responsive watch-right" alt=""/>
 				   	   	<div class="mask">
 	                        <div class="info">Quick View</div>
 			            </div>
@@ -206,28 +206,28 @@
 				<div class=" top-nav rsidebar span_1_of_left">
 					<h3 class="cate">CATEGORIES</h3>
 		  <ul class="menu">
-		<li class="item1"><a href="#">Curabitur sapien<img class="arrow-img" src="images/arrow1.png" alt=""/> </a>
+		<li class="item1"><a href="#">Curabitur sapien<img class="arrow-img" src="<?php echo base_url().'images/arrow1.png';?>" alt=""/> </a>
 			<ul class="cute">
 				<li class="subitem1"><a href="product.html">Cute Kittens </a></li>
 				<li class="subitem2"><a href="product.html">Strange Stuff </a></li>
 				<li class="subitem3"><a href="product.html">Automatic Fails </a></li>
 			</ul>
 		</li>
-		<li class="item2"><a href="#">Dignissim purus <img class="arrow-img " src="images/arrow1.png" alt=""/></a>
+		<li class="item2"><a href="#">Dignissim purus <img class="arrow-img " src="<?php echo base_url().'images/arrow1.png';?>" alt=""/></a>
 			<ul class="cute">
 				<li class="subitem1"><a href="product.html">Cute Kittens </a></li>
 				<li class="subitem2"><a href="product.html">Strange Stuff </a></li>
 				<li class="subitem3"><a href="product.html">Automatic Fails </a></li>
 			</ul>
 		</li>
-		<li class="item3"><a href="#">Ultrices id du<img class="arrow-img img-arrow" src="images/arrow1.png" alt=""/> </a>
+		<li class="item3"><a href="#">Ultrices id du<img class="arrow-img img-arrow" src="<?php echo base_url().'images/arrow1.png';?>" alt=""/> </a>
 			<ul class="cute">
 				<li class="subitem1"><a href="product.html">Cute Kittens </a></li>
 				<li class="subitem2"><a href="product.html">Strange Stuff </a></li>
 				<li class="subitem3"><a href="product.html">Automatic Fails</a></li>
 			</ul>
 		</li>
-		<li class="item4"><a href="#">Cras iacaus rhone <img class="arrow-img img-left-arrow" src="images/arrow1.png" alt=""/></a>
+		<li class="item4"><a href="#">Cras iacaus rhone <img class="arrow-img img-left-arrow" src="<?php echo base_url().'images/arrow1.png';?>" alt=""/></a>
 			<ul class="cute">
 				<li class="subitem1"><a href="product.html">Cute Kittens </a></li>
 				<li class="subitem2"><a href="product.html">Strange Stuff </a></li>
@@ -248,7 +248,7 @@
 				<li><a href="product.html">Urna ac tortor sc</a></li>
 				<li ><a href="product.html">Eget nisi laoreet</a></li>
 				<li><a href="product.html">Faciisis ornare</a></li>
-				<li class="menu-kid-left"><a href="contact.html">Contact us</a></li>
+				<li class="menu-kid-left"><a href="<?php echo site_url().'/index/contact';?>">Contact us</a></li>
 			</ul>
 		
 	</ul>
@@ -274,7 +274,7 @@
 			});
 		</script>
 					<div class=" chain-grid menu-chain">
-	   		     		<a href="single.html"><img class="img-responsive chain" src="images/wat.jpg" alt=" " /></a>	   		     		
+	   		     		<a href="single.html"><img class="img-responsive chain" src="<?php echo base_url().'images/wat.jpg';?>" alt=" " /></a>	   		     		
 	   		     		<div class="grid-chain-bottom chain-watch">
 		   		     		<span class="actual dolor-left-grid">300$</span>
 		   		     		<span class="reducedfrom">500$</span>  

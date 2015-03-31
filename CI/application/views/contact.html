@@ -2,17 +2,18 @@
 <html>
 <head>
 <title>Contact</title>
-<link href="style/css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+<link href="<?php echo base_url().'style/css/bootstrap.css';?>" rel="stylesheet" type="text/css" media="all" />
 <!--theme-style-->
-<link href="style/css/style.css" rel="stylesheet" type="text/css" media="all" />	
+<link href="<?php echo base_url().'style/css/style.css';?>" rel="stylesheet" type="text/css" media="all" />	
 <!--//theme-style-->
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
 <!--fonts-->
 <link href='http://fonts.useso.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'>
 <!--//fonts-->
-<script src="style/js/jquery.min.js"></script>
-<script src="style/js/jquery.easydropdown.js"></script>
+<script src="<?php echo base_url().'style/js/jquery.min.js';?>"></script>
+
+<script src="<?php echo base_url().'style/js/jquery.easydropdown.js';?>"></script>
 
 <!--script-->
 </head>
@@ -21,7 +22,7 @@
 	<div class="header">
     <div class="top-header">
     <div class="container">
-      <h2 ><a href="product.html" style="color:white">GatorShop</a></h2>
+      <h2 ><a href="<?php echo site_url().'/index/product';?>" style="color:white">GatorShop</a></h2>
     </div>
     
     </div>
@@ -29,7 +30,7 @@
 			<div class="container">
 				<div class="header-bottom-left">
                 <div class="logo">
-                <a href="product.html"><img src="images/logo.jpg" alt=" " style="width:150px;height:100px"/></a>
+                <a href="<?php echo site_url().'/index/product';?>"><img src="images/logo.jpg" alt=" " style="width:150px;height:100px"/></a>
                 </div>
 					<div class="search">
 					  <input type="text" value="" onFocus="this.value = '';" onBlur="if (this.value == '') {this.value = '';}" >
@@ -40,8 +41,8 @@
 				</div>
 				<div class="header-bottom-right">
 					<ul class="men-grid">
-						<li><a href="login.html"><span> </span>YOUR ACCOUNT</a></li>
-						<li class="login"><a href="login.html"><span> </span>LOGIN</a>|</li>
+						<li><a href="<?php echo site_url().'/index/login';?>"><span> </span>YOUR ACCOUNT</a></li>
+						<li class="login"><a href="<?php echo site_url().'/index/login';?>"><span> </span>LOGIN</a>|</li>
 						<li class="cart"><a href="#"><span> </span>CART</a></li>
 					</ul>
 					<div class="sign-up-right">
