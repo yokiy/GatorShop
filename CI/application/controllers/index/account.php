@@ -1,6 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class Product extends CI_Controller {
+class Account extends CI_Controller {
 
 	/**
 	 * Index Page for this controller.
@@ -19,13 +19,20 @@ class Product extends CI_Controller {
 	 */
 	public function index()
 	{
-		$this->load->view('product.html');
+		if(!isset($_SESSION)){
+				session_start();
+		}
+		if(empty($_SESSION['username']))
+		{
+			redirect('/index/login','refresh');
+		}
+		else
+		{
+			$this->load->view('account.html');
+		}
 	}
 
-	public function changeCategory()
-	{
-		
-	}
+	
 }
 
 /* End of file welcome.php */

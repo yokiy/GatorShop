@@ -21,6 +21,37 @@ class Register extends CI_Controller {
 	{
 		$this->load->view('register.html');
 	}
+
+	public function sign_up(){//form validation , username and password can not be empty.
+		$this->load->library('form_validation');
+		$this->form_validation->set_rules('firstname','FirstName','required|alpha');
+		$this->form_validation->set_rules('lastname','LastName','required|alpha');
+		$this->form_validation->set_rules('email','Email','required|valid_email');
+		$this->form_validation->set_rules('cellphone','Cellphone','required');
+		$this->form_validation->set_rules('city','City','required|alpha');
+		$this->form_validation->set_rules('zipcode','Zipcode','required|integer|exact_length[5]|');
+		$this->form_validation->set_rules('address','Address','required');
+		$this->form_validation->set_rules('state','State','required');
+		$this->form_validation->set_rules('r_username','UserName','required|alpha_numeric');
+		$this->form_validation->set_rules('r_password1','Password1','required|min_length[6]|alpha_numeric');
+		$this->form_validation->set_rules('r_password2','Password2','required|min_length[6]|alpha_numeric|matches[r_password1]');
+		$valid =$this->form_validation->run(); //run the validtion
+		if(!$valid)// form is illegal
+		{
+			$this->load->view('register.html');// login again
+		}
+		else
+		{ 
+			//deal with database
+
+			if(!isset($_SESSION)){
+				session_start();
+			}
+			
+			redirect('/index/product','refresh');
+		}
+	}
+	
 }
 
 /* End of file welcome.php */

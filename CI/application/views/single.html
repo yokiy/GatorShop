@@ -5,7 +5,7 @@
 <link href="<?php echo base_url().'style/css/bootstrap.css';?>" rel="stylesheet" type="text/css" media="all" />
 <!--theme-style-->
 <link href="<?php echo base_url().'style/css/style.css';?>" rel="stylesheet" type="text/css" media="all" />	
-<link rel="stylesheet" href="css/etalage.css" type="text/css" media="all" />
+<link rel="stylesheet" href="<?php echo base_url().'style/css/etalage.css';?>" type="text/css" media="all" />
 <!--//theme-style-->
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
@@ -58,13 +58,14 @@
 				</div>
 				<div class="header-bottom-right">
 					<ul class="men-grid">
-						<li><a href="login.html"><span> </span>YOUR ACCOUNT</a></li>
-						<li class="login"><a href="login.html"><span> </span>LOGIN</a>|</li>
-						<li class="cart"><a href="#"><span> </span>CART</a></li>
+						<li><a href="<?php echo site_url().'/index/account';?>"><span> </span>YOUR ACCOUNT</a></li>
+						<li>|</li>
+						<li ><a href="<?php echo site_url().'/index/cart';?>"><span> </span>CART</a></li>
+						<li>|</li>
+						<li ><a href="<?php echo site_url().'/index/login';?>"><span> </span>LOGIN/OUT</a></li>
+						<li>|</li>
+						<li ><a href="<?php echo site_url().'/index/register';?>">SIGNUP</a></li>
 					</ul>
-					<div class="sign-up-right">
-						<a href="register.html">SIGNUP</a>
-					</div>
 				</div>
 				<div class="clearfix"> </div>	
 			</div>
@@ -101,7 +102,7 @@
 				  </div> 
 				  <div class="desc1 span_3_of_2">
 				  	<ul class="back">
-                	  <li><i class="back_arrow"> </i>Back to <a href="index.html">Women's Clothing</a></li>
+                	  <li><i class="back_arrow"> </i>Back to <a href="<?php echo site_url().'/index/product';?>">All products</a></li>
                     </ul>
 					<h1>Sofi Blouse</h1>
 					<ul class="price_single">
@@ -187,41 +188,7 @@
 				<div class=" top-nav rsidebar span_1_of_left">
 					<h3 class="cate">CATEGORIES</h3>
 		  <ul class="menu">
-		<li class="item1"><a href="#">Curabitur sapien<img class="arrow-img" src="<?php echo base_url().'images/arrow1.png;'?>" alt=""/> </a>
-			<ul class="cute">
-				<li class="subitem1"><a href="product.html">Cute Kittens </a></li>
-				<li class="subitem2"><a href="product.html">Strange Stuff </a></li>
-				<li class="subitem3"><a href="product.html">Automatic Fails </a></li>
-			</ul>
-		</li>
-		<li class="item2"><a href="#">Dignissim purus <img class="arrow-img " src="<?php echo base_url().'images/arrow1.png;'?>" alt=""/></a>
-			<ul class="cute">
-				<li class="subitem1"><a href="product.html">Cute Kittens </a></li>
-				<li class="subitem2"><a href="product.html">Strange Stuff </a></li>
-				<li class="subitem3"><a href="product.html">Automatic Fails </a></li>
-			</ul>
-		</li>
-		<li class="item3"><a href="#">Ultrices id du<img class="arrow-img img-arrow" src="<?php echo base_url().'images/arrow1.png;'?>" alt=""/> </a>
-			<ul class="cute">
-				<li class="subitem1"><a href="product.html">Cute Kittens </a></li>
-				<li class="subitem2"><a href="product.html">Strange Stuff </a></li>
-				<li class="subitem3"><a href="product.html">Automatic Fails</a></li>
-			</ul>
-		</li>
-		<li class="item4"><a href="#">Cras iacaus rhone <img class="arrow-img img-left-arrow" src="<?php echo base_url().'images/arrow1.png;'?>" alt=""/></a>
-			<ul class="cute">
-				<li class="subitem1"><a href="product.html">Cute Kittens </a></li>
-				<li class="subitem2"><a href="product.html">Strange Stuff </a></li>
-				<li class="subitem3"><a href="product.html">Automatic Fails </a></li>
-			</ul>
-		</li>
-				<li>
-			<ul class="kid-menu">
-				<li><a href="product.html">Tempus pretium</a></li>
-				<li ><a href="product.html">Dignissim neque</a></li>
-				<li ><a href="product.html">Ornared id aliquet</a></li>
-			</ul>
-		</li>
+		
 		<ul class="kid-menu ">
 				<li><a href="product.html">Commodo sit</a></li>
 				<li ><a href="product.html">Urna ac tortor sc</a></li>
@@ -229,7 +196,7 @@
 				<li><a href="product.html">Urna ac tortor sc</a></li>
 				<li ><a href="product.html">Eget nisi laoreet</a></li>
 				<li><a href="product.html">Faciisis ornare</a></li>
-				<li class="menu-kid-left"><a href="contact.html">Contact us</a></li>
+				<li class="menu-kid-left"><a href="<?php echo site_url().'/index/contact';?>">Contact us</a></li>
 			</ul>
 		
 	</ul>
@@ -255,14 +222,14 @@
 			});
 		</script>
 					<div class=" chain-grid menu-chain">
-	   		     		<a href="single.html"><img class="img-responsive chain" src="images/wat.jpg" alt=" " /></a>	   		     		
+	   		     		<a href="single.html"><img class="img-responsive chain" src="<?php echo base_url().'images/wat.jpg' ?>" alt=" " /></a>	   		     		
 	   		     		<div class="grid-chain-bottom chain-watch">
 		   		     		<span class="actual dolor-left-grid">300$</span>
 		   		     		<span class="reducedfrom">500$</span>  
 		   		     		<h6>Lorem ipsum dolor</h6>  		     			   		     										
 	   		     		</div>
 	   		     	</div>
-	   		     	 <a class="view-all all-product" href="product.html">VIEW ALL PRODUCTS<span> </span></a> 	
+	   		     	 <a class="view-all all-product" href="<?php echo site_url().'/index/product';?>">VIEW ALL PRODUCTS<span> </span></a> 	
 			</div>
 <div class="clearfix"> </div>			
 		</div>
@@ -349,7 +316,6 @@
 						<li >nisi, dignissim</li>
 						<li >gravida at.</li>
 						<li class="phone">PH : 6985792466</li>
-						<li class="temp"> <p class="footer-class">Copyright &copy; 2015.Company name All rights reserved.<a target="_blank" href="http://sc.chinaz.com/moban/">&#x7F51;&#x9875;&#x6A21;&#x677F;</a></p></li>
 					</ul>
 				</div>
 				<div class="clearfix"> </div>

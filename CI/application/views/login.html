@@ -39,13 +39,14 @@
 				</div>
 				<div class="header-bottom-right">
 					<ul class="men-grid">
-						<li><a href="<?php echo site_url().'/index/login';?>"><span> </span>YOUR ACCOUNT</a></li>
-						<li class="login"><a href="<?php echo site_url().'/index/login';?>"><span> </span>LOGIN</a>|</li>
-						<li class="cart"><a href="#"><span> </span>CART</a></li>
+						<li><a href="<?php echo site_url().'/index/account';?>"><span> </span>YOUR ACCOUNT</a></li>
+						<li>|</li>
+						<li ><a href="<?php echo site_url().'/index/cart';?>"><span> </span>CART</a></li>
+						<li>|</li>
+						<li ><a href="<?php echo site_url().'/index/login';?>"><span> </span>LOGIN/OUT</a></li>
+						<li>|</li>
+						<li ><a href="<?php echo site_url().'/index/register';?>">SIGNUP</a></li>
 					</ul>
-					<div class="sign-up-right">
-						<a href="<?php echo site_url().'/index/register';?>">SIGNUP</a>
-					</div>
 				</div>
 				<div class="clearfix"> </div>	
 			</div>
@@ -58,21 +59,22 @@
 			   <div class=" login-right">
 			  	<h3>REGISTERED CUSTOMERS</h3>
 				<p>If you have an account with us, please log in.</p>
-				<form>
+				<form action="<?php echo site_url('index/login/log_in'); ?>" method="POST">
 				  <div>
-					<span>Email Address<label>*</label></span>
-					<input type="text"> 
+					<span>User Name<label>*</label></span>
+					<input type="text" name='username' value="<?php echo set_value('username'); ?>"> 
+					<?php echo form_error('username','<span>','</span>'); ?>
 				  </div>
 				  <div>
 					<span>Password<label>*</label></span>
-					<input type="text"> 
+					<input type="text" name='password'> 
+					<?php echo form_error('password','<span>','</span>'); ?>
 				  </div>
-				  <a class="forgot" href="#">Forgot Your Password?</a>
 				  <input type="submit" value="Login">
 			    </form>
 			   </div>	
 			    <div class=" login-left">
-			  	 <h3>NEW CUSTOMERS</h3>
+			  	 <h3>NEW CUSTOMERS ??</h3>
 				 <p>By creating an account with our store, you will be able to move through the checkout process faster, store multiple shipping addresses, view and track your orders in your account and more.</p>
 				 <a class="acount-btn" href="<?php echo site_url().'/index/register';?>">Create an Account</a>
 			   </div>
@@ -157,7 +159,7 @@
 		   		     		<h6>Lorem ipsum dolor</h6>  		     			   		     										
 	   		     		</div>
 	   		     	</div>
-	   		     	 <a class="view-all all-product" href="product.html">VIEW ALL PRODUCTS<span> </span></a> 	
+	   		     	 <a class="view-all all-product" href="<?php echo site_url().'/index/product';?>">VIEW ALL PRODUCTS<span> </span></a> 	
 			</div>
 			  <div class="clearfix"> </div>
       	 </div>
@@ -244,7 +246,7 @@
 						<li >nisi, dignissim</li>
 						<li >gravida at.</li>
 						<li class="phone">PH : 6985792466</li>
-						<li class="temp"> <p class="footer-class">Copyright &copy; 2015.Company name All rights reserved.<a target="_blank" href="http://sc.chinaz.com/moban/">&#x7F51;&#x9875;&#x6A21;&#x677F;</a></p></li>
+						
 					</ul>
 				</div>
 				<div class="clearfix"> </div>

@@ -19,8 +19,51 @@ class Login extends CI_Controller {
 	 */
 	public function index()
 	{
+		if(!isset($_SESSION)){
+				session_start();
+		}
+		if(empty($_SESSION['username']))
+		{
 		$this->load->view('login.html');
+		}
+		else
+		{
+		redirect('/index/logout','refresh');
+		}
 	}
+
+
+	public function log_in(){//form validation , username and password can not be empty.
+		$this->load->library('form_validation');
+		$this->form_validation->set_rules('username','UserName','required');
+		$this->form_validation->set_rules('password','Password','required');
+		$valid =$this->form_validation->run(); //run the validtion
+		if(!$valid)// form is illegal
+		{
+			$this->load->view('login.html');// login again
+		}
+		else
+		{
+			$Username=$_POST['username'];
+			$Password=$_POST['password'];
+			
+
+			//deal with database
+
+			if(!isset($_SESSION)){
+				session_start();
+			}
+			$_SESSION['username']=$Username;
+			redirect('/index/product','refresh');
+
+		}
+		
+	}
+
+	
+
+	
+
 }
 
 /* End of file welcome.php */
