@@ -14,8 +14,6 @@
 <script src="<?php echo base_url().'style/js/jquery.min.js';?>"></script>
 
 <script src="<?php echo base_url().'style/js/jquery.easydropdown.js';?>"></script>
-
-<!--script-->
 </head>
 <body> 
 	<!--header-->
@@ -30,7 +28,7 @@
 			<div class="container">
 				<div class="header-bottom-left">
                 <div class="logo">
-                <a href="<?php echo site_url().'/index/product';?>"><img src="images/logo.jpg" alt=" " style="width:150px;height:100px"/></a>
+                <a href="<?php echo site_url().'/index/product';?>"><img src="<?php echo base_url().'images/logo.jpg'?>" alt=" " style="width:150px;height:100px"/></a>
                 </div>
 					<div class="search">
 					  <input type="text" value="" onFocus="this.value = '';" onBlur="if (this.value == '') {this.value = '';}" >
@@ -41,13 +39,14 @@
 				</div>
 				<div class="header-bottom-right">
 					<ul class="men-grid">
-						<li><a href="<?php echo site_url().'/index/login';?>"><span> </span>YOUR ACCOUNT</a></li>
-						<li class="login"><a href="<?php echo site_url().'/index/login';?>"><span> </span>LOGIN</a>|</li>
-						<li class="cart"><a href="#"><span> </span>CART</a></li>
+					<li><a href="<?php echo site_url().'/index/account';?>"><span> </span>YOUR ACCOUNT</a></li>
+						<li>|</li>
+						<li ><a href="<?php echo site_url().'/index/cart';?>"><span> </span>CART</a></li>
+						<li>|</li>
+						<li ><a href="<?php echo site_url().'/index/login';?>"><span> </span>LOGIN/OUT</a></li>
+						<li>|</li>
+						<li ><a href="<?php echo site_url().'/index/register';?>">SIGNUP</a></li>
 					</ul>
-					<div class="sign-up-right">
-						<a href="register.html">SIGNUP</a>
-					</div>
 				</div>
 				<div class="clearfix"> </div>	
 			</div>
@@ -70,13 +69,13 @@
 								<div class="clearfix"> </div>
 							</form>
 							<address class="address">
-                    <p>9870 St Vincent Place, <br>Glasgow, DC 45 Fr 45.</p>
+                    <p>P.O. Box 112015, University of Florida, <br>Gainesville, FL 32611-2015.</p>
                     <dl>
                         <dt> </dt>
-                        <dd>Freephone:<span> +1 800 254 2478</span></dd>
-                        <dd>Telephone:<span> +1 800 547 5478</span></dd>
+                        <dd>Freephone:<span> +1 (352)2131919</span></dd>
+                        <dd>Telephone:<span> +1 (352)2131919</span></dd>
                         <dd>FAX: <span>+1 800 658 5784</span></dd>
-                        <dd>E-mail:&nbsp; <a href="mailto@vintage.com">info(at)bigshop.com</a></dd>
+                        <dd>E-mail:&nbsp; <span>my.liu@ufl.edu</span></dd>
                     </dl>
                 </address>
 						</div>
@@ -129,7 +128,7 @@
 				<li><a href="product.html">Urna ac tortor sc</a></li>
 				<li ><a href="product.html">Eget nisi laoreet</a></li>
 				<li><a href="product.html">Faciisis ornare</a></li>
-				<li class="menu-kid-left"><a href="contact.html">Contact us</a></li>
+				<li class="menu-kid-left"><a href="<?php echo site_url().'/index/contact';?>">Contact us</a></li>
 			</ul>
 		
 	</ul>
@@ -162,7 +161,7 @@
 		   		     		<h6>Lorem ipsum dolor</h6>  		     			   		     										
 	   		     		</div>
 	   		     	</div>
-	   		     	 <a class="view-all all-product" href="product.html">VIEW ALL PRODUCTS<span> </span></a> 	
+	   		     	 <a class="view-all all-product" href="<?php echo site_url().'/index/product';?>">VIEW ALL PRODUCTS<span> </span></a> 	
 			</div>
 	     </div>
 	<!---->
@@ -248,7 +247,7 @@
 						<li >nisi, dignissim</li>
 						<li >gravida at.</li>
 						<li class="phone">PH : 6985792466</li>
-						<li class="temp"> <p class="footer-class">Copyright &copy; 2015.Company name All rights reserved.<a target="_blank" href="http://sc.chinaz.com/moban/">&#x7F51;&#x9875;&#x6A21;&#x677F;</a></p></li>
+						
 					</ul>
 				</div>
 				<div class="clearfix"> </div>

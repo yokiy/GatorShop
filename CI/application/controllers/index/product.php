@@ -21,6 +21,11 @@ class Product extends CI_Controller {
 	{
 		$this->load->view('product.html');
 	}
+
+	public function changeCategory()
+	{
+		
+	}
 }
 
 /* End of file welcome.php */

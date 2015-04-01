@@ -250,53 +250,30 @@ ul.support li a {
 }
 .header-bottom-right{
 	float: right;
-	width: 37%;
+	width: 45%;
 	position: relative;
 }
 ul.men-grid{
 	padding: 0;
-	margin: 0;
+	margin-top: 30px;
+	margin-left: 80px;
 }
 ul.men-grid li{
-	display: inline-block;
-	padding: 2.4em 1em 0;
+	display: inline;
+	margin-left:10px;
 }
-ul.men-grid li  span{
-	background: url(../images/img-sprite.png)-117px -30px;
-	width: 26px;
-	height: 26px;
-	display: inline-block;
-}
-ul.men-grid li.login a span{
-	background-position: -143px -29px;
-}
-ul.men-grid li.cart a span{
-	background-position: -172px -28px;
-}
+
 ul.men-grid li a {
 	text-decoration:none;
 	font-size: 1.1em;
 	color: #000;
-	vertical-align: top;
+	
 }
 ul.men-grid li a:hover{
 	color: #0000FF;
 }
-.sign-up-right a{
-	text-decoration:none;
-	font-size: 1.1em;
-	color: #000;
-	position: absolute;
-	top: 51%;
-	right: 25%;
-}
-ul.men-grid li.login{
-	padding: 2.4em 4.5em 0 0;
-	vertical-align: top;
-}
-.sign-up-right a:hover{
-	color: #0000FF;
-}
+
+
 /*----*/
 .search {
 	background:#fff;
@@ -388,10 +365,13 @@ ul {
 }
 .menu ul li a:hover{
 	background: #0000FF;
+	color:white;
 }
 .menu > li > a:hover, .menu > li > a.active {
 	background:#fff;
 }
+
+
 .menu ul.kid-menu li a{
 	border-bottom: none;
 }
@@ -410,6 +390,7 @@ ul.kid-menu li.menu-kid-left{
 ul.cute li{
 	background: #fff;
 }
+
 .arrow-img {
 	padding: 0em 0em 0 6.5em;
 }
@@ -470,6 +451,7 @@ ul.cute li{
 	padding: 0 0 2em;
 }
 a.now-get{
+	float:right;
 	font-size: 1.1em;
 	color:#fff;
 	padding:0.6em 0.8em;
@@ -519,6 +501,7 @@ ul.wmuSliderPagination {
 .wmuSliderPagination a.wmuActive {
 	background:#989CA2;
 }
+
 .shoes-grid-left{
 	float:left;
 }
@@ -1088,8 +1071,8 @@ h3.m_3 {
 	padding: 0;
 }
 .login-left h3, .login-right h3 {
-	color: #F97E76;
-	font-size: 1.1em;
+	color: #FF6600;
+	font-size: 1.3em;
 	text-transform: uppercase;
 	font-weight: 600;
 	padding-bottom: 0.5em;
@@ -1097,13 +1080,14 @@ h3.m_3 {
 .login-left p, .login-right p {
 	color: #555;
 	display: block;
-	font-size: 1.1em;
+	font-size: 1.3em;
 	margin: 0 0 1.5em 0;
 	line-height: 1.8em;
 	width: 95%;
 }
+
 .acount-btn {
-	background:#F97E76;
+	background:#FF6600;
 	color: #FFF;
 	font-size: 0.9em;
 	padding: 0.7em 1.2em;
@@ -1114,6 +1098,7 @@ h3.m_3 {
 	display: inline-block;
 	text-transform: uppercase;
 }
+
 .acount-btn:hover, .login-right input[type="submit"]:hover{
 	background:#0000FF;
 	text-decoration:none;
@@ -1135,12 +1120,12 @@ h3.m_3 {
 .login-right input[type="text"] {
 	border: 1px solid #DDDBDB;
 	outline-color:#fb4d01;
-	width: 96%;
+	width: 70%;
 	font-size:0.9em;
 	padding:10px;
 }
 .login-right input[type="submit"] {
-	background:#F97E76;
+	background:#FF6600;
 	color: #FFF;
 	font-size: 1em;
 	padding: 0.5em 1.2em;
@@ -1153,6 +1138,9 @@ h3.m_3 {
 	border:none;
 	outline:none;
 }
+
+
+
 a.forgot {
 	font-size: 0.8125em;
 }
@@ -1448,7 +1436,9 @@ ul.face-in-to li a span.facebook-in{
     
 }	
 .header-bottom-right {
-	width: 45%;
+
+	margin: 10em 0em 0em 2em;
+	
 }
 .search {
 	margin: 1.7em 2em 0em 0;
@@ -1898,4 +1888,6 @@ img.banner-bag {
 .img-left-arrow {
 	padding: 0 0 0 6.2em;
 }
+
+
 }
