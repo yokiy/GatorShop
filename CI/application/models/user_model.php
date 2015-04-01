@@ -29,7 +29,8 @@ class User_Model extends CI_Model {
                 'zipcode' => $zipcode,
                 'cellphone' => $tel,
             );
-            $sql = "INSERT INTO Customer (username, password,  gender,fname, lname, address, cellphone, city, province, zipcode)  VALUES (?, ?,?,?,?,?,?,?,?,?)";
+            $sql = "INSERT INTO Customer (username, password,  gender)  VALUES (?, ?,?)";
+//            $sql = "INSERT INTO Customer (username, password,  gender,fname, lname, address, cellphone, city, province, zipcode)  VALUES (?, ?,?,?,?,?,?,?,?,?)";
             $this->db->query($sql, $data);
             return true;
         } else {
@@ -73,22 +74,26 @@ class User_Model extends CI_Model {
     }
 
 //update user info 
+ //arg $data should be a array with db attributes 
     public function updateUserAccount($data) {
         if ($data != null || strlen($data) != 0) {
-            $sql = "select * From Customer where username = " . $data['username'];
-            $account = $this->db->query($sql);
-            $this->db->update('Customer', $data);
+          $sql = "UPDATE Customer  SET  password = ?, gender = ?, FNAME =?, LNAME=?, ADDRESS=?,	CELLPHONE =?, CITY=?,ZIPCODE=?, PROVINCE=?  WHERE  username= ? ";
+            $account = $this->db->query($sql, array($data['password'], $data['gender'], $data['username']));
+  //          var_dump($account);
+//            $this->db->where('username', $data['username']);
+//            $this->db->update('Customer', $data);
 //            $fname = $data['fname'];
 //            $lname = $data['lname'];
 //            $gender = $data['gender'];
         }
     }
 
-    public function changePass($uname, $password) {
-        if ($password != null || strlen($password) != 0) {
-            $sql = "select * From Customer where username = " . $uname;
-            $account = $this->db->query($sql);
-            if ($account['password'] != $password) {
+    public function changePass($uname, $newpass) {
+        if ($newpass != null || strlen($newpass) != 0) {
+//            $sql = "select * From Customer where username = " . $uname;
+//            $account = $this->db->query($sql);
+            $account = $this->getUserAccount($uname, $oldpass);
+            if ($account != NULL) {
                 $sql = 'update  Customer set password= ? where username =?';
                 $this->db->query($sql, array($password, $uname));
             } else {

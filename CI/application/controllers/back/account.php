@@ -33,6 +33,7 @@ Class Account extends CI_Controller {
         }
     }
 
+       //show welcom info with matching username and password
     public function login() {
         $account = $this->user_model->getUserAccount('name@test.com', '123456');
         if ($account != NULL) {
@@ -42,5 +43,21 @@ Class Account extends CI_Controller {
             echo 'mismatch';
         }
     }
+    
+//   public function  changePassword() {
+//       $this->user_model->changePass('new@test.com', '123ooo' );
+//       
+//   }
 
+    public function updateAccount() {
+        $data = array(
+            'username'=> 'jack@test.c',
+            'password' => '1236v',
+            'gender' => 'M',
+                       
+        );
+        $this->user_model->updateUserAccount($data);
+        echo 'updated';
+    }
+    
 }
