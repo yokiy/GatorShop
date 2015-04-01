@@ -29,12 +29,11 @@ class User_Model extends CI_Model {
                 'zipcode' => $zipcode,
                 'cellphone' => $tel,
             );
-            $sql = "INSERT INTO Customer (username, password,  gender)  VALUES (?, ?,?)";
-//            $sql = "INSERT INTO Customer (username, password,  gender,fname, lname, address, cellphone, city, province, zipcode)  VALUES (?, ?,?,?,?,?,?,?,?,?)";
+//            $sql = "INSERT INTO Customer (username, password,  gender)  VALUES (?, ?,?)";
+            $sql = "INSERT INTO Customer (username, password,  gender,fname, lname, address, cellphone, city, province, zipcode)  VALUES (?, ?,?,?,?,?,?,?,?,?)";
             $this->db->query($sql, $data);
             return true;
         } else {
-            echo "repeated username";
             return false;
         }
     }
@@ -42,23 +41,17 @@ class User_Model extends CI_Model {
     //retrieve user info with valid username and password
     public function getUserAccount($uname, $pass) {
         if (strlen($uname) != 0 && strlen($pass) != 0) {
-//            $uname = '\''.$uname.'\'';
-//            $pass =  '\''.$pass.'\'';
+            $uname = '\''.$uname.'\'';
+            $pass =  '\''.$pass.'\'';
             $query = "select * from Customer where username = ? AND password = ?";
             $account = $this->db->query($query, array($uname, $pass));
-//            $account = $result->db->result_array();
             if ($account->num_rows() > 0) {
                 $info = $account->row_array();
             } else {
                 $info = NULL;
             }
         }
-//            if ($account == null) {
-//                return "not valid username or password";
-//            } else {
         return$info;
-//            }
-//        }
     }
 
     public function IsValidUserName($uname) {

@@ -13,51 +13,39 @@ Class Account extends CI_Controller {
         $this->load->model('user_model');
     }
 
-    public function register() {
-        if ($this->user_model->createNewUser('jjdhas@test.com', '123ooo')) {
-//        if ($this->user_model->isValidUserName('peter@ss.com')) {
-            echo 'valid username';
+    public function register($uname, $pass, $fname, $lname, $gender, $addr, $city, $state, $zipcode, $tel) {
+        if ($this->user_model->createNewUser($uname, $pass, $fname, $lname, $gender, $addr, $city, $state, $zipcode, $tel)) {
+            return TRUE;
         } else {
-            echo 'failed';
+            return false;
         }
     }
 
     //dispaly user account info, show account page
-    public function getuser() {
-        $account = $this->user_model->getUserAccount('name@test.com', '123456');
-        if ($account != NULL) {
-            echo $account['FNAME'];
-            var_dump($account);
-        } else {
-            echo 'mismatch';
-        }
+    public function getuser($uname, $pass) {
+        $account = $this->user_model->getUserAccount($uname, $pass);
+        return $account;
     }
 
-       //show welcom info with matching username and password
+    //show welcom info with matching username and password
     public function login() {
         $account = $this->user_model->getUserAccount('name@test.com', '123456');
         if ($account != NULL) {
-            echo $account['FNAME'];
-            echo ', Welcome!';
+            return True;
         } else {
-            echo 'mismatch';
+            return false;
         }
     }
     
-//   public function  changePassword() {
-//       $this->user_model->changePass('new@test.com', '123ooo' );
-//       
-//   }
 
     public function updateAccount() {
         $data = array(
-            'username'=> 'jack@test.c',
+            'username' => 'jack@test.c',
             'password' => '1236v',
             'gender' => 'M',
-                       
         );
         $this->user_model->updateUserAccount($data);
         echo 'updated';
     }
-    
+
 }
