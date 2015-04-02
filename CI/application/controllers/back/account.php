@@ -39,7 +39,6 @@ Class Account extends CI_Controller {
         }
     }
     
-
     public function updateAccount() {
         $data = array(
             'username' => 'jack@test.c',
