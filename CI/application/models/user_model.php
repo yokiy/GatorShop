@@ -25,7 +25,7 @@ class User_Model extends CI_Model {
                 'gender' => $gender,
                 'address' => $addr,
                 'city' => $city,
-                'state' => $state,
+                'province' => $state,
                 'zipcode' => $zipcode,
                 'cellphone' => $tel,
             );
@@ -55,7 +55,7 @@ class User_Model extends CI_Model {
     }
 
     public function IsValidUserName($uname) {
-//        $uname = '\'' . $uname . '\'';
+        $uname = '\'' . $uname . '\'';
         $query = "select * from Customer where username = " . $uname;
         $account = $this->db->query($query);
         if (($account->num_rows()) == 0) {
