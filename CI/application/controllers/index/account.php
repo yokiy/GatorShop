@@ -22,7 +22,7 @@ class Account extends CI_Controller {
 		if(!isset($_SESSION)){
 				session_start();
 		}
-		if(empty($_SESSION['username']))
+		if(empty($_SESSION['email']))
 		{
 			redirect('/index/login','refresh');
 		}

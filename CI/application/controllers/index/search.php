@@ -1,6 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class Cart extends CI_Controller {
+class Search extends CI_Controller {
 
 	/**
 	 * Index Page for this controller.
@@ -19,23 +19,24 @@ class Cart extends CI_Controller {
 	 */
 	public function index()
 	{
+	}
+
+	public function find()
+	{
 		if(!isset($_SESSION)){
 				session_start();
 		}
-		if(empty($_SESSION['email']))
+		$Search_value=$_POST['search_value'];
+		if($Search_value!=null)
 		{
-			redirect('/index/login','refresh');
+			redirect('/index/contact','refresh');
 		}
 		else
 		{
-			$this->load->view('cart.html');
+			redirect('/index/product','refresh');
 		}
 	}
 
-	public function checkout(){
-		//deal with the database;
-		$this->load->view('checkout.html');
-	}
 
 	
 }

@@ -27,7 +27,7 @@ class Logout extends CI_Controller {
 		if(!isset($_SESSION)){
 				session_start();
 		}
-		unset($_SESSION['username']);
+		unset($_SESSION['email']);
 		redirect('/index/product','refresh');
 	}
 
