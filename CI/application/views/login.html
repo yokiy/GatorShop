@@ -31,9 +31,10 @@
                 <a href="<?php echo site_url().'/index/product';?>"><img src="<?php echo base_url().'images/logo.jpg'?>" alt=" " style="width:150px;height:100px"/></a>
                 </div>
 					<div class="search">
-					  <input type="text" value="" onFocus="this.value = '';" onBlur="if (this.value == '') {this.value = '';}" >
-					  <input type="submit"  value="SEARCH">
-
+						<form action="<?php echo site_url('index/search/find'); ?>" method="POST">
+					  		<input type="text" name="search_value" value="<?php echo set_value('search_value'); ?>">
+					  		<input type="submit"  value="SEARCH">
+					  	</form>
 					</div>
 					<div class="clearfix"> </div>
 				</div>
@@ -61,9 +62,9 @@
 				<p>If you have an account with us, please log in.</p>
 				<form action="<?php echo site_url('index/login/log_in'); ?>" method="POST">
 				  <div>
-					<span>User Name<label>*</label></span>
-					<input type="text" name='username' value="<?php echo set_value('username'); ?>"> 
-					<?php echo form_error('username','<span>','</span>'); ?>
+					<span>Email<label>*</label></span>
+					<input type="text" name='email' value="<?php echo set_value('email'); ?>"> 
+					<?php echo form_error('email','<span>','</span>'); ?>
 				  </div>
 				  <div>
 					<span>Password<label>*</label></span>

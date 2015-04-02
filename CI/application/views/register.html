@@ -31,8 +31,10 @@
                 		<a href="<?php echo site_url().'/index/product';?>"><img src="<?php echo base_url().'images/logo.jpg';?>" alt=" " style="width:150px;height:100px"/></a>
                 	</div>
 					<div class="search">
-					  	<input type="text" value="" onFocus="this.value = '';" onBlur="if (this.value == '') {this.value = '';}" >
-					  	<input type="submit"  value="SEARCH">
+						<form action="<?php echo site_url('index/search/find'); ?>" method="POST">
+					  		<input type="text" name="search_value" value="<?php echo set_value('search_value'); ?>">
+					  		<input type="submit"  value="SEARCH">
+					  	</form>
 					</div>
 					<div class="clearfix"> </div>
 				</div>
@@ -60,45 +62,53 @@
 					<h3>PERSONAL INFORMATION</h3>
 					<div class="mation">
 						<span>First Name<label>*</label></span>
-						<input type="text" name='firstname' value="<?php echo set_value('firstname'); ?>">	
-						<?php echo form_error('firstname','<span>','</span>'); ?>
+							<input type="text" name='firstname' value="<?php echo set_value('firstname'); ?>">	
+							<?php echo form_error('firstname','<span>','</span>'); ?>
 						<span>Last Name<label>*</label></span>
-						<input type="text" name='lastname' value="<?php echo set_value('lastname'); ?>"> 
-						<?php echo form_error('lastname','<span>','</span>'); ?>
-						<span>Email Address<label>*</label></span>
-						<input type="text" name='email' value="<?php echo set_value('email'); ?>"> 
-						<?php echo form_error('email','<span>','</span>'); ?>
+							<input type="text" name='lastname' value="<?php echo set_value('lastname'); ?>"> 
+							<?php echo form_error('lastname','<span>','</span>'); ?>
+							<hr>
+						<span>Gender<label>*</label></span>
+							
+							<select name="gender">
+				  			<option id="">--Search By--</option>
+				  			<option value="MALE">Male</option>
+				  			<option value="FEMALE">Female</option>
+			  				</select>
+			  				<hr>	
 						<span>Cellphone Number<label>*</label></span>
-						<input type="text" name='cellphone' value="<?php echo set_value('cellphone'); ?>"> 
-						<?php echo form_error('cellphone','<span>','</span>'); ?>
-						<span>City<label>*</label></span>
-						<input type="text" name='city' value="<?php echo set_value('city'); ?>">
-						<?php echo form_error('city','<span>','</span>'); ?>
-						<span>Zipcode<label>*</label></span>
-						<input  type="text" name='zipcode' value="<?php echo set_value('zipcode'); ?>">  
-						<?php echo form_error('zipcode','<span>','</span>'); ?>
-						<span>Address<label>*</label></span>
-						<input  type="text" name='address' value="<?php echo set_value('address'); ?>"> 
-						<?php echo form_error('address','<span>','</span>'); ?>
+							<input type="text" name='cellphone' value="<?php echo set_value('cellphone'); ?>"> 
+							<?php echo form_error('cellphone','<span>','</span>'); ?>
+						<hr>
 						<span>State<label>*</label></span>
-						<select name="state" value="<?php echo set_value('state'); ?>">
-				  		<option id="">--Search By--</option>
-				  		<option value="FL">FL</option>
-				  		<option value="AZ">AZ</option>
-			  			</select>	
-			  			<?php echo form_error('state','<span>','</span>'); ?>				
+							<select name="state">
+				  			<option id="">--Search By--</option>
+				  			<option value="FL">FL</option>
+				  			<option value="AZ">AZ</option>
+			  				</select>	
+			  			<hr>	
+						<span>City<label>*</label></span>
+							<input type="text" name='city' value="<?php echo set_value('city'); ?>">
+							<?php echo form_error('city','<span>','</span>'); ?>
+						<span>Zipcode<label>*</label></span>
+							<input  type="text" name='zipcode' value="<?php echo set_value('zipcode'); ?>">  
+							<?php echo form_error('zipcode','<span>','</span>'); ?>
+						<span>Address<label>*</label></span>
+							<input  type="text" name='address' value="<?php echo set_value('address'); ?>"> 
+							<?php echo form_error('address','<span>','</span>'); ?>
+									
 					</div>
 					<h3>USER INFORMATION</h3>
 					<div class="mation">
-						<span>User Name<label>*</label></span>
-						<input type="text" name='r_username' value="<?php echo set_value('r_username'); ?>">
-						<?php echo form_error('r_username','<span>','</span>'); ?>
+						<span>Email Address (User Name)<label>*</label></span>
+							<input type="text" name='email' value="<?php echo set_value('email'); ?>"> 
+							<?php echo form_error('email','<span>','</span>'); ?>
 						<span>Password<label>*</label></span>
-						<input type="text" name='r_password1' value="<?php echo set_value('r_password1'); ?>">
-						<?php echo form_error('r_password1','<span>','</span>'); ?>
+							<input type="text" name='r_password1' value="<?php echo set_value('r_password1'); ?>">
+							<?php echo form_error('r_password1','<span>','</span>'); ?>
 						<span>Confirm Password<label>*</label></span>
-						<input type="text" name='r_password2' value="<?php echo set_value('r_password2'); ?>">
-						<?php echo form_error('r_password2','<span>','</span>'); ?>
+							<input type="text" name='r_password2' value="<?php echo set_value('r_password2'); ?>">
+							<?php echo form_error('r_password2','<span>','</span>'); ?>
 					</div>
 					<div class="clearfix"> </div> 
 					<div class="register-but">

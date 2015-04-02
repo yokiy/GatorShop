@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Contact</title>
+<title>Login</title>
 <link href="<?php echo base_url().'style/css/bootstrap.css';?>" rel="stylesheet" type="text/css" media="all" />
 <!--theme-style-->
 <link href="<?php echo base_url().'style/css/style.css';?>" rel="stylesheet" type="text/css" media="all" />	
@@ -40,7 +40,7 @@
 				</div>
 				<div class="header-bottom-right">
 					<ul class="men-grid">
-					<li><a href="<?php echo site_url().'/index/account';?>"><span> </span>YOUR ACCOUNT</a></li>
+						<li><a href="<?php echo site_url().'/index/account';?>"><span> </span>YOUR ACCOUNT</a></li>
 						<li>|</li>
 						<li ><a href="<?php echo site_url().'/index/cart';?>"><span> </span>CART</a></li>
 						<li>|</li>
@@ -56,59 +56,59 @@
 	<!---->
 	<div class="container">
 		
-			<!---->
-		 <div class="main"> 
-         <div class="reservation_top">          
-            	<div class=" contact_right">
-            		<h3>Contact Form</h3>
-            		<div class="contact-form">
-							<form method="post" action="contact-post.html">
-								<input type="text" class="textbox" value="Name" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Name';}">
-								<input type="text" class="textbox" value="Email" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Email';}">
-								<textarea value="Message" onfocus="this.value= '';" onblur="if (this.value == '') {this.value = 'Message';}">Message</textarea>
-								<input type="submit" value="Send">
-								<div class="clearfix"> </div>
-							</form>
-							<address class="address">
-                    <p>P.O. Box 112015, University of Florida, <br>Gainesville, FL 32611-2015.</p>
-                    <dl>
-                        <dt> </dt>
-                        <dd>Freephone:<span> +1 (352)2131919</span></dd>
-                        <dd>Telephone:<span> +1 (352)2131919</span></dd>
-                        <dd>FAX: <span>+1 800 658 5784</span></dd>
-                        <dd>E-mail:&nbsp; <span>my.liu@ufl.edu</span></dd>
-                    </dl>
-                </address>
-						</div>
-            	</div>
-            </div>
-           </div>
-		   <div class="sub-cate">
+      	   <div class="account_grid">
+			   <div class=" login-right">
+			  	<h3>REGISTERED CUSTOMERS</h3>
+				<p>If you have an account with us, please log in.</p>
+				<form action="<?php echo site_url('index/login/log_in'); ?>" method="POST">
+				  <div>
+					<span>Email (USER NAME)<label>*</label></span>
+					<input type="text" name='email' value="<?php echo set_value('email'); ?>"> 
+					<?php echo form_error('email','<span>','</span>'); ?>
+				  </div>
+				  <div>
+					<span>Password<label>*</label></span>
+					<input type="text" name='password'> 
+					<?php echo form_error('password','<span>','</span>'); ?>
+					<hr>
+					<span>Email and password do not match.  please enter again!!</span>
+				  </div>
+				  <input type="submit" value="Login">
+			    </form>
+			   </div>	
+			    <div class=" login-left">
+			  	 <h3>NEW CUSTOMERS ??</h3>
+				 <p>By creating an account with our store, you will be able to move through the checkout process faster, store multiple shipping addresses, view and track your orders in your account and more.</p>
+				 <a class="acount-btn" href="<?php echo site_url().'/index/register';?>">Create an Account</a>
+			   </div>
+			   <div class="clearfix"> </div>
+			 </div>
+			 <div class="sub-cate">
 				<div class=" top-nav rsidebar span_1_of_left">
 					<h3 class="cate">CATEGORIES</h3>
 		 <ul class="menu">
-		<li class="item1"><a href="#">Curabitur sapien<img class="arrow-img" src="images/arrow1.png" alt=""/> </a>
+		<li class="item1"><a href="#">Curabitur sapien<img class="arrow-img" src="<?php echo base_url().'images/arrow1.png'?>" alt=""/> </a>
 			<ul class="cute">
 				<li class="subitem1"><a href="product.html">Cute Kittens </a></li>
 				<li class="subitem2"><a href="product.html">Strange Stuff </a></li>
 				<li class="subitem3"><a href="product.html">Automatic Fails </a></li>
 			</ul>
 		</li>
-		<li class="item2"><a href="#">Dignissim purus <img class="arrow-img " src="images/arrow1.png" alt=""/></a>
+		<li class="item2"><a href="#">Dignissim purus <img class="arrow-img " src="<?php echo base_url().'images/arrow1.png'?>" alt=""/></a>
 			<ul class="cute">
 				<li class="subitem1"><a href="product.html">Cute Kittens </a></li>
 				<li class="subitem2"><a href="product.html">Strange Stuff </a></li>
 				<li class="subitem3"><a href="product.html">Automatic Fails </a></li>
 			</ul>
 		</li>
-		<li class="item3"><a href="#">Ultrices id du<img class="arrow-img img-arrow" src="images/arrow1.png" alt=""/> </a>
+		<li class="item3"><a href="#">Ultrices id du<img class="arrow-img img-arrow" src="<?php echo base_url().'images/arrow1.png'?>" alt=""/> </a>
 			<ul class="cute">
 				<li class="subitem1"><a href="product.html">Cute Kittens </a></li>
 				<li class="subitem2"><a href="product.html">Strange Stuff </a></li>
 				<li class="subitem3"><a href="product.html">Automatic Fails</a></li>
 			</ul>
 		</li>
-		<li class="item4"><a href="#">Cras iacaus rhone <img class="arrow-img img-left-arrow" src="images/arrow1.png" alt=""/></a>
+		<li class="item4"><a href="#">Cras iacaus rhone <img class="arrow-img img-left-arrow" src="<?php echo base_url().'images/arrow1.png'?>" alt=""/></a>
 			<ul class="cute">
 				<li class="subitem1"><a href="product.html">Cute Kittens </a></li>
 				<li class="subitem2"><a href="product.html">Strange Stuff </a></li>
@@ -155,7 +155,7 @@
 			});
 		</script>
 					<div class=" chain-grid menu-chain">
-	   		     		<a href="single.html"><img class="img-responsive chain" src="images/wat.jpg" alt=" " /></a>	   		     		
+	   		     		<a href="single.html"><img class="img-responsive chain" src="<?php echo base_url().'images/wat.jpg'?>" alt=" " /></a>	   		     		
 	   		     		<div class="grid-chain-bottom chain-watch">
 		   		     		<span class="actual dolor-left-grid">300$</span>
 		   		     		<span class="reducedfrom">500$</span>  
@@ -164,7 +164,8 @@
 	   		     	</div>
 	   		     	 <a class="view-all all-product" href="<?php echo site_url().'/index/product';?>">VIEW ALL PRODUCTS<span> </span></a> 	
 			</div>
-	     </div>
+			  <div class="clearfix"> </div>
+      	 </div>
 	<!---->
 	<div class="footer">
 		<div class="footer-top">

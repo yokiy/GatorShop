@@ -22,7 +22,7 @@ class Login extends CI_Controller {
 		if(!isset($_SESSION)){
 				session_start();
 		}
-		if(empty($_SESSION['username']))
+		if(empty($_SESSION['email']))
 		{
 		$this->load->view('login.html');
 		}
@@ -33,9 +33,9 @@ class Login extends CI_Controller {
 	}
 
 
-	public function log_in(){//form validation , username and password can not be empty.
+	public function log_in(){//form validation , email and password can not be empty.
 		$this->load->library('form_validation');
-		$this->form_validation->set_rules('username','UserName','required');
+		$this->form_validation->set_rules('email','Email','required|valid_email');
 		$this->form_validation->set_rules('password','Password','required');
 		$valid =$this->form_validation->run(); //run the validtion
 		if(!$valid)// form is illegal
@@ -44,18 +44,21 @@ class Login extends CI_Controller {
 		}
 		else
 		{
-			$Username=$_POST['username'];
+			$Email=$_POST['email'];
 			$Password=$_POST['password'];
-			
-
 			//deal with database
-
+			$valid=true;
+			if(!$valid)
+			{
+				$this->load->view('login2.html');
+			}
+			else{
 			if(!isset($_SESSION)){
 				session_start();
 			}
-			$_SESSION['username']=$Username;
+			$_SESSION['email']=$Email;
 			redirect('/index/product','refresh');
-
+			}
 		}
 		
 	}

@@ -50,9 +50,10 @@
                 <a href="<?php echo site_url().'/index/product';?>"><img src="<?php echo base_url().'images/logo.jpg';?>" alt=" " style="width:150px;height:100px"/></a>
                 </div>
 					<div class="search">
-					  <input type="text" value="" onFocus="this.value = '';" onBlur="if (this.value == '') {this.value = '';}" >
-					  <input type="submit"  value="SEARCH">
-
+						<form action="<?php echo site_url('index/search/find'); ?>" method="POST">
+					  		<input type="text" name="search_value" value="<?php echo set_value('search_value'); ?>">
+					  		<input type="submit"  value="SEARCH">
+					  	</form>
 					</div>
 					<div class="clearfix"> </div>
 				</div>
