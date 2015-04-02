@@ -25,7 +25,7 @@ class User_Model extends CI_Model {
                 'gender' => $gender,
                 'address' => $addr,
                 'city' => $city,
-                'state' => $state,
+                'province' => $state,
                 'zipcode' => $zipcode,
                 'cellphone' => $tel,
             );
@@ -41,8 +41,8 @@ class User_Model extends CI_Model {
     //retrieve user info with valid username and password
     public function getUserAccount($uname, $pass) {
         if (strlen($uname) != 0 && strlen($pass) != 0) {
-            $uname = '\''.$uname.'\'';
-            $pass =  '\''.$pass.'\'';
+//            $uname = "\'".$uname."\'";
+//            $pass =  '\''.$pass.'\'';
             $query = "select * from Customer where username = ? AND password = ?";
             $account = $this->db->query($query, array($uname, $pass));
             if ($account->num_rows() > 0) {

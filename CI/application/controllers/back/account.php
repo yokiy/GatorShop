@@ -5,6 +5,8 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+//namespace GatorShop;
+
 
 Class Account extends CI_Controller {
 
@@ -28,8 +30,8 @@ Class Account extends CI_Controller {
     }
 
     //show welcom info with matching username and password
-    public function login() {
-        $account = $this->user_model->getUserAccount('name@test.com', '123456');
+    public function login($uname, $pass) {
+        $account = $this->user_model->getUserAccount($uname, $pass);
         if ($account != NULL) {
             return True;
         } else {
@@ -37,7 +39,6 @@ Class Account extends CI_Controller {
         }
     }
     
-
     public function updateAccount() {
         $data = array(
             'username' => 'jack@test.c',
