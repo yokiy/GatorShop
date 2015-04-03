@@ -19,7 +19,7 @@ class product_model extends CI_Model {
         $result = $this->db->query($sql);
         if ($result->num_rows() > 0) {
             $product = $result->row_array();
-        } else {
+        } else { 
             $product = NULL;
         }
         return $product;
@@ -39,7 +39,7 @@ class product_model extends CI_Model {
     
     //display all product in certain category
     public function getProductByCategory($cate) {
-        $sql = 'select * from YAN.PRODUCT where category= '. $cate;
+        $sql = 'select * from PRODUCT where category= '. $cate;
         $result = $this->db->query($sql);
         if($result->num_rows() > 0) {
             $products = $result->row_array();
