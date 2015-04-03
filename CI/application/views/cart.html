@@ -62,28 +62,48 @@
 			   <h3> User Name</h3>
 			   <p> mingyang</p>
 			   <hr>
-			  	<h3>YOUR SHOPPING CART</h3>
+			  	<h3 >YOUR SHOPPING CART</h3>
 			   	</div>	
 			   	<div>
-			   	<table style="width:100%;font-size:20px;text-align: left;">
-  				<tr style="color: #FF6600;">
-   	 				<th style='padding:15px;'>Item Name</th>
-   	 				<th>Delete<th>
-    				<th>Price</th> 
-   					<th>Quantity</th>
-  				</tr>
+			   	<table border="0" cellpadding="5" align="center" width="800" height="300">
   				<tr>
-    				<td>Fifty Shades of Grey</td>
-    				<td>delete<td>
-    				<td>$19.96</td> 
-    				<td>8</td>
-  				</tr>
-  				<hr>
+                <td align="center"> <h4>Image</h4></td>
+            	<td align="center"> <h4>Description</h4></td>
+            	<td align="center"> <h4>Price</h4></td>
+            	<td align="center"> <h4>Quantity</h4></td>
+            	<td align="center"> <h4>Manipulation</h4></td>
+                </tr>
+  				<tr>
+                <td width="200" height="200" align="center"> <img src="<?php echo base_url().'images/bag1.jpg'?>" width="100" height="120" /></td>
+                <td > <h4> <div style="padding-left:10px;padding-right:4px;text-align:left;">Leaper Causal Style Lightweight Canvas Cute Backpacks School Backpack</div></h4> </td>
+                <td align="center"><h4 >$31.99</h4></td>
+                <td align="center"><h4>3</h4></td>
+                <td align="center" > <a class="acount-btn" href="#">DELETE</a></td>
+                </tr>
+                <tr>
+                <td width="200" height="200" align="center"> <img src="<?php echo base_url().'images/bag2.jpg'?>" width="100" height="120" /></td>
+                <td align="center"> <h4><div style="padding-left:10px;padding-right:4px;text-align:left;">Skip Hop Zoo Lunchie Insulated Lunch Bag</div></h4> </td>
+                <td align="center"><h4>$33.99</h4></td>
+                <td align="center"><h4>3</h4></td>
+                <td align="center"> <a class="acount-btn" href="#">DELETE</a></td>
+                </tr>
+                <tr >
+               <td width="200" height="200" align="center"> <img src="<?php echo base_url().'images/bag3.jpg'?>" width="100" height="120" /></td>
+               <td align="center"> <h4><div style="padding-left:10px;padding-right:4px;text-align:left;">MG Collection Samantha Weave Pattern Belt Accent So Hobo</div></h4> </td>
+               <td align="center"><h4>$26.99</h4></td>
+                <td align="center"><h4>3</h4></td>
+               <td align="center"> <a class="acount-btn" href="#">DELETE</a></td>
+                </tr>
 				</table>
 				<hr>
+				<div class="clearfix"> </div>	
 				<!--<div class="account_grid">-->
 			   	<div class=" login-left">
+			   		<h3>Subtotal:$100</h3>
+			   		<?php echo $links ?>
+			   		<hr>
 				 	<a class="acount-btn" href="<?php echo site_url().'/index/cart/checkout';?>">Check out</a>
+				 	
 			   	</div>
 			 	<!--</div>-->
 			</div>
@@ -92,55 +112,19 @@
 			</div>
 			<div class="sub-cate">
 				<div class=" top-nav rsidebar span_1_of_left">
-					<h3 class="cate">CATEGORIES</h3>
-		 <ul class="menu">
-		<li class="item1"><a href="#">Curabitur sapien<img class="arrow-img" src="<?php echo base_url().'images/arrow1.png'?>" alt=""/> </a>
-			<ul class="cute">
-				<li class="subitem1"><a href="product.html">Cute Kittens </a></li>
-				<li class="subitem2"><a href="product.html">Strange Stuff </a></li>
-				<li class="subitem3"><a href="product.html">Automatic Fails </a></li>
-			</ul>
-		</li>
-		<li class="item2"><a href="#">Dignissim purus <img class="arrow-img " src="<?php echo base_url().'images/arrow1.png'?>" alt=""/></a>
-			<ul class="cute">
-				<li class="subitem1"><a href="product.html">Cute Kittens </a></li>
-				<li class="subitem2"><a href="product.html">Strange Stuff </a></li>
-				<li class="subitem3"><a href="product.html">Automatic Fails </a></li>
-			</ul>
-		</li>
-		<li class="item3"><a href="#">Ultrices id du<img class="arrow-img img-arrow" src="<?php echo base_url().'images/arrow1.png'?>" alt=""/> </a>
-			<ul class="cute">
-				<li class="subitem1"><a href="product.html">Cute Kittens </a></li>
-				<li class="subitem2"><a href="product.html">Strange Stuff </a></li>
-				<li class="subitem3"><a href="product.html">Automatic Fails</a></li>
-			</ul>
-		</li>
-		<li class="item4"><a href="#">Cras iacaus rhone <img class="arrow-img img-left-arrow" src="<?php echo base_url().'images/arrow1.png'?>" alt=""/></a>
-			<ul class="cute">
-				<li class="subitem1"><a href="product.html">Cute Kittens </a></li>
-				<li class="subitem2"><a href="product.html">Strange Stuff </a></li>
-				<li class="subitem3"><a href="product.html">Automatic Fails </a></li>
-			</ul>
-		</li>
-				<li>
-			<ul class="kid-menu">
-				<li><a href="product.html">Tempus pretium</a></li>
-				<li ><a href="product.html">Dignissim neque</a></li>
-				<li ><a href="product.html">Ornared id aliquet</a></li>
-			</ul>
-		</li>
-		<ul class="kid-menu ">
-				<li><a href="product.html">Commodo sit</a></li>
-				<li ><a href="product.html">Urna ac tortor sc</a></li>
-				<li><a href="product.html">Ornared id aliquet</a></li>
-				<li><a href="product.html">Urna ac tortor sc</a></li>
-				<li ><a href="product.html">Eget nisi laoreet</a></li>
-				<li><a href="product.html">Faciisis ornare</a></li>
-				<li class="menu-kid-left"><a href="<?php echo site_url().'/index/contact';?>">Contact us</a></li>
-			</ul>
-		
-	</ul>
-					</div>
+				<h3 class="cate">CATEGORIES</h3>
+				<ul class="menu">
+					<ul class="kid-menu ">
+						<li><a href="product.html">Commodo sit</a></li>
+						<li ><a href="product.html">Urna ac tortor sc</a></li>
+						<li><a href="product.html">Ornared id aliquet</a></li>
+						<li><a href="product.html">Urna ac tortor sc</a></li>
+						<li ><a href="product.html">Eget nisi laoreet</a></li>
+						<li><a href="product.html">Faciisis ornare</a></li>
+						<li class="menu-kid-left"><a href="<?php echo site_url().'/index/contact';?>">Contact us</a></li>
+					</ul>
+				</ul>
+			</div>
 				<!--initiate accordion-->
 		<script type="text/javascript">
 			$(function() {

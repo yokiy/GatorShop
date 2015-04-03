@@ -28,9 +28,25 @@ class Cart extends CI_Controller {
 		}
 		else
 		{
-			$this->load->view('cart.html');
+			$this->load->library('pagination');
+			$perPage = 1;
+			$config['base_url'] = site_url('index/cart/index');
+			$config['total_rows'] = 10;
+			$config['per_page'] = $perPage;
+			$config['uri_segment'] = 4;
+			$config['first_link'] = 'FirstPage';
+			$config['prev_link'] = 'Pre';
+			$config['next_link'] = 'Next';
+			$config['last_link'] = 'LastPage';
+
+			$this->pagination->initialize($config);
+			$data['links'] = $this->pagination->create_links();
+			$offset = $this->uri->segment(4);
+			$this->db->limit($perPage, $offset);
+			$this->load->view('cart.html',$data);
 		}
 	}
+
 
 	public function checkout(){
 		//deal with the database;
