@@ -61,7 +61,7 @@ class User_Model extends CI_Model {
         if (($account->num_rows()) == 0) {
             return true;
         } else {
-            var_dump($account);
+//            var_dump($account);
             return false;
         }
     }

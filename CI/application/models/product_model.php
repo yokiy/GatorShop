@@ -114,4 +114,9 @@ class product_model extends CI_Model {
         $this->db->query($sql,array($id));
     }
     
+    public function checkProductStock($id) {
+        $sql = 'select amount from PRODUCT where pid =?';
+        $stock = $this->db->query($sql, array($id));
+        return $stock;
+    }
 }
