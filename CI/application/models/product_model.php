@@ -39,14 +39,17 @@ class product_model extends CI_Model {
     
     //display all product in certain category
     public function getProductByCategory($cate) {
+        $cate = '\''.$cate.'\'';
         $sql = 'select * from PRODUCT where category= '. $cate;
         $result = $this->db->query($sql);
         if($result->num_rows() > 0) {
-            $products = $result->row_array();
+            $product = $result->result_array();
+            var_dump($product);
         } else {
-            $products = NULL;
+            $product = NULL;
+          
         }
-        return $products;
+          return $product;
     }
      
     // sorting products by price in ascending order within certain category
