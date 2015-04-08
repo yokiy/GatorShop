@@ -19,7 +19,17 @@ class Single extends CI_Controller {
 	 */
 	public function index()
 	{
-		$this->load->view('single.html');
+		$username=$_SESSION['email'];
+		//deal with database
+		$data=array();
+		$this->load->view('single.html',$data);
+	}
+
+	public function findSingle($pid)
+	{
+		//look up single product 
+		$data=array();
+		$this->load->view('single.html',$data);
 	}
 }
 
