@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Login</title>
+<title>Register</title>
 <link href="<?php echo base_url().'style/css/bootstrap.css';?>" rel="stylesheet" type="text/css" media="all" />
 <!--theme-style-->
 <link href="<?php echo base_url().'style/css/style.css';?>" rel="stylesheet" type="text/css" media="all" />	
@@ -18,18 +18,18 @@
 <body> 
 	<!--header-->
 	<div class="header">
-    <div class="top-header">
-    <div class="container">
-      <h2 ><a href="<?php echo site_url().'/index/product';?>" style="color:white">GatorShop</a></h2>
-    </div>
+    	<div class="top-header">
+    		<div class="container">
+      			<h2 ><a href="<?php echo site_url().'/index/product';?>" style="color:white">GatorShop</a></h2>
+    		</div>
     
-    </div>
+    	</div>
 		<div class="bottom-header">
 			<div class="container">
 				<div class="header-bottom-left">
-                <div class="logo">
-                <a href="<?php echo site_url().'/index/product';?>"><img src="<?php echo base_url().'images/logo.jpg'?>" alt=" " style="width:150px;height:100px"/></a>
-                </div>
+                	<div class="logo">
+                		<a href="<?php echo site_url().'/index/product';?>"><img src="<?php echo base_url().'images/logo.jpg';?>" alt=" " style="width:150px;height:100px"/></a>
+                	</div>
 					<div class="search">
 						<form action="<?php echo site_url('index/search/find'); ?>" method="POST">
 					  		<input type="text" name="search_value" value="<?php echo set_value('search_value'); ?>">
@@ -40,13 +40,13 @@
 				</div>
 				<div class="header-bottom-right">
 					<ul class="men-grid">
-						<li><a href="<?php echo site_url().'/index/account';?>"><span> </span>YOUR ACCOUNT</a></li>
-						<li>|</li>
-						<li ><a href="<?php echo site_url().'/index/cart';?>"><span> </span>CART</a></li>
-						<li>|</li>
-						<li ><a href="<?php echo site_url().'/index/login';?>"><span> </span>LOGIN/OUT</a></li>
-						<li>|</li>
-						<li ><a href="<?php echo site_url().'/index/register';?>">SIGNUP</a></li>
+					<li><a href="<?php echo site_url().'/index/account';?>"><span> </span>YOUR ACCOUNT</a></li>
+					<li>|</li>
+					<li ><a href="<?php echo site_url().'/index/cart';?>"><span> </span>CART</a></li>
+					<li>|</li>
+					<li ><a href="<?php echo site_url().'/index/login';?>"><span> </span>LOGIN/OUT</a></li>
+					<li>|</li>
+					<li ><a href="<?php echo site_url().'/index/register';?>">SIGNUP</a></li>
 					</ul>
 				</div>
 				<div class="clearfix"> </div>	
@@ -54,48 +54,105 @@
 		</div>
 	</div>
 	<!---->
-	<div class="container">
-      	    <div class="account_grid">
-			   <div class=" login-right">
-			  	<h3>CHECKED OUT SECCUSSFULLY!!</h3>
-				<p>You have successfully checked out. Thanks for your purchase.</p>
-				<p><a class="active" href="<?php echo site_url().'/index/product';?>">View other products.</a></p>
-			   </div>	
-			   <div class="clearfix"> </div>
-			</div>	
-			 <div class="sub-cate">
-				<div class=" top-nav rsidebar span_1_of_left">
-					<h3 class="cate">CATEGORIES</h3>
-		 <ul class="menu">
-		<li class="item1"><a href="#">Curabitur sapien<img class="arrow-img" src="<?php echo base_url().'images/arrow1.png'?>" alt=""/> </a>
+	<div class="container"> 
+			         
+		<div class="account_grid">
+		  	<form action="<?php echo site_url('index/account/update'); ?>" method="POST"> 
+				<div class=" login-right">
+					<h3>PERSONAL INFORMATION</h3>
+					<div class="mation">
+						<span>First Name<label>*</label></span>
+							<input type="text" name='firstname' value="<?php echo set_value('firstname'); ?>">	
+							<?php echo form_error('firstname','<span>','</span>'); ?>
+						<span>Last Name<label>*</label></span>
+							<input type="text" name='lastname' value="<?php echo set_value('lastname'); ?>"> 
+							<?php echo form_error('lastname','<span>','</span>'); ?>
+							<hr>
+						<span>Gender<label>*</label></span>
+							
+							<select name="gender">
+				  			<option id="">--Search By--</option>
+				  			<option value="MALE">Male</option>
+				  			<option value="FEMALE">Female</option>
+			  				</select>
+			  				<hr>	
+						<span>Cellphone Number<label>*</label></span>
+							<input type="text" name='cellphone' value="<?php echo set_value('cellphone'); ?>"> 
+							<?php echo form_error('cellphone','<span>','</span>'); ?>
+						<hr>
+						<span>State<label>*</label></span>
+							<select name="state">
+				  			<option id="">--Search By--</option>
+				  			<option value="FL">FL</option>
+				  			<option value="AZ">AZ</option>
+			  				</select>	
+			  			<hr>	
+						<span>City<label>*</label></span>
+							<input type="text" name='city' value="gainseville">
+							<?php echo form_error('city','<span>','</span>'); ?>
+						<span>Zipcode<label>*</label></span>
+							<input  type="text" name='zipcode' value="<?php echo set_value('zipcode'); ?>">  
+							<?php echo form_error('zipcode','<span>','</span>'); ?>
+						<span>Address<label>*</label></span>
+							<input  type="text" name='address' value="<?php echo set_value('address'); ?>"> 
+							<?php echo form_error('address','<span>','</span>'); ?>
+					    <span>Email Address (User Name)<label>*</label></span>
+						    <input type="text" name='email' value="<?php echo set_value('email'); ?>"> 
+							<?php echo form_error('email','<span>','</span>'); ?> 
+									
+					</div>
+					<h3>FORGET PASSWORD</h3>
+					<div class="mation">
+						<span>New Password<label>*</label></span>
+							<input type="text" name='r_password1' value="<?php echo set_value('r_password1'); ?>">
+							<?php echo form_error('r_password1','<span>','</span>'); ?>
+						<span>Confirm Password<label>*</label></span>
+							<input type="text" name='r_password2' value="<?php echo set_value('r_password2'); ?>">
+							<?php echo form_error('r_password2','<span>','</span>'); ?>
+					</div>
+					<div class="clearfix"> </div> 
+					<div class="register-but">
+					   	<input type="submit" value="Save">
+					</div>
+					   
+				</div>
+			</form>
+			<div class="clearfix"> </div>
+		</div>
+
+		<div class="sub-cate">
+			<div class=" top-nav rsidebar span_1_of_left">
+				<h3 class="cate">CATEGORIES</h3>
+		 		<ul class="menu">
+					<li class="item1"><a href="#">Curabitur sapien<img class="arrow-img" src="<?php echo base_url().'images/arrow1.png';?>" alt=""/> </a>
+						<ul class="cute">
+						<li class="subitem1"><a href="product.html">Cute Kittens </a></li>
+						<li class="subitem2"><a href="product.html">Strange Stuff </a></li>
+						<li class="subitem3"><a href="product.html">Automatic Fails </a></li>
+						</ul>
+					</li>
+		<li class="item2"><a href="#">Dignissim purus <img class="arrow-img " src="<?php echo base_url().'images/arrow1.png';?>" alt=""/></a>
 			<ul class="cute">
 				<li class="subitem1"><a href="product.html">Cute Kittens </a></li>
 				<li class="subitem2"><a href="product.html">Strange Stuff </a></li>
 				<li class="subitem3"><a href="product.html">Automatic Fails </a></li>
 			</ul>
 		</li>
-		<li class="item2"><a href="#">Dignissim purus <img class="arrow-img " src="<?php echo base_url().'images/arrow1.png'?>" alt=""/></a>
-			<ul class="cute">
-				<li class="subitem1"><a href="product.html">Cute Kittens </a></li>
-				<li class="subitem2"><a href="product.html">Strange Stuff </a></li>
-				<li class="subitem3"><a href="product.html">Automatic Fails </a></li>
-			</ul>
-		</li>
-		<li class="item3"><a href="#">Ultrices id du<img class="arrow-img img-arrow" src="<?php echo base_url().'images/arrow1.png'?>" alt=""/> </a>
+		<li class="item3"><a href="#">Ultrices id du<img class="arrow-img img-arrow" src="<?php echo base_url().'images/arrow1.png';?>" alt=""/> </a>
 			<ul class="cute">
 				<li class="subitem1"><a href="product.html">Cute Kittens </a></li>
 				<li class="subitem2"><a href="product.html">Strange Stuff </a></li>
 				<li class="subitem3"><a href="product.html">Automatic Fails</a></li>
 			</ul>
 		</li>
-		<li class="item4"><a href="#">Cras iacaus rhone <img class="arrow-img img-left-arrow" src="<?php echo base_url().'images/arrow1.png'?>" alt=""/></a>
+		<li class="item4"><a href="#">Cras iacaus rhone <img class="arrow-img img-left-arrow" src="<?php echo base_url().'images/arrow1.png';?>" alt=""/></a>
 			<ul class="cute">
 				<li class="subitem1"><a href="product.html">Cute Kittens </a></li>
 				<li class="subitem2"><a href="product.html">Strange Stuff </a></li>
 				<li class="subitem3"><a href="product.html">Automatic Fails </a></li>
 			</ul>
 		</li>
-				<li>
+		<li>
 			<ul class="kid-menu">
 				<li><a href="product.html">Tempus pretium</a></li>
 				<li ><a href="product.html">Dignissim neque</a></li>
@@ -110,7 +167,7 @@
 				<li ><a href="product.html">Eget nisi laoreet</a></li>
 				<li><a href="product.html">Faciisis ornare</a></li>
 				<li class="menu-kid-left"><a href="<?php echo site_url().'/index/contact';?>">Contact us</a></li>
-			</ul>
+		</ul>
 		
 	</ul>
 					</div>
@@ -135,7 +192,7 @@
 			});
 		</script>
 					<div class=" chain-grid menu-chain">
-	   		     		<a href="single.html"><img class="img-responsive chain" src="<?php echo base_url().'images/wat.jpg'?>" alt=" " /></a>	   		     		
+	   		     		<a href="single.html"><img class="img-responsive chain" src="<?php echo base_url().'images/wat.jpg';?>" alt=" " /></a>	   		     		
 	   		     		<div class="grid-chain-bottom chain-watch">
 		   		     		<span class="actual dolor-left-grid">300$</span>
 		   		     		<span class="reducedfrom">500$</span>  
@@ -143,9 +200,8 @@
 	   		     		</div>
 	   		     	</div>
 	   		     	 <a class="view-all all-product" href="<?php echo site_url().'/index/product';?>">VIEW ALL PRODUCTS<span> </span></a> 	
-			</div>
-			  <div class="clearfix"> </div>
-      	 </div>
+			</div>      
+	</div>
 	<!---->
 	<div class="footer">
 		<div class="footer-top">
@@ -213,7 +269,7 @@
 						<li ><a href="#">Ornared id aliquet</a></li>
 						<li><a href="#">Ultrices id du</a></li>
 						<li><a href="#">Commodo sit</a></li>
-						<li><a href="#">Urna ac tortor sc</a></li>
+						<li ><a href="#">Urna ac tortor sc</a></li>
 						<li><a href="#">Ornared id aliquet</a></li>
 						<li><a href="#">Urna ac tortor sc</a></li>
 						<li ><a href="#">Eget nisi laoreet</a></li>
@@ -229,7 +285,7 @@
 						<li >nisi, dignissim</li>
 						<li >gravida at.</li>
 						<li class="phone">PH : 6985792466</li>
-						
+					
 					</ul>
 				</div>
 				<div class="clearfix"> </div>

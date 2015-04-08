@@ -19,12 +19,39 @@ class Product extends CI_Controller {
 	 */
 	public function index()
 	{
+		if(!isset($_SESSION)){
+				session_start();
+		}
+		if(empty($_SESSION['category']))
+		{
+			$_SESSION['category']='';
+		}
+		if(empty($_SESSION['order']))
+		{
+			$_SESSION['order']='';
+		}
+		//deal with database
+		$data=array();
 		$this->load->view('product.html');
 	}
 
-	public function changeCategory()
-	{
+	public function changeCategory($catogery)
+	{	
+		if(!isset($_SESSION)){
+				session_start();
+		}
+		$_SESSION['category']=$catogery;
+		redirect('/index/product/index','refresh');
 		
+	}
+
+	public function changeOrder($order)
+	{
+		if(!isset($_SESSION)){
+			session_start();
+		}
+		$_SESSION['order']=$order;
+		redirect('/index/product/index','refresh');
 	}
 }
 

@@ -42,11 +42,10 @@ class Cart extends CI_Controller {
 			$this->pagination->initialize($config);
 			$data['links'] = $this->pagination->create_links();
 			$offset = $this->uri->segment(4);
-			$this->db->limit($perPage, $offset);
+			//$this->db->limit($perPage, $offset);
 			$this->load->view('cart.html',$data);
 		}
 	}
-
 
 	public function checkout(){
 		//deal with the database;
