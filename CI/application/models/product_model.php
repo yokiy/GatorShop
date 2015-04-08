@@ -30,7 +30,7 @@ class product_model extends CI_Model {
         $sql = 'select * from PRODUCT where lower(title) like lower(?)';
         $result = $this->db->query($sql, array($name));
         if ($result->num_rows() > 0) {
-            $product = $result->row_array();
+            $product = $result->result_array();
         } else {
             $product = NULL;
         }
@@ -56,7 +56,7 @@ class product_model extends CI_Model {
         $sql = 'select * from PRODUCT where category= ? order by price asc';
         $result = $this->db->query($sql, array($cate));
         if ($result->num_rows() > 0) {
-            $products = $result->row_array();
+            $products = $result->result_array();
         } else {
             $products = NULL;
         }
@@ -68,7 +68,7 @@ class product_model extends CI_Model {
         $sql = 'select * from PRODUCT where category= ? order by price desc';
         $result = $this->db->query($sql, array($cate));
         if ($result->num_rows() > 0) {
-            $products = $result->row_array();
+            $products = $result->result_array();
         } else {
             $products = NULL;
         }
@@ -90,7 +90,7 @@ class product_model extends CI_Model {
         $sql = 'select * from PRODUCT where price  between ? and ?;';
         $result = $this->db->query($sql, array($min, $max));
         if ($result->num_rows() > 0) {
-            $products = $result->row_array();
+            $products = $result->result_array();
         } else {
             $products = NULL;
         }
@@ -101,6 +101,12 @@ class product_model extends CI_Model {
     public function decreaseProductAmount($id) {
         $sql = 'update Product set amount = amount-1  where pid=?;';
         $this->db->query($sql, array($id));
+    }
+
+    //add product amount when cart changes with amount
+    public function AddProductAmount($pid, $amount) {
+        $sql = 'update Product set amount = amount + ?  where pid=?;';
+        $this->db->query($sql, array($amount, $pid));
     }
 
     //add rate to product rate for each customer's rate
@@ -121,15 +127,16 @@ class product_model extends CI_Model {
     //check product stock
     public function checkProductStock($id) {
         $sql = 'select amount from PRODUCT where pid =?';
-        $stock = $this->db->query($sql, array($id));
+        $stock = intval($this->db->query($sql, array($id)));
         return $stock;
     }
 
     //sort product in a category by order of sales amount in recent three month
     public function sortProductBySalesCategory($cate) {
         $sql = 'select product.pid, count(*) as count from product,  orders  where orders.pid = product.pid and product.category = ? group by product.PID order by count DESC';
-        $pids = $this->db->query($sql, array($cate));
-        return $pids;
+        $result = $this->db->query($sql, array($cate));
+        $products = $result->result_array();
+        return $products;
     }
 
     //sort product by rate

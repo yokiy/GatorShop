@@ -54,5 +54,11 @@ class Orders extends CI_Controller {
         }
         return $total;
     }
+    
+    public function checkout() {
+        $user = 'simon@test.c';
+        $od =  $this->orders_model->checkout($user);
+        echo $od;
+    }
 
 }

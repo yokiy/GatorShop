@@ -39,18 +39,17 @@ class User_Model extends CI_Model {
     }
 
     //retrieve user info with valid username and password
-    public function getUserAccount($uname, $pass) {
-        if (strlen($uname) != 0 && strlen($pass) != 0) {
+    public function getUserAccount($uname) {
+//        if (strlen($uname) != 0 && strlen($pass) != 0) {
 //            $uname = "\'".$uname."\'";
 //            $pass =  '\''.$pass.'\'';
-            $query = "select * from Customer where username = ? AND password = ?";
-            $account = $this->db->query($query, array($uname, $pass));
+            $query = "select * from Customer where username = ? ";
+            $account = $this->db->query($query, array($uname));
             if ($account->num_rows() > 0) {
                 $info = $account->row_array();
             } else {
                 $info = NULL;
             }
-        }
         return$info;
     }
 
@@ -71,30 +70,22 @@ class User_Model extends CI_Model {
     public function updateUserAccount($data) {
         if ($data != null || strlen($data) != 0) {
           $sql = "UPDATE Customer  SET  password = ?, gender = ?, FNAME =?, LNAME=?, ADDRESS=?,	CELLPHONE =?, CITY=?,ZIPCODE=?, PROVINCE=?  WHERE  username= ? ";
-            $account = $this->db->query($sql, array($data['password'], $data['gender'], $data['username']));
-  //          var_dump($account);
-//            $this->db->where('username', $data['username']);
-//            $this->db->update('Customer', $data);
-//            $fname = $data['fname'];
-//            $lname = $data['lname'];
-//            $gender = $data['gender'];
+           $this->db->query($sql, array($data['password'], $data['gender'], $data['fname'], $data['lname'], $data['address'], $data['cellphone'], $data['city'], $data['zipcode'], $data['province'], $data['username']));
         }
     }
 
-    public function changePass($uname, $newpass) {
-        if ($newpass != null || strlen($newpass) != 0) {
-//            $sql = "select * From Customer where username = " . $uname;
-//            $account = $this->db->query($sql);
-            $account = $this->getUserAccount($uname, $oldpass);
-            if ($account != NULL) {
-                $sql = 'update  Customer set password= ? where username =?';
-                $this->db->query($sql, array($password, $uname));
-            } else {
-                echo 'new password can not be same with old password';
-            }
-        } else {
-            echo 'new password can not be empty';
-        }
-    }
+//    public function changePass($uname, $newpass) {
+//        if ($newpass != null || strlen($newpass) != 0) {
+//            $account = $this->getUserAccount($uname, $oldpass);
+//            if ($account != NULL) {
+//                $sql = 'update  Customer set password= ? where username =?';
+//                $this->db->query($sql, array($password, $uname));
+//            } else {
+//                echo 'new password can not be same with old password';
+//            }
+//        } else {
+//            echo 'new password can not be empty';
+//        }
+//    }
 
 }

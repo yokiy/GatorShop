@@ -17,13 +17,28 @@ class Cart_Model extends CI_Model {
     public function addToCart($user, $pid, $am) {
         $time = new DateTime('now');
         $num = $this->existItem($user, $pid);
-//check if item is in cart
+//check if item is in cart, if yes change the amount; if no inset into cart;
         $date = $time->format('Y-m-d H:i:s');
-        $amount = $am+$num;
         $format = 'yyyy-mm-dd hh24:mi:ss';
-        $sql = "INSERT INTO YAN.CART(cart_id, dt, amount, username, pid)  VALUES ( SEQUENCE_CART.Nextval, To_date(?, ?), ?, ?, ?)";
-        $this->db->query($sql, array($date, $format, $amount, $user, $pid));
+        if ($num > 0) {
+            $amount = $am + $num;
+            $this->changeAmount($user, $pid, $amount);
+        } else {
+            $sql = "INSERT INTO YAN.CART(cart_id, dt, amount, username, pid)  VALUES ( SEQUENCE_CART.Nextval, To_date(?, ?), ?, ?, ?)";
+            $this->db->query($sql, array($date, $format, $amount, $user, $pid));
+        }
+    }
 
+    //display items in the cart
+    public function getCart($user) {
+        $sql = 'select cart.*, product.TITLE, product.PRICE, product.PRICTURE from CART, product where cart.PID = product.PID and username = ?';
+        $items = $this->db->query($sql, array($user));
+        $result = $items->result_array();
+//         foreach ($result as $item) {
+//            $total += $item['PRICE'] * $item['AMOUNT'];
+//        }
+        //$_SESSION['total'] = $total;
+        return $result;
     }
 
 //detemine the amount of the exsiting product in cart
@@ -58,6 +73,12 @@ class Cart_Model extends CI_Model {
         } else {
             return false;
         }
+    }
+
+    //empty cart for user after checkout
+    public function emptyCart($user) {
+        $sql = 'DELETE FROM cart WHERE username = ?';
+        $this->db->query($sql, array($user));
     }
 
 }

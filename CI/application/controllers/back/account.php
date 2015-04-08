@@ -25,7 +25,7 @@ Class Account extends CI_Controller {
 
     //dispaly user account info, show account page
     public function getuser($uname, $pass) {
-        $account = $this->user_model->getUserAccount($uname, $pass);
+        $account = $this->user_model->getUserAccount($uname);
         return $account;
     }
 
