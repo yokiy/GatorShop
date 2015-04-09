@@ -11,6 +11,7 @@ class Orders_Model extends CI_Model {
     public function __construct() {
         parent::__construct();
         $this->load->database();
+        $this->load->model('cart_model');
     }
 
     public function isExisted($od) {
@@ -36,15 +37,26 @@ class Orders_Model extends CI_Model {
         return $order_number;
     }
 
+    public function isExist($od) {
+        $sql = 'select * from YAN.ORDERS where order_number = ?';
+        $this->db->query($sql,array($od));
+    }
+            
 //    insert records into orders table and generate eight digit order_number
 //return selected item  and price
-    public function checkout($user, $pid, $amount) {
+    public function checkout($user) {
         $order_number = $this->generateOD();
         $time = new DateTime('now');
         $date = $time->format('Y-m-d H:i:s');
         $format = 'yyyy-mm-dd hh24:mi:ss';
-        $sql = 'insert into orders values(SEQ_order.nextval, ?, to_date(?, ?), 0,null , ?, ?, ?)';
-        $this->db->query($sql, array($date, $format, $user, $pid, $amount, $order_number));
+        $items = $this->cart_model->getCart($user);
+        foreach ($items as $item) {
+            $pid =  intval($item['PID']);
+            $amount = intval($item['AMOUNT']);
+            $sql = 'insert into orders values(SEQ_order.nextval, to_date(?, ?), 0, null , ?, ?, ?, ?)';
+            $this->db->query($sql, array($date, $format, $user, $pid, $amount, $order_number));            
+        }
+        $this->cart_model->emptyCart($user);
         return $order_number;
     }
 
@@ -73,9 +85,9 @@ class Orders_Model extends CI_Model {
         $orders = $result->result_array();
         return $orders;
     }
-    
+
     //get order details by order number
-     public function getOrderDetail($od) {
+    public function getOrderDetail($od) {
         $sql = 'select orders.*, product.TITLE, product.PRICE, product.PRICTURE from orders, product where product.pid = orders.pid and orders.order_number = ?';
         $result = $this->db->query($sql, array($od));
         $order = $result->result_array();
