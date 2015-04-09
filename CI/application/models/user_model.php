@@ -20,9 +20,9 @@ class User_Model extends CI_Model {
             $data = array(
                 'username' => $uname,
                 'password' => $pass,
+                 'gender' => $gender,
                 'fname' => $fname,
                 'lname' => $lname,
-                'gender' => $gender,
                 'address' => $addr,
                 'city' => $city,
                 'province' => $state,
@@ -30,7 +30,7 @@ class User_Model extends CI_Model {
                 'cellphone' => $tel,
             );
 //            $sql = "INSERT INTO Customer (username, password,  gender)  VALUES (?, ?,?)";
-            $sql = "INSERT INTO Customer (username, password,  gender,fname, lname, address, cellphone, city, province, zipcode)  VALUES (?, ?,?,?,?,?,?,?,?,?)";
+            $sql = "INSERT INTO Customer (username, password,  gender, fname, lname, address, cellphone, city, province, zipcode)  VALUES (?, ?,?,?,?,?,?,?,?,?)";
             $this->db->query($sql, $data);
             return true;
         } else {

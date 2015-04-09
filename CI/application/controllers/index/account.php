@@ -37,15 +37,6 @@ class Account extends CI_Controller {
 
     public function update() {
         //post
-        $data['FNAME'] = $_POST['firstname'];
-        $data['LNAME'] = $_POST['lastname'];
-        $data['GENDER'] = $_POST['gender'];
-        $data['CELLPHONE'] = $_POST['cellphone'];
-        $data['CITY'] = $_POST['city'];
-        $data['ZIPCODE'] = $_POST['zipcode'];
-        $data['ADDRESS'] = $_POST['address'];
-        $data['STATE'] = $_POST['state'];
-        $data['PASSWORD'] = $_POST['r_password1'];
 
         $this->load->library('form_validation');
         $this->form_validation->set_rules('firstname', 'FirstName', 'required|alpha');
@@ -60,38 +51,47 @@ class Account extends CI_Controller {
         $this->form_validation->set_rules('r_password1', 'Password1', 'required|min_length[6]|alpha_numeric');
         $this->form_validation->set_rules('r_password2', 'Password2', 'required|min_length[6]|alpha_numeric|matches[r_password1]');
         $valid = $this->form_validation->run(); //run the validtion
+         $data['FNAME'] = $_POST['firstname'];
+        $data['LNAME'] = $_POST['lastname'];
+        $data['GENDER'] = $_POST['gender'];
+        $data['CELLPHONE'] = $_POST['cellphone'];
+        $data['CITY'] = $_POST['city'];
+        $data['ZIPCODE'] = $_POST['zipcode'];
+        $data['ADDRESS'] = $_POST['address'];
+        $data['STATE'] = $_POST['state'];
+        $data['PASSWORD'] = $_POST['r_password1'];
         if (!$valid) {// form is illegal
             $this->load->view('update.html', $data); // login again
         } else {
-           /* $fname = $_POST['firstname'];
-            $lname = $_POST['lastname'];
-            $gender = $_POST['gender'];
-            $cellphone = $_POST['cellphone'];
-            $city = $_POST['city'];
-            $zipcode = $_POST['zipcode'];
-            $address = $_POST['address'];
-            $state = $_POST['state'];
-            //$email = $_POST['email'];
-            $password = $_POST['r_password1'];
+//            $fname = $
+//            $lname = $_POST['lastname'];
+//            $gender = $_POST['gender'];
+//            $cellphone = $_POST['cellphone'];
+//            $city = $_POST['city'];
+//            $zipcode = $_POST['zipcode'];
+//            $address = $_POST['address'];
+//            $state = $_POST['state'];
+//            //$email = $_POST['email'];
+//            $password = $_POST['r_password1'];
             
 //modify
-            $data = array();
-            $data['fname'] = $fname;
-            $data['lname'] = $lname;
-            $data['gender'] = $gender;
-            $data['cellphone'] = $cellphone;
-            $data['city'] = $city;
-            $data['zipcode'] = $zipcode;
-            $data['address'] = $address;
-            $data['state'] = $state;
-            $data['password'] = $password;*/         
-            // where is username?
+            $input = array();
+            $input['fname'] = $data['FNAME'];
+            $input['lname'] = $data['LNAME'];
+            $input['gender'] = $data['GENDER'];
+            $input['cellphone'] = $data['CELLPHONE'];
+            $input['city'] = $data['CITY'];
+            $input['zipcode'] = $data['ZIPCODE'];
+            $input['address'] = $data['ADDRESS'];
+            $input['province'] = $data['STATE'];
+            $input['password'] =$data['PASSWORD'];        
+   
             if (!isset($_SESSION)) {
                 session_start();
             }
-            $data['USERNAME'] =  $_SESSION['email'];
+            $input['username'] =  $_SESSION['email'];
             //deal with database
-            $this->user_model->updateUserAccount($data);
+            $this->user_model->updateUserAccount($input);
             redirect('/index/product', 'refresh');
         }
     }
