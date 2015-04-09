@@ -68,7 +68,7 @@ class Orders_Model extends CI_Model {
 
 // retrieve order history of a user
     public function orderHistory($user) {
-        $sql = 'select orders.order_number  from orders,  product where orders.pid = product.pid and orders.username = ?';
+        $sql = 'select orders.order_number, product.title, product.price, product.picture, order.amount, order.dt from orders,  product where orders.pid = product.pid and orders.username = ?';
         $result = $this->db->query($sql, array($user));
         if ($result->num_rows() > 0) {
             $ret = $result->result_array();
