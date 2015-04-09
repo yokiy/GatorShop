@@ -31,11 +31,11 @@ class Orders extends CI_Controller {
     public function getOrderHistory() {
         $user = 'simon@test.c';
         $orders = $this->orders_model->orderHistory($user);
-        //var_dump($orders);
-        foreach ($orders as $order) {
-            echo $order['ORDER_NUMBER'];
-            echo "<br>";
-        }
+        var_dump($orders[0]);
+//        foreach ($orders as $order) {
+//            echo $order['ORDER_NUMBER'];
+//            echo "<br>";
+//        }
     }
 
     // test passed, get big array
