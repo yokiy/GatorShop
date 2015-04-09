@@ -62,10 +62,10 @@
 					<h3>PERSONAL INFORMATION</h3>
 					<div class="mation">
 						<span>First Name<label>*</label></span>
-							<input type="text" name='firstname' value="<?php echo set_value('firstname'); ?>">	
+							<input type="text" name='firstname' value="<?php echo $FNAME?>">	
 							<?php echo form_error('firstname','<span>','</span>'); ?>
 						<span>Last Name<label>*</label></span>
-							<input type="text" name='lastname' value="<?php echo set_value('lastname'); ?>"> 
+							<input type="text" name='lastname' value="<?php echo $LNAME ?>"> 
 							<?php echo form_error('lastname','<span>','</span>'); ?>
 							<hr>
 						<span>Gender<label>*</label></span>
@@ -77,7 +77,7 @@
 			  				</select>
 			  				<hr>	
 						<span>Cellphone Number<label>*</label></span>
-							<input type="text" name='cellphone' value="<?php echo set_value('cellphone'); ?>"> 
+							<input type="text" name='cellphone' value="<?php echo $CELLPHONE?>"> 
 							<?php echo form_error('cellphone','<span>','</span>'); ?>
 						<hr>
 						<span>State<label>*</label></span>
@@ -88,16 +88,16 @@
 			  				</select>	
 			  			<hr>	
 						<span>City<label>*</label></span>
-							<input type="text" name='city' value="gainseville">
+							<input type="text" name='city' value="<?php echo $CITY ?>">
 							<?php echo form_error('city','<span>','</span>'); ?>
 						<span>Zipcode<label>*</label></span>
-							<input  type="text" name='zipcode' value="<?php echo set_value('zipcode'); ?>">  
+							<input  type="text" name='zipcode' value="<?php echo $ZIPCODE ?>">  
 							<?php echo form_error('zipcode','<span>','</span>'); ?>
 						<span>Address<label>*</label></span>
-							<input  type="text" name='address' value="<?php echo set_value('address'); ?>"> 
+							<input  type="text" name='address' value="<?php echo $ADDRESS ?>"> 
 							<?php echo form_error('address','<span>','</span>'); ?>
 					    <span>Email Address (User Name)<label>*</label></span>
-						    <input type="text" name='email' value="<?php echo set_value('email'); ?>"> 
+						    <input type="text" name='email' value="<?php echo $USERNAME ?>"> 
 							<?php echo form_error('email','<span>','</span>'); ?> 
 									
 					</div>

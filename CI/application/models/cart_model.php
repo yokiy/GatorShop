@@ -31,7 +31,7 @@ class Cart_Model extends CI_Model {
 
     //display items in the cart
     public function getCart($user) {
-        $sql = 'select cart.*, product.TITLE, product.PRICE, product.PRICTURE from CART, product where cart.PID = product.PID and username = ?';
+        $sql = 'select cart.*, product.TITLE, product.PRICE, product.IMG, product.pid from CART, product where cart.PID = product.PID and username = ?';
         $items = $this->db->query($sql, array($user));
         $result = $items->result_array();
 //         foreach ($result as $item) {

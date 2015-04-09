@@ -67,13 +67,13 @@
                 	        <th align="left"><font size="4"><font color="#FF6600">USER NAME:</font></font>&nbsp <?php echo $USERNAME ?></th>
                             </tr>
                             <tr>
-                	        <th align="left"><font size="4"><font color="#FF6600">GENDER:</font></font>&nbsp male</th>
+                	        <th align="left"><font size="4"><font color="#FF6600">GENDER:</font></font>&nbsp <?php echo $GENDER ?></th>
                             </tr>
                              <tr>
-                	         <th align="left"><font size="4"><font color="#FF6600">ADDRESS:</font></font>&nbsp aaaaabbbbb</th>
+                	         <th align="left"><font size="4"><font color="#FF6600">ADDRESS:</font></font>&nbsp <?php echo $ADDRESS ?></th>
                              </tr>
                               <tr>
-                	          <th align="left"><font size="4"><font color="#FF6600">CELLPHONE:</font></font>&nbsp 80008000</th>
+                	          <th align="left"><font size="4"><font color="#FF6600">CELLPHONE:</font></font>&nbsp <?php echo $CELLPHONE ?></th>
                 	          <td align="center"> <a class="acount-btn" href="<?php echo site_url().'/index/account/modify';?>">Modify</a></td>
                               </tr>
                               <div class="clearfix"> </div>
@@ -95,30 +95,16 @@
             	<td align="center"> <h4>Quantity</h4></td>
             	<td align="center"> <h4>Date</h4></td>
                 </tr>
+                <?php foreach($order as $o): ?>
   				<tr>
-                <td align="center"><h4>123456</h4></td>
+                <td align="center"><h4><?php echo $o['ORDER_NUMBER']?></h4></td>
                 <td width="200" height="200" align="center"> <a href="<?php echo site_url().'/index/single';?>"> <img src="<?php echo base_url().'images/bag1.jpg'?>" width="100" height="120" /> </a> </td>
-                <td > <h4> <div style="padding-left:10px;padding-right:4px;text-align:left;">Leaper Causal Style Lightweight Canvas Cute Backpacks School Backpack</div></h4> </td>
-                <td align="center"><h4 >$31.99</h4></td>
-                <td align="center"><h4>3</h4> </td>
-                <td align="center" ><h4>2014/10/25</h4></td>
+                <td > <h4> <div style="padding-left:10px;padding-right:4px;text-align:left;"><?php echo $o['TITLE']?></div></h4> </td>
+                <td align="center"><h4 ><?php echo $o['PRICE']?></h4></td>
+                <td align="center"><h4><?php echo $o['AMOUNT']?></h4> </td>
+                <td align="center" ><h4><?php echo $o['DT']?></h4></td>
                 </tr>
-                <tr>
-                <td align="center"><h4>123457</h4></td>
-                <td width="200" height="200" align="center"> <img src="<?php echo base_url().'images/bag2.jpg'?>" width="100" height="120" /></td>
-                <td align="center"> <h4><div style="padding-left:10px;padding-right:4px;text-align:left;">Skip Hop Zoo Lunchie Insulated Lunch Bag</div></h4> </td>
-                <td align="center"><h4>$33.99</h4></td>
-                <td align="center"><h4>3</h4? </td>
-                <td align="center"><h4>2014/12/11</h4></td>
-                </tr>
-                <tr >
-               <td align="center"><h4>123458</h4></td>
-               <td width="200" height="200" align="center"> <img src="<?php echo base_url().'images/bag3.jpg'?>" width="100" height="120" /></td>
-               <td align="center"> <h4><div style="padding-left:10px;padding-right:4px;text-align:left;">MG Collection Samantha Weave Pattern Belt Accent So Hobo</div></h4> </td>
-               <td align="center"><h4>$26.99</h4></td>
-                <td align="center"><h4>3</h4> </td>
-               <td align="center"><h4>2015/1/23</h4></td>
-                </tr>
+                <?php endforeach ?>
 				</table>
             	<div class="clearfix"> </div>
             </div>
