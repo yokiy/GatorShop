@@ -8,6 +8,7 @@ class Account extends CI_Controller {
     public function __construct() {
         parent::__construct();
         $this->load->model('user_model');
+        $this->load->model('orders_model');
     }
 
     //username test passed
@@ -20,6 +21,9 @@ class Account extends CI_Controller {
         } else {
             $uname =$_SESSION['email'];
             $account = $this->user_model->getUserAccount($uname);
+            //order_history is also a big array, including mutiple orders
+             $orders_history = $this->orders_model->orderHistory($_SESSION['email']);
+             $account['order_history'] = $orders_history;
             $this->load->view('account.html', $account);
         }
     }
