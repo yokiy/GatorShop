@@ -60,7 +60,7 @@
             <div class="account_grid">
                 <div class="login-right">
                     <h3> User Name</h3>
-                    <p> mingyang</p>
+                    <p> <?php echo $user ?></p>
                     <hr>
                     <h3 >YOUR SHOPPING CART</h3>
                 </div>	
@@ -80,8 +80,10 @@
                             <td > <h4> <div style="padding-left:10px;padding-right:4px;text-align:left;"><a href="<?php echo site_url().'/index/single/findSingle/'.$p['PID'];?>" target="_blank">Name: <?php echo $p['TITLE']?>, Left: <?php echo $p['STOCK']?> </a></div></h4> </td>
                             <td align="center"><h4 > $ <?php echo $p['PRICE']?></h4></td>
                             <td align="center">
-                                <form>
-                                    <input type="text" value="<?php echo $p['AMOUNT']?>" size="6" maxlength="3" name="number">
+                                <form action="<?php echo site_url('index/cart/changeItemAmount'); ?>" method="POST">
+                                    <input type="text" name='newAmount' value="<?php echo $p['AMOUNT']?>" size="6" maxlength="3" name="number">
+                                    <input type="hidden" name="pid" value="<?php echo $p['PID']?>">
+                                    <input type="hidden" name="oldAmount" value="<?php echo $p['AMOUNT']?>">
                                     <input  type="submit" value="Save" />
                                 </form>
                             </td>

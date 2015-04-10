@@ -99,8 +99,8 @@ class product_model extends CI_Model {
 
     //decrease product amount by 1
     public function decreaseProductAmount($id) {
-        $sql = 'update Product set amount = amount-1  where pid=?;';
-        $this->db->query($sql, array($id));
+        $sql = 'update Product set amount = amount-1  where pid='.$id;
+        $this->db->query($sql);
     }
 
     //add product amount when cart changes with amount
@@ -128,9 +128,10 @@ class product_model extends CI_Model {
 
     //check product stock
     public function checkProductStock($id) {
-        $sql = 'select amount from PRODUCT where pid =?';
-        $stock = intval($this->db->query($sql, array($id)));
-        return $stock;
+        $sql = 'select amount from PRODUCT where pid ='.$id;
+        $stock = $this->db->query($sql);
+        $result = $stock->result_array();
+        return $result;
     }
 
     //sort product in a category by order of sales amount in recent three month

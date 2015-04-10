@@ -17,7 +17,7 @@ class Product extends CI_Controller {
     public function getProduct() {
         $result = $this->product_model->getProductById(21354);
 //       var_dump($result);
-        echo $result['TITLE'];
+        //echo $result['TITLE'];
     }
 
     //TEST can get products in a category passed
@@ -47,4 +47,9 @@ public function  sortProductByRate() {
     var_dump($result);
 }
    
+public function checkProductStock() {
+    $id = 201404041;
+    $stock = $this->product_model->checkProductStock($id);
+    var_dump($stock);
+}
 }
