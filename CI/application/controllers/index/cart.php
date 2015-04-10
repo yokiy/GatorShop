@@ -35,6 +35,7 @@ class Cart extends CI_Controller {
             $this->db->limit($perPage, $offset);
             $this->load->model('cart_model');
             $data ['product'] = $this->cart_model->getCart($_SESSION['email']);
+            $data ['total'] = $_SESSION['total'];
 //            $num = count($items);
 //            $total = $items['total'];
 //            
@@ -44,25 +45,17 @@ class Cart extends CI_Controller {
         }
     }
 
-    public function addToCart() {
-        $user = $_SESSION['email'];
-        $pid = $_POST['pid'];
-        $amount = $_POST['amount'];
-        $stock = $this->product_model->checkProductStock($pid);
-        if ($amount > $stock) {
-            //echo out of stock
-        } else {
-            $this->cart_model->addToCart($user, $pid, $amount);
-            $this->product_model->decreaseProductAmount($pid);
-        }
-    }
 
-    public function deleteItem() {
+    public function deleteItem($pid,$amount) {
+        if(!isset($_SESSION))
+        {
+            session_start();
+        }
         $user = $_SESSION['email'];
-        $pid = $_POST['pid'];
-        $amount = $_POST['$amount'];
         $this->cart_model->delItemInCart($user, $pid);
-        $this->product_model->changeProductAmount($pid, $amount);
+        //Some problems here
+        $this->product_model->AddProductAmount($pid, $amount);
+        redirect('/index/cart','refresh');
     }
     
     
@@ -75,7 +68,7 @@ class Cart extends CI_Controller {
         $amount = $_POST['amount'];
      // opreate cart and product amount
         $this->cart_model->addToCart($user, $pid, $amount);
-        $this->product_model->changeProductAmount($pid, ($o_amount - $amount));
+        $this->product_model->AddProductAmount($pid, ($o_amount - $amount));
      
     }
 
@@ -85,6 +78,8 @@ class Cart extends CI_Controller {
         $order_number = $this->orders_model->checkout($_SESSION['email']);
         $this->load->view('checkout.html', $order_number);
     }
+
+
 
 }
 

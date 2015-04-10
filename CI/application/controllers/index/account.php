@@ -51,7 +51,7 @@ class Account extends CI_Controller {
         $this->form_validation->set_rules('r_password1', 'Password1', 'required|min_length[6]|alpha_numeric');
         $this->form_validation->set_rules('r_password2', 'Password2', 'required|min_length[6]|alpha_numeric|matches[r_password1]');
         $valid = $this->form_validation->run(); //run the validtion
-         $data['FNAME'] = $_POST['firstname'];
+        $data['FNAME'] = $_POST['firstname'];
         $data['LNAME'] = $_POST['lastname'];
         $data['GENDER'] = $_POST['gender'];
         $data['CELLPHONE'] = $_POST['cellphone'];

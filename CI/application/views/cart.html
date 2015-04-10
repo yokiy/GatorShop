@@ -77,20 +77,24 @@
                         <?php foreach($product as $p): ?>
                         <tr>
                             <td width="200" height="200" align="center"> <img src="<?php echo base_url().'images/bag1.jpg'?>" width="100" height="120" /></td>
-                            <td > <h4> <div style="padding-left:10px;padding-right:4px;text-align:left;"> <?php echo $p['TITLE']?> </div></h4> </td>
-                            <td align="center"><h4 >$31.99</h4></td>
-                            <td align="center"><form><input type="text" size="6" maxlength="3" name="number">
-                                    <input  type="submit" value="Save" /></form></td>
-                            <td align="center" > <a class="acount-btn" href="#">DELETE</a></td>
+                            <td > <h4> <div style="padding-left:10px;padding-right:4px;text-align:left;"><a href="<?php echo site_url().'/index/single/findSingle/'.$p['PID'];?>" target="_blank">Name: <?php echo $p['TITLE']?>, Left: <?php echo $p['STOCK']?> </a></div></h4> </td>
+                            <td align="center"><h4 > $ <?php echo $p['PRICE']?></h4></td>
+                            <td align="center">
+                                <form>
+                                    <input type="text" value="<?php echo $p['AMOUNT']?>" size="6" maxlength="3" name="number">
+                                    <input  type="submit" value="Save" />
+                                </form>
+                            </td>
+                            <td align="center" > <a class="acount-btn" href="<?php echo site_url().'/index/cart/deleteItem/'.$p['PID'].'/'.$p['AMOUNT'];?>">DELETE</a></td>
                         </tr>
-                      <?php endforeach ?>
+                        <?php endforeach ?>
                     </table>
                     <hr>
                     <div class="clearfix"> </div>	
                     <!--<div class="account_grid">-->
                     <div class=" login-left">
-                        <h3>Subtotal:$100</h3>
-                        <?php echo $links ?>
+                        <h3>Subtotal:$ <?php echo $total?></h3>
+                       <!-- <?php echo $links ?>-->
                         <hr>
                         <a class="acount-btn" href="<?php echo site_url().'/index/cart/checkout';?>">Check out</a>
                     </div>

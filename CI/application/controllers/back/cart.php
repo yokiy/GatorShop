@@ -33,14 +33,14 @@ class cart extends CI_Controller {
         $items = $this->cart_model->getCart($user);
 //        echo $items['total'];
         var_dump($items);
-        foreach ($items as $item) {
-            echo intval($item['PID']);
-            //$item['AMOUNT'];
-           
-            //var_dump($item);
-            echo "<br>";
+//        foreach ($items as $item) {
+//            echo intval($item['PID']);
+//            //$item['AMOUNT'];
+//           
+//            //var_dump($item);
+//            echo "<br>";
         }
-    }
+    
 
     //test change amount passed
     public function changeAmount() {

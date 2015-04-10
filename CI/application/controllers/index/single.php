@@ -19,10 +19,6 @@ class Single extends CI_Controller {
 	 */
 	public function index()
 	{
-		$username=$_SESSION['email'];
-		//deal with database
-		$data=array();
-		$this->load->view('single.html',$data);
 	}
 
 	public function findSingle($pid)
@@ -31,6 +27,19 @@ class Single extends CI_Controller {
 		$data=array();
 		$this->load->view('single.html',$data);
 	}
+
+	  public function addToCart() {
+        $user = $_SESSION['email'];
+        $pid = $_POST['pid'];
+        $amount = $_POST['amount'];
+        $stock = $this->product_model->checkProductStock($pid);
+        if ($amount > $stock) {
+            //echo out of stock
+        } else {
+            $this->cart_model->addToCart($user, $pid, $amount);
+            $this->product_model->decreaseProductAmount($pid);
+        }
+    }
 }
 
 /* End of file welcome.php */

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Product</title>
+<title>Login</title>
 <link href="<?php echo base_url().'style/css/bootstrap.css';?>" rel="stylesheet" type="text/css" media="all" />
 <!--theme-style-->
 <link href="<?php echo base_url().'style/css/style.css';?>" rel="stylesheet" type="text/css" media="all" />	
@@ -14,7 +14,6 @@
 <script src="<?php echo base_url().'style/js/jquery.min.js';?>"></script>
 
 <script src="<?php echo base_url().'style/js/jquery.easydropdown.js';?>"></script>
-<!--script-->
 </head>
 <body> 
 	<!--header-->
@@ -28,9 +27,9 @@
 		<div class="bottom-header">
 			<div class="container">
 				<div class="header-bottom-left">
-                	<div class="logo">
-                		<a href="<?php echo site_url().'/index/product';?>"><img src="<?php echo base_url().'images/logo.jpg';?>" alt=" " style="width:150px;height:100px"/></a>
-                	</div>
+                <div class="logo">
+                <a href="<?php echo site_url().'/index/product';?>"><img src="<?php echo base_url().'images/logo.jpg'?>" alt=" " style="width:150px;height:100px"/></a>
+                </div>
 					<div class="search">
 						<form action="<?php echo site_url('index/search/find'); ?>" method="POST">
 					  		<input type="text" name="search_value" value="<?php echo set_value('search_value'); ?>">
@@ -48,7 +47,6 @@
 						<li ><a href="<?php echo site_url().'/index/login';?>"><span> </span>LOGIN/OUT</a></li>
 						<li>|</li>
 						<li ><a href="<?php echo site_url().'/index/register';?>">SIGNUP</a></li>
-						
 					</ul>
 				</div>
 				<div class="clearfix"> </div>	
@@ -56,63 +54,66 @@
 		</div>
 	</div>
 	<!---->
-	<!-- start content -->
 	<div class="container">
-		
-	<div class="women-product">
-		<div class=" w_content">
-			<div class="women">
-				<a href="#"><h4>Category: <?php echo $category?> - Order: <?php echo $order?><span> Total: <?php echo $totalNum?> items</span></h4></a>
-				<ul class="w_nav">
-					<li>Sort : </li>
-			     	<li><a class="active" href="<?php echo site_url().'/index/product/changeOrder/popular';?>">Popular</a></li> |
-			     	<li><a href="<?php echo site_url().'/index/product/changeOrder/rate';?>">Rate </a></li> |
-			     	<li><a href="<?php echo site_url().'/index/product/changeOrder/low';?>">price: Low to High </a></li> |
-			     	<li><a href="<?php echo site_url().'/index/product/changeOrder/high';?>">price: High to Low </a></li> 
-			     <div class="clearfix"> </div>	
-			     </ul>
-			     <div class="clearfix"> </div>	
-			</div>
-		</div>
-		<!-- grids_of_4 -->
-		<div class="grid-product">
-		  	
-		  	<?php foreach($product as $p): ?>
-		  	<div class="  product-grid">
-				<div class="content_box">
-					<a href="<?php echo site_url().'/index/single/findSingle/'.$p['PID'];?>" target="_blank">
-			   			<div class="left-grid-view grid-view-left">
-			   	   		<img src="<?php echo base_url().'img/'.$p['IMG'];?>" class="img-responsive watch-right" alt=""/>
-				   	   	<div class="mask">
-	                        <div class="info">Quick View</div>
-			            </div>
-				   	</a>
-				</div>
-				<h4><a href="<?php echo site_url().'/index/single/findSingle/'.$p['PID'];?>" target="_blank"><?php echo $p['TITLE']?></a></h4>
-				<p>Amount: <?php echo $p['AMOUNT'];?> left.</p>
-				Price: $<?php echo $p['PRICE']?>
-			</div>
-        	</div>
-			<?php endforeach ?>
-			
-			<div class="clearfix"> </div>
-		</div>
-	</div>
-	<div class="sub-cate">
-		<div class=" top-nav rsidebar span_1_of_left">
-			<h3 class="cate">CATEGORIES</h3>
-			<ul class="menu">
-				<ul class="kid-menu ">
-					<li><a href="<?php echo site_url().'/index/product/changeCategory/haha';?>">Commodo sit</a></li>
-					<li ><a href="<?php echo site_url().'/index/product/changeCategory/haha';?>">Urna ac tortor sc</a></li>
-					<li><a href="<?php echo site_url().'/index/product/changeCategory/haha';?>">Ornared id aliquet</a></li>
-					<li><a href="<?php echo site_url().'/index/product/changeCategory/haha';?>">Urna ac tortor sc</a></li>
-					<li ><a href="<?php echo site_url().'/index/product/changeCategory/haha';?>">Eget nisi laoreet</a></li>
-					<li><a href="<?php echo site_url().'/index/product/changeCategory/haha';?>">Faciisis ornare</a></li>
-					<li class="menu-kid-left"><a href="<?php echo site_url().'/index/contact';?>">Contact us</a></li>
-				</ul>
+      	    <div class="account_grid">
+			   <div class=" login-right">
+			  	<h3>1 item has been added into cart!</h3>
+				<p><a class="active" href="<?php echo site_url().'/index/cart';?>">View your cart</a></p>
+				<p><a class="active" href="<?php echo site_url().'/index/single/findSingle/'.$PID;?>">Back to product page.</a><p>
+			   </div>	
+			   <div class="clearfix"> </div>
+			</div>	
+			 <div class="sub-cate">
+				<div class=" top-nav rsidebar span_1_of_left">
+					<h3 class="cate">CATEGORIES</h3>
+		 <ul class="menu">
+		<li class="item1"><a href="#">Curabitur sapien<img class="arrow-img" src="<?php echo base_url().'images/arrow1.png'?>" alt=""/> </a>
+			<ul class="cute">
+				<li class="subitem1"><a href="product.html">Cute Kittens </a></li>
+				<li class="subitem2"><a href="product.html">Strange Stuff </a></li>
+				<li class="subitem3"><a href="product.html">Automatic Fails </a></li>
 			</ul>
-		</div>
+		</li>
+		<li class="item2"><a href="#">Dignissim purus <img class="arrow-img " src="<?php echo base_url().'images/arrow1.png'?>" alt=""/></a>
+			<ul class="cute">
+				<li class="subitem1"><a href="product.html">Cute Kittens </a></li>
+				<li class="subitem2"><a href="product.html">Strange Stuff </a></li>
+				<li class="subitem3"><a href="product.html">Automatic Fails </a></li>
+			</ul>
+		</li>
+		<li class="item3"><a href="#">Ultrices id du<img class="arrow-img img-arrow" src="<?php echo base_url().'images/arrow1.png'?>" alt=""/> </a>
+			<ul class="cute">
+				<li class="subitem1"><a href="product.html">Cute Kittens </a></li>
+				<li class="subitem2"><a href="product.html">Strange Stuff </a></li>
+				<li class="subitem3"><a href="product.html">Automatic Fails</a></li>
+			</ul>
+		</li>
+		<li class="item4"><a href="#">Cras iacaus rhone <img class="arrow-img img-left-arrow" src="<?php echo base_url().'images/arrow1.png'?>" alt=""/></a>
+			<ul class="cute">
+				<li class="subitem1"><a href="product.html">Cute Kittens </a></li>
+				<li class="subitem2"><a href="product.html">Strange Stuff </a></li>
+				<li class="subitem3"><a href="product.html">Automatic Fails </a></li>
+			</ul>
+		</li>
+				<li>
+			<ul class="kid-menu">
+				<li><a href="product.html">Tempus pretium</a></li>
+				<li ><a href="product.html">Dignissim neque</a></li>
+				<li ><a href="product.html">Ornared id aliquet</a></li>
+			</ul>
+		</li>
+		<ul class="kid-menu ">
+				<li><a href="product.html">Commodo sit</a></li>
+				<li ><a href="product.html">Urna ac tortor sc</a></li>
+				<li><a href="product.html">Ornared id aliquet</a></li>
+				<li><a href="product.html">Urna ac tortor sc</a></li>
+				<li ><a href="product.html">Eget nisi laoreet</a></li>
+				<li><a href="product.html">Faciisis ornare</a></li>
+				<li class="menu-kid-left"><a href="<?php echo site_url().'/index/contact';?>">Contact us</a></li>
+			</ul>
+		
+	</ul>
+					</div>
 				<!--initiate accordion-->
 		<script type="text/javascript">
 			$(function() {
@@ -134,7 +135,7 @@
 			});
 		</script>
 					<div class=" chain-grid menu-chain">
-	   		     		<a href="single.html"><img class="img-responsive chain" src="<?php echo base_url().'images/wat.jpg';?>" alt=" " /></a>	   		     		
+	   		     		<a href="single.html"><img class="img-responsive chain" src="<?php echo base_url().'images/wat.jpg'?>" alt=" " /></a>	   		     		
 	   		     		<div class="grid-chain-bottom chain-watch">
 		   		     		<span class="actual dolor-left-grid">300$</span>
 		   		     		<span class="reducedfrom">500$</span>  
@@ -143,8 +144,8 @@
 	   		     	</div>
 	   		     	 <a class="view-all all-product" href="<?php echo site_url().'/index/product';?>">VIEW ALL PRODUCTS<span> </span></a> 	
 			</div>
-	<div class="clearfix"> </div>
-</div>
+			  <div class="clearfix"> </div>
+      	 </div>
 	<!---->
 	<div class="footer">
 		<div class="footer-top">
@@ -212,7 +213,7 @@
 						<li ><a href="#">Ornared id aliquet</a></li>
 						<li><a href="#">Ultrices id du</a></li>
 						<li><a href="#">Commodo sit</a></li>
-						<li ><a href="#">Urna ac tortor sc</a></li>
+						<li><a href="#">Urna ac tortor sc</a></li>
 						<li><a href="#">Ornared id aliquet</a></li>
 						<li><a href="#">Urna ac tortor sc</a></li>
 						<li ><a href="#">Eget nisi laoreet</a></li>

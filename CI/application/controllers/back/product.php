@@ -31,9 +31,20 @@ class Product extends CI_Controller {
         }
     }
     
+   public function sortProductBySalesCategory(){
+       $cate = 'Book';
+       $result = $this->product_model->sortProductBySalesCategory($cate);
+       var_dump($result);
+   }
 //    public function sortProductDesc() {
 //        $cate = 'Book';
 //         $this->product_model->sortProductByPriceDesc($cate);
 //    }
 
+public function  sortProductByRate() {
+    $cate = 'Book';
+    $result = $this->product_model-> sortProductByRate($cate);
+    var_dump($result);
+}
+   
 }
