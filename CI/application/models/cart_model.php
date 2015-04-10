@@ -34,10 +34,10 @@ class Cart_Model extends CI_Model {
         $sql = 'select cart.*, product.TITLE, product.PRICE, product.IMG, product.pid from CART, product where cart.PID = product.PID and username = ?';
         $items = $this->db->query($sql, array($user));
         $result = $items->result_array();
-//         foreach ($result as $item) {
-//            $total += $item['PRICE'] * $item['AMOUNT'];
-//        }
-        //$_SESSION['total'] = $total;
+       foreach ($result as $item) {
+            $total += $item['PRICE'] * $item['AMOUNT'];
+        }
+        $_SESSION['total'] = $total;
         return $result;
     }
 
