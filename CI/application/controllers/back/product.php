@@ -47,4 +47,9 @@ public function  sortProductByRate() {
     var_dump($result);
 }
    
+public function checkProductStock() {
+    $id = 201404041;
+    $stock = $this->product_model->checkProductStock($id);
+    var_dump($stock);
+}
 }

@@ -17,6 +17,7 @@ class Cart_Model extends CI_Model {
     public function addToCart($user, $pid, $am) {
         $time = new DateTime('now');
         $num = $this->existItem($user, $pid);
+        $am = intval($am);
 //check if item is in cart, if yes change the amount; if no inset into cart;
         $date = $time->format('Y-m-d H:i:s');
         $format = 'yyyy-mm-dd hh24:mi:ss';
@@ -25,7 +26,7 @@ class Cart_Model extends CI_Model {
             $this->changeAmount($user, $pid, $amount);
         } else {
             $sql = "INSERT INTO YAN.CART(cart_id, dt, amount, username, pid)  VALUES ( SEQUENCE_CART.Nextval, To_date(?, ?), ?, ?, ?)";
-            $this->db->query($sql, array($date, $format, $amount, $user, $pid));
+            $this->db->query($sql, array($date, $format, $am, $user, intval($pid)));
         }
     }
 

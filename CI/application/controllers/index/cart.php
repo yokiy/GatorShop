@@ -36,6 +36,7 @@ class Cart extends CI_Controller {
             $this->load->model('cart_model');
             $data ['product'] = $this->cart_model->getCart($_SESSION['email']);
             $data ['total'] = $_SESSION['total'];
+            $data['user']=$_SESSION['email'];
 //            $num = count($items);
 //            $total = $items['total'];
 //            
@@ -60,6 +61,10 @@ class Cart extends CI_Controller {
     
     
     public function changeItemAmount() {
+        if(!isset($_SESSION))
+        {
+            session_start();
+        }
         $user = $_SESSION['email'];
         $pid = $_POST['pid'];
         //original amount in cart
@@ -67,13 +72,16 @@ class Cart extends CI_Controller {
         //new amount in cart 
         $newAmount = $_POST['newAmount'];
      // opreate cart and product amount
-        $this->cart_model->addToCart($user, $pid, $newAmount);
+        $this->cart_model->changeAmount($user, $pid, $newAmount);
         $this->product_model->AddProductAmount($pid, ($oldAmount - $newAmount));
-     
+       redirect('/index/cart','refresh');
     }
 
 
     public function checkout() {
+           if (!isset($_SESSION)) {
+            session_start();
+        }
         //deal with the database;
         $order_number = $this->orders_model->checkout($_SESSION['email']);
         $this->load->view('checkout.html', $order_number);

@@ -95,7 +95,7 @@
 					<h1><?php echo $p['TITLE']?></h1>
 					<ul class="price_single">
 					  <li class="head"><h2>$ <?php echo $p['PRICE']?></h2></li>
-					  <li class="head_desc sky-form"><a href="#">12 reviews</a>
+					
 					 <fieldset>					
 					<section>
 						
@@ -127,7 +127,7 @@
 			        <form action="<?php echo site_url('index/single/addToCart'); ?>" method="POST">
 				    <div style="float:right;">
 					<span>Qty<label>:</label></span>
-					<input type="text" size="6" maxlength="3" name='amount' value="<?php echo set_value('qty_value'); ?>"> 
+					<input type="text" size="6" maxlength="3" name='amount'> 
 					<input type="hidden" name="pid" value="<?php echo $p['PID']?>">
 					<input type="submit" class="now-get" value="Add to Cart" />
 				  </div>
