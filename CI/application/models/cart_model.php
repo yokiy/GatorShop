@@ -31,9 +31,10 @@ class Cart_Model extends CI_Model {
 
     //display items in the cart
     public function getCart($user) {
-        $sql = 'select cart.*, product.TITLE, product.PRICE, product.IMG, product.pid from CART, product where cart.PID = product.PID and username = ?';
+        $sql = 'select product.amount as stock, cart.*, product.TITLE, product.PRICE, product.IMG, product.pid from CART, product where cart.PID = product.PID and username = ?';
         $items = $this->db->query($sql, array($user));
         $result = $items->result_array();
+        $total = 0;
        foreach ($result as $item) {
             $total += $item['PRICE'] * $item['AMOUNT'];
         }

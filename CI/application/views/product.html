@@ -65,10 +65,10 @@
 				<a href="#"><h4>Category: <?php echo $category?> - Order: <?php echo $order?><span> Total: <?php echo $totalNum?> items</span></h4></a>
 				<ul class="w_nav">
 					<li>Sort : </li>
-			     	<li><a class="active" href="<?php echo site_url().'/index/product/changeOrder/popular';?>">popular</a></li> |
-			     	<li><a href="<?php echo site_url().'/index/product/changeOrder/rate';?>">rate </a></li> |
-			     	<li><a href="<?php echo site_url().'/index/product/changeOrder/low';?>">price: High to Low</a></li> |
-			     	<li><a href="<?php echo site_url().'/index/product/changeOrder/high';?>">price: Low to High </a></li> 
+			     	<li><a class="active" href="<?php echo site_url().'/index/product/changeOrder/popular';?>">Popular</a></li> |
+			     	<li><a href="<?php echo site_url().'/index/product/changeOrder/rate';?>">Rate </a></li> |
+			     	<li><a href="<?php echo site_url().'/index/product/changeOrder/low';?>">price: Low to High </a></li> |
+			     	<li><a href="<?php echo site_url().'/index/product/changeOrder/high';?>">price: High to Low </a></li> 
 			     <div class="clearfix"> </div>	
 			     </ul>
 			     <div class="clearfix"> </div>	
@@ -82,13 +82,13 @@
 				<div class="content_box">
 					<a href="<?php echo site_url().'/index/single/findSingle/'.$p['PID'];?>" target="_blank">
 			   			<div class="left-grid-view grid-view-left">
-			   	   		<img src="<?php echo base_url().'images/pic13.jpg';?>" class="img-responsive watch-right" alt=""/>
+			   	   		<img src="<?php echo base_url().'img/'.$p['IMG'];?>" class="img-responsive watch-right" alt=""/>
 				   	   	<div class="mask">
 	                        <div class="info">Quick View</div>
 			            </div>
 				   	</a>
 				</div>
-				<h4><a href="<?php echo site_url().'/index/single/findSingle/'.$PID;?>" target="_blank"><?php echo $p['TITLE']?></a></h4>
+				<h4><a href="<?php echo site_url().'/index/single/findSingle/'.$p['PID'];?>" target="_blank"><?php echo $p['TITLE']?></a></h4>
 				<p>Amount: <?php echo $p['AMOUNT'];?> left.</p>
 				Price: $<?php echo $p['PRICE']?>
 			</div>

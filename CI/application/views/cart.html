@@ -69,7 +69,7 @@
                     <table border="1" cellpadding="5" align="center" width="800" height="300">
                         <tr>
                             <td align="center"> <h4>Image</h4></td>
-                            <td align="center"> <h4>Name</h4></td>
+                            <td align="center"> <h4>Description</h4></td>
                             <td align="center"> <h4>Price</h4></td>
                             <td align="center"> <h4>Quantity</h4></td>
                             <td align="center"> <h4>Manipulation</h4></td>     
@@ -77,15 +77,15 @@
                         <?php foreach($product as $p): ?>
                         <tr>
                             <td width="200" height="200" align="center"> <img src="<?php echo base_url().'images/bag1.jpg'?>" width="100" height="120" /></td>
-                            <td > <h4> <div style="padding-left:10px;padding-right:4px;text-align:left;"><a href="<?php echo site_url().'/index/single/findSingle/'.$p['PID'];?>" target="_blank"><?php echo $p['TITLE']?></a></div></h4> </td>
-                            <td align="center"><h4 ><?php echo $p['PRICE']?></h4></td>
+                            <td > <h4> <div style="padding-left:10px;padding-right:4px;text-align:left;"><a href="<?php echo site_url().'/index/single/findSingle/'.$p['PID'];?>" target="_blank">Name: <?php echo $p['TITLE']?>, Left: <?php echo $p['STOCK']?> </a></div></h4> </td>
+                            <td align="center"><h4 > $ <?php echo $p['PRICE']?></h4></td>
                             <td align="center">
                                 <form>
-                                    <input type="text" value="<?php echo $AMOUNT?>"> size="6" maxlength="3" name="number">
+                                    <input type="text" value="<?php echo $p['AMOUNT']?>" size="6" maxlength="3" name="number">
                                     <input  type="submit" value="Save" />
                                 </form>
                             </td>
-                            <td align="center" > <a class="acount-btn" href="<?php echo site_url().'/index/cart/deleteItem/'.$p['PID'];?>">DELETE</a></td>
+                            <td align="center" > <a class="acount-btn" href="<?php echo site_url().'/index/cart/deleteItem/'.$p['PID'].'/'.$p['AMOUNT'];?>">DELETE</a></td>
                         </tr>
                         <?php endforeach ?>
                     </table>

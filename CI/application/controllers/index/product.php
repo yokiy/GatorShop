@@ -15,7 +15,7 @@ class Product extends CI_Controller {
             session_start();
         }
         if (empty($_SESSION['category'])) {
-            $_SESSION['category'] = 'book';
+            $_SESSION['category'] = 'Book';
         }
         if (empty($_SESSION['order'])) {
             $_SESSION['order'] = 'popular';

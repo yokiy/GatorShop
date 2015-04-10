@@ -105,7 +105,9 @@ class product_model extends CI_Model {
 
     //add product amount when cart changes with amount
     public function AddProductAmount($pid, $amount) {
-        $sql = 'update Product set amount = amount + ?  where pid=?;';
+        $pid = intval($pid);
+        $amount = intval($amount);
+        $sql = 'update Product set amount = amount + ?  where pid=?';
         $this->db->query($sql, array($amount, $pid));
     }
 
@@ -133,7 +135,7 @@ class product_model extends CI_Model {
 
     //sort product in a category by order of sales amount in recent three month
     public function sortProductBySalesCategory($cate) {
-        $sql = 'select product.pid, count(*) as count from product,  orders  where orders.pid = product.pid and product.category = ? group by product.PID order by count DESC';
+        $sql = ' select product.*  from (select orders.pid as op,  sum(orders.amount) as count from orders group by orders.PID), product where op= product.pid and product.category = ?  order by count DESC';
         $result = $this->db->query($sql, array($cate));
         $products = $result->result_array();
         return $products;
@@ -141,7 +143,7 @@ class product_model extends CI_Model {
 
     //sort product by rate
     public function sortProductByRate($cate) {
-        $sql = 'select * from product where category = ? order by product.RATE DESC ;';
+        $sql = 'select * from product where category = ? order by product.RATE DESC';
         $result = $this->db->query($sql, array($cate));
         $ret = $result->result_array();
         return $ret;
