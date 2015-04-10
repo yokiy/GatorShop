@@ -24,20 +24,27 @@ class Single extends CI_Controller {
 	public function findSingle($pid)
 	{
 		//look up single product 
-		$data=array();
+		$data['single'] = $this->product_model->getProductById($pid);	
 		$this->load->view('single.html',$data);
 	}
 
 	  public function addToCart() {
+	  	if(!isset($_SESSION)){
+			session_start();
+		}
         $user = $_SESSION['email'];
         $pid = $_POST['pid'];
         $amount = $_POST['amount'];
         $stock = $this->product_model->checkProductStock($pid);
         if ($amount > $stock) {
-            //echo out of stock
+            //echo out of stock 
+            redirect('/index/single/findSingle/'.$pid,'refresh');
         } else {
             $this->cart_model->addToCart($user, $pid, $amount);
             $this->product_model->decreaseProductAmount($pid);
+            $data['PID']=$pid;
+            $this->load->view('confirm.html',$data);
+
         }
     }
 }

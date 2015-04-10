@@ -17,7 +17,7 @@ class Product extends CI_Controller {
     public function getProduct() {
         $result = $this->product_model->getProductById(21354);
 //       var_dump($result);
-        echo $result['TITLE'];
+        //echo $result['TITLE'];
     }
 
     //TEST can get products in a category passed

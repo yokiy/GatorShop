@@ -63,12 +63,12 @@ class Cart extends CI_Controller {
         $user = $_SESSION['email'];
         $pid = $_POST['pid'];
         //original amount in cart
-        $o_amount = $_POST['quantity'];
+        $oldAmount = $_POST['oldAmount'];
         //new amount in cart 
-        $amount = $_POST['amount'];
+        $newAmount = $_POST['newAmount'];
      // opreate cart and product amount
-        $this->cart_model->addToCart($user, $pid, $amount);
-        $this->product_model->AddProductAmount($pid, ($o_amount - $amount));
+        $this->cart_model->addToCart($user, $pid, $newAmount);
+        $this->product_model->AddProductAmount($pid, ($oldAmount - $newAmount));
      
     }
 

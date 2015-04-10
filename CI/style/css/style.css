@@ -273,6 +273,25 @@ ul.men-grid li a:hover{
 	color: #0000FF;
 }
 
+ul.men-grid1{
+	padding: 0;
+	margin-top: 30px;
+	margin-left: 20px;
+}
+ul.men-grid1 li{
+	display: inline;
+	margin-left:2px;
+}
+
+ul.men-grid1 li a {
+	text-decoration:none;
+	font-size: 1.1em;
+	color: #000;
+	
+}
+ul.men-grid1 li a:hover{
+	color: #0000FF;
+}
 
 /*----*/
 .search {
@@ -459,6 +478,17 @@ a.now-get{
 	text-decoration: none;
 }
 a.now-get:hover{
+	background: #0000FF;
+}
+.now-get{
+	
+	font-size: 1.1em;
+	color:#fff;
+	padding:0.6em 0.8em;
+	background:#323A45;
+	text-decoration: none;
+}
+.now-get:hover{
 	background: #0000FF;
 }
 .wmuSlider {
@@ -1085,6 +1115,21 @@ h3.m_3 {
 	line-height: 1.8em;
 	width: 95%;
 }
+.account-left {
+	color: #000000;
+	font-size: 1.3em;
+	font-weight: 600;
+	padding-bottom: 0.5em;
+
+}
+.account-left p{
+	color: #000000;
+	font-size: 0.9em;
+	font-weight: 300;
+	padding-bottom: 0.5em;
+
+}
+
 
 .acount-btn {
 	background:#FF6600;
@@ -1536,6 +1581,24 @@ a.get-cart {
 }
 .account_grid {
 	padding: 1em 0em 2em;
+}
+.account_grid-left{
+	float:left;
+	text-align:center;
+	width:50%;
+	margin-left:1px;
+	margin-right:2px;
+	height:300px;
+}
+.account_grid-right{
+	float:right;
+	
+}
+.account_grid-bottom{
+	clear:both;
+	text-align:center;
+	width:100%;
+
 }
 .sed-left-top{
 	margin:1em 0 0 0;
