@@ -52,4 +52,11 @@ public function checkProductStock() {
     $stock = $this->product_model->checkProductStock($id);
     var_dump($stock);
 }
+public function searchByRecommend(){
+    $pid =20140401;
+    $result=$this->product_model->recommend($pid);
+    var_dump($result);
 }
+
+}
+

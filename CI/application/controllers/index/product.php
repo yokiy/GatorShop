@@ -15,10 +15,10 @@ class Product extends CI_Controller {
             session_start();
         }
         if (empty($_SESSION['category'])) {
-            $_SESSION['category'] = 'Book';
+            $_SESSION['category'] = 'A';
         }
         if (empty($_SESSION['order'])) {
-            $_SESSION['order'] = 'popular';
+            $_SESSION['order'] = 'low';
         }
         //deal with database
         //$data = $this->product_model->getProductByCategory($_SESSION['category']);
