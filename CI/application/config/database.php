@@ -49,6 +49,8 @@ $active_group = 'default';
 $active_record = TRUE;
 
 $db['default']['hostname'] = 'oracle.cise.ufl.edu/orcl';
+//$db['default']['username'] = 'yuyue';
+//$db['default']['password'] = 'oracleCOP5725';
 $db['default']['username'] = 'yan';
 $db['default']['password'] = 'dbmsoracle';
 $db['default']['database'] = 'orcl';

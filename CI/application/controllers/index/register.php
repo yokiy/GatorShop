@@ -21,7 +21,7 @@ class Register extends CI_Controller {
         $this->form_validation->set_rules('gender', 'Gender', 'required');
         $this->form_validation->set_rules('cellphone', 'Cellphone', 'required');
         $this->form_validation->set_rules('city', 'City', 'required|alpha');
-        $this->form_validation->set_rules('zipcode', 'Zipcode', 'required|integer|exact_length[5]|');
+        $this->form_validation->set_rules('zipcode', 'Zipcode', 'required');
         $this->form_validation->set_rules('address', 'Address', 'required');
         $this->form_validation->set_rules('state', 'State', 'required');
 
@@ -42,7 +42,8 @@ class Register extends CI_Controller {
             $state = $_POST['state'];
             $email = $_POST['email'];
             $password = $_POST['r_password1'];
-            if ($this->user_model->createNewUser($email, $password, $fname, $lname, $gender, $address, $city, $state, $zipcode, $cellphone)) {
+            $img='1';
+            if ($this->user_model->createNewUser($email, $password, $fname, $lname, $gender, $address, $city, $state, $zipcode, $cellphone,$img)) {
                 $valid = TRUE;
             } else {
                 $valid = false;

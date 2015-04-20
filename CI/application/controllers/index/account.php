@@ -21,7 +21,10 @@ class Account extends CI_Controller {
         } else {
             $data = $this->user_model->getUserAccount($_SESSION['email']);
             //order_history is also a big array, including mutiple orders
+            $data['suser']=$this->user_model->SimilarUser($_SESSION['email']);       
+            $data['topcategory']=$this->user_model->topFiveCategory($_SESSION['email']);
             $data['order']  = $this->orders_model->orderHistory($_SESSION['email']);
+            
             $this->load->view('account.html', $data);
         }
     }

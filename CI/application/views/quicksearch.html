@@ -75,13 +75,34 @@
             <div class="women-product">
                 <div class=" w_content">
                     <div class="women">
-                        <a href="#"><h4>C: <?php echo $category?> - O: <?php echo $order?><span> Total: <?php echo $totalNum?> items</span></h4></a>
-                        <ul class="w_nav">
-                            <li>Sort : </li>
-                            <li><a class="active" href="<?php echo site_url().'/index/product/changeOrder/popular';?>">Popular</a></li> |
-                            <li><a href="<?php echo site_url().'/index/product/changeOrder/rate';?>">Rate </a></li> |
-                            <li><a href="<?php echo site_url().'/index/product/changeOrder/low';?>">price: Low to High </a></li> |
-                            <li><a href="<?php echo site_url().'/index/product/changeOrder/high';?>">price: High to Low </a></li> 
+
+                        <ul class="w_nav1">
+                            <form action="<?php echo site_url('index/quicksearch/quickSearch'); ?>" method="POST">
+                                <li>Select: </li>
+                                <li>Category
+                                    <select name="category">
+                                        <option value="Children"><h4>Children</h4></option>
+                                        <option value="Business"><h4>Business</h4></option>
+                                        <option value="Computer"><h4>Computer</h4></option>
+                                        <option value="Cook"><h4>Cook</h4></option>
+                                        <option value="Health"><h4>Health</h4></option>
+                                        <option value="Medical"><h4>Medical</h4></option>
+                                        <option value="Law"><h4>Law</h4></option>
+                                        <option value="Social"><h4>Social</h4></option>
+                                        <option value="Engineering"><h4>Engineering</h4></option>
+                                    </select>
+                                </li>
+                                <li>Rate
+                                    <input type="number" name="rate" min="1" max="5"/>
+                                </li>
+                                <li>
+                                    <span>lowest price</span>
+                                    <input type="text" size="4" maxlength="3" name="lprice"  value="<?php echo set_value('lowestprice'); ?>">    
+                                    <span>to highest price</span>
+                                    <input type="text" size="4" maxlength="3" name="hprice" value="<?php echo set_value('highestprice'); ?>" >
+                                    <input type="submit" value="SEARCH">
+                                </li>
+                            </form>
                             <div class="clearfix"> </div>	
                         </ul>
                         <div class="clearfix"> </div>	
@@ -90,80 +111,50 @@
                 <!-- grids_of_4 -->
                 <div class="grid-product">
 
-                    <?php foreach($product as $p): ?>
-                    <div class="  product-grid">
-                        <div class="content_box">
-                            <a href="<?php echo site_url().'/index/single/findSingle/'.$p['PID'];?>" target="_blank">
-                                <div class="left-grid-view grid-view-left">
-                                    <img src="<?php echo base_url().'/IMG/'.$p['IMG'];?>"  alt="images lost." style="width:200px;height:250px"/>
-                                    <div class="mask">
-                                        <div class="info">Quick View</div>
-                                    </div>
-                                </div>
-                          </a>
 
-<!--                        <h4><a href="<?php echo site_url().'/index/single/findSingle/'.$p['PID'];?>" target="_blank"><?php echo $p['TITLE']?></a></h4>-->
-                        <p>Amount: <?php echo $p['AMOUNT'];?> left.</p>
-                        Price: $<?php echo $p['PRICE']?>
-                    </div>
+                    <div class="clearfix"> </div>
                 </div>
-                <?php endforeach ?>
-                <?php echo $links ?>
-         
-        
-                <div class="clearfix"> </div>
             </div>
-        </div>
-        <div class="sub-cate">
-            <div class=" top-nav rsidebar span_1_of_left">
-                <h3 class="cate">CATEGORIES</h3>
-                <ul class="menu">
-                    <ul class="kid-menu ">
-                        <li><a href="<?php echo site_url().'/index/product/changeCategory/Children';?>">Children's Book</a></li>
-                        <li ><a href="<?php echo site_url().'/index/product/changeCategory/Business';?>">Business and Money</a></li>
-                        <li><a href="<?php echo site_url().'/index/product/changeCategory/Computer';?>">Computer and Technology</a></li>
-                        <li><a href="<?php echo site_url().'/index/product/changeCategory/Cook';?>">Cook Books</a></li>
-                        <li ><a href="<?php echo site_url().'/index/product/changeCategory/Comics';?>">Comics and Novels</a></li>
-                        <li><a href="<?php echo site_url().'/index/product/changeCategory/Health';?>">Health and Dieting</a></li>
-                        <li><a href="<?php echo site_url().'/index/product/changeCategory/Medical';?>">Medical Books</a></li>
-                        <li><a href="<?php echo site_url().'/index/product/changeCategory/Law';?>">Law</a></li>
-                        <li><a href="<?php echo site_url().'/index/product/changeCategory/Social';?>">Social Science</a></li>
-                        <li><a href="<?php echo site_url().'/index/product/changeCategory/Engineering';?>">Engineering</a></li>
-                         <li><a href="<?php echo site_url().'/index/product/listAll';?>">List All</a></li>
-                        <li class="menu-kid-left"><a href="<?php echo site_url().'/index/contact';?>">Contact us</a></li>
+            <div class="sub-cate">
+                <div class=" top-nav rsidebar span_1_of_left">
+                    <h3 class="cate">CATEGORIES</h3>
+                    <ul class="menu">
+                        <ul class="kid-menu ">
+                            <li><a href="<?php echo site_url().'/index/product/changeCategory/Children';?>">Children's Book</a></li>
+                            <li ><a href="<?php echo site_url().'/index/product/changeCategory/Business';?>">Business and Money</a></li>
+                            <li><a href="<?php echo site_url().'/index/product/changeCategory/Computer';?>">Computer and Technology</a></li>
+                            <li><a href="<?php echo site_url().'/index/product/changeCategory/Cook';?>">Cook Books</a></li>
+                            <li ><a href="<?php echo site_url().'/index/product/changeCategory/Comics';?>">Comics and Novels</a></li>
+                            <li><a href="<?php echo site_url().'/index/product/changeCategory/Health';?>">Health and Dieting</a></li>
+                            <li><a href="<?php echo site_url().'/index/product/changeCategory/Medical';?>">Medical Books</a></li>
+                            <li><a href="<?php echo site_url().'/index/product/changeCategory/Law';?>">Law</a></li>
+                            <li><a href="<?php echo site_url().'/index/product/changeCategory/Social';?>">Social Science</a></li>
+                            <li><a href="<?php echo site_url().'/index/product/changeCategory/Engineering';?>">Engineering</a></li>
+                            <li class="menu-kid-left"><a href="<?php echo site_url().'/index/contact';?>">Contact us</a></li>
+                        </ul>
                     </ul>
-                </ul>
-            </div>
-            <!--initiate accordion-->
-            <script type="text/javascript">
-                        $(function () {
-                            var menu_ul = $('.menu > li > ul'),
-                                    menu_a = $('.menu > li > a');
-                            menu_ul.hide();
-                            menu_a.click(function (e) {
-                                e.preventDefault();
-                                if (!$(this).hasClass('active')) {
-                                    menu_a.removeClass('active');
-                                    menu_ul.filter(':visible').slideUp('normal');
-                                    $(this).addClass('active').next().stop(true, true).slideDown('normal');
-                                } else {
-                                    $(this).removeClass('active');
-                                    $(this).next().stop(true, true).slideUp('normal');
-                                }
-                            });
-
-                        });
-            </script>
-                <?php foreach($bestseller as $b): ?>
-            <div class=" chain-grid menu-chain">
-                <h4>Bestseller of this month.</h4>
-                <a href="<?php echo site_url().'/index/single/findSingle/'.$b['PID'];?>" target="_blank"/><img class="img-responsive chain" src="<?php echo base_url().'/IMG/'.$b['IMG'];?>" alt=" " style="width:200px;height:250px  /></a>	   		     		
-                <div class="grid-chain-bottom chain-watch">
-                    <span class="actual dolor-left-grid"><?php echo $b['PRICE']?> $</span> 
-                    <h6><?php echo $b['TITLE']?></h6>  		     			   		     										
                 </div>
-            </div>
-                 <?php endforeach ?>
+                <!--initiate accordion-->
+                <script type="text/javascript">
+                            $(function () {
+                                var menu_ul = $('.menu > li > ul'),
+                                        menu_a = $('.menu > li > a');
+                                menu_ul.hide();
+                                menu_a.click(function (e) {
+                                    e.preventDefault();
+                                    if (!$(this).hasClass('active')) {
+                                        menu_a.removeClass('active');
+                                        menu_ul.filter(':visible').slideUp('normal');
+                                        $(this).addClass('active').next().stop(true, true).slideDown('normal');
+                                    } else {
+                                        $(this).removeClass('active');
+                                        $(this).next().stop(true, true).slideUp('normal');
+                                    }
+                                });
+
+                            });
+                </script>
+              
             <a class="view-all all-product" href="<?php echo site_url().'/index/product';?>">VIEW ALL PRODUCTS<span> </span></a> 	
         </div>
         <div class="clearfix"> </div>

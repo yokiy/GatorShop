@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Login</title>
+        <title>Product</title>
         <link href="<?php echo base_url().'style/css/bootstrap.css';?>" rel="stylesheet" type="text/css" media="all" />
         <!--theme-style-->
         <link href="<?php echo base_url().'style/css/style.css';?>" rel="stylesheet" type="text/css" media="all" />	
@@ -14,6 +14,7 @@
         <script src="<?php echo base_url().'style/js/jquery.min.js';?>"></script>
 
         <script src="<?php echo base_url().'style/js/jquery.easydropdown.js';?>"></script>
+        <!--script-->
     </head>
     <body> 
         <!--header-->
@@ -28,14 +29,14 @@
                 <div class="container">
                     <div class="header-bottom-left">
                         <div class="logo">
-                            <a href="<?php echo site_url().'/index/product';?>"><img src="<?php echo base_url().'images/logo.jpg'?>" alt=" " style="width:150px;height:100px"/></a>
+                            <a href="<?php echo site_url().'/index/product';?>"><img src="<?php echo base_url().'images/logo.jpg';?>" alt=" " style="width:150px;height:100px"/></a>
                         </div>
                         <div class="search">
                             <form action="<?php echo site_url('index/search/find'); ?>" method="POST">
                                 <div class="search1">
                                     <input type="submit"  value="SEARCH">
                                     <input type="text" name="search_value" value="<?php echo set_value('search_value'); ?>"> 
-                                    
+
                                 </div>
                                 <div class="newselect">
                                     <select name="select">
@@ -58,85 +59,99 @@
                             <li>|</li>
                             <li ><a href="<?php echo site_url().'/index/register';?>">SIGNUP</a></li>
                             <li>|</li>
-                     <li ><a href="<?php echo site_url().'/index/quicksearch';?>">QUICK SEARCH</a></li>
+                            <li ><a href="<?php echo site_url().'/index/quicksearch';?>">QUICK SEARCH</a></li>
 
 
                         </ul>
                     </div>
-
                     <div class="clearfix"> </div>	
                 </div>
             </div>
         </div>
         <!---->
+        <!-- start content -->
         <div class="container">
 
-            <div class="account_grid">
-                <div class="login-right">
-                    <h3> User Name</h3>
-                    <p> <?php echo $user ?></p>
-                    <hr>
-                    <h3 >YOUR SHOPPING CART</h3>
-                </div>	
-                <div>
+            <div class="women-product">
+                <div class=" w_content">
+                    <div class="women">
 
-                    <table border="1" cellpadding="5" align="center" width="800" height="300">
-                        <tr>
-                            <td align="center"> <h4>Image</h4></td>
-                            <td align="center"> <h4>Description</h4></td>
-                            <td align="center"> <h4>Price</h4></td>
-                            <td align="center"> <h4>Quantity</h4></td>
-                            <td align="center"> <h4>Manipulation</h4></td>     
-                        </tr>
-                        <?php foreach($product as $p): ?>
-                        <tr>
-                            <td width="200" height="200" align="center"> <img src="<?php echo base_url().'IMG/'.$p['IMG']?>" width="100" height="120" /></td>
-                            <td > <h4> <div style="padding-left:10px;padding-right:4px;text-align:left;"><a href="<?php echo site_url().'/index/single/findSingle/'.$p['PID'];?>" target="_blank">Name: <?php echo $p['TITLE']?>, Left: <?php echo $p['STOCK']?> </a></div></h4> </td>
-                            <td align="center"><h4 > $ <?php echo $p['PRICE']?></h4></td>
-                            <td align="center">
-                                <form action="<?php echo site_url('index/cart/changeItemAmount'); ?>" method="POST">
-                                    <input type="text" name='newAmount' value="<?php echo $p['AMOUNT']?>" size="6" maxlength="3" name="number">
-                                    <input type="hidden" name="pid" value="<?php echo $p['PID']?>">
-                                    <input type="hidden" name="oldAmount" value="<?php echo $p['AMOUNT']?>">
-                                    <input  type="submit" value="Save" />
-                                </form>
-                            </td>
-                            <td align="center" > <a class="acount-btn" href="<?php echo site_url().'/index/cart/deleteItem/'.$p['PID'].'/'.$p['AMOUNT'];?>">DELETE</a></td>
-                        </tr>
-                        <?php endforeach ?>
-                    </table>
-                    <hr>
-                    <div class="clearfix"> </div>	
-                    <!--<div class="account_grid">-->
-                    <div class=" login-left">
-                        <h3>Subtotal:$ <?php echo $total?></h3>
-                      
-                        <hr>
-                        <a class="acount-btn" href="<?php echo site_url().'/index/cart/checkout';?>">Check out</a>
+                        <ul class="w_nav1">
+                            <form action="<?php echo site_url('index/quicksearch/quickSearch'); ?>" method="POST">
+                                <li>Select: </li>
+                                <li>Category
+                                    <select name="category">
+                                        <option value="Children"><h4>Children</h4></option>
+                                        <option value="Business"><h4>Business</h4></option>
+                                        <option value="Computer"><h4>Computer</h4></option>
+                                        <option value="Cook"><h4>Cook</h4></option>
+                                        <option value="Health"><h4>Health</h4></option>
+                                        <option value="Medical"><h4>Medical</h4></option>
+                                        <option value="Law"><h4>Law</h4></option>
+                                        <option value="Social"><h4>Social</h4></option>
+                                        <option value="Engineering"><h4>Engineering</h4></option>
+                                    </select>
+                                </li>
+                                <li>Rate
+                                    <input type="number" name="rate" min="1" max="5"/>
+                                </li>
+                                <li>
+                                    <span>lowest price</span>
+                                    <input type="text" size="4" maxlength="3" name="lprice"  value="<?php echo set_value('lowestprice'); ?>">    
+                                    <span>to highest price</span>
+                                    <input type="text" size="4" maxlength="3" name="hprice" value="<?php echo set_value('highestprice'); ?>" >
+                                    <input type="submit" value="SEARCH">
+                                </li>
+                            </form>
+                            <div class="clearfix"> </div>	
+                        </ul>
+                        <div class="clearfix"> </div>	
                     </div>
-                    <!--</div>-->
                 </div>
+                <!-- grids_of_4 -->
+                <div class="grid-product">
+                     <p>Category:  <?php echo $c ?>    Least Rate:    <?php echo $r ?>      Lowest Price:    <?php echo $l ?>     Highest Price:    <?php echo $h ?> </p>
+                        <div class="clearfix"> </div>
+                    <?php foreach($product as $p): ?>
+                    <div class="  product-grid">
+                        <div class="content_box">
+                            <a href="<?php echo site_url().'/index/single/findSingle/'.$p['PID'];?>" target="_blank">
+                                <div class="left-grid-view grid-view-left">
+                                    <img src="<?php echo base_url().'/IMG/'.$p['IMG'];?>"  alt="images lost." style="width:200px;height:250px"/>
+                                    <div class="mask">
+                                        <div class="info">Quick View</div>
+                                    </div>
+                                </div>
+                            </a>
 
-                <div class="clearfix"> </div>
+                            <!--                        <h4><a href="<?php echo site_url().'/index/single/findSingle/'.$p['PID'];?>" target="_blank"><?php echo $p['TITLE']?></a></h4>-->
+                            <p>Amount: <?php echo $p['AMOUNT'];?> left.</p>
+                            Price: $<?php echo $p['PRICE']?>
+                        </div>
+                    </div>
+                    <?php endforeach ?>
+
+                    <div class="clearfix"> </div>
+                </div>
             </div>
             <div class="sub-cate">
                 <div class=" top-nav rsidebar span_1_of_left">
                     <h3 class="cate">CATEGORIES</h3>
-                  <ul class="menu">
-                    <ul class="kid-menu ">
-                        <li><a href="<?php echo site_url().'/index/product/changeCategory/Children';?>">Children's Book</a></li>
-                        <li ><a href="<?php echo site_url().'/index/product/changeCategory/Business';?>">Business and Money</a></li>
-                        <li><a href="<?php echo site_url().'/index/product/changeCategory/Computer';?>">Computer and Technology</a></li>
-                        <li><a href="<?php echo site_url().'/index/product/changeCategory/Cook';?>">Cook Books</a></li>
-                        <li ><a href="<?php echo site_url().'/index/product/changeCategory/Comics';?>">Comics and Novels</a></li>
-                        <li><a href="<?php echo site_url().'/index/product/changeCategory/Health';?>">Health and Dieting</a></li>
-                        <li><a href="<?php echo site_url().'/index/product/changeCategory/Medical';?>">Medical Books</a></li>
-                        <li><a href="<?php echo site_url().'/index/product/changeCategory/Law';?>">Law</a></li>
-                        <li><a href="<?php echo site_url().'/index/product/changeCategory/Social';?>">Social Science</a></li>
-                         <li><a href="<?php echo site_url().'/index/product/changeCategory/Engineering';?>">Engineering</a></li>
-                        <li class="menu-kid-left"><a href="<?php echo site_url().'/index/contact';?>">Contact us</a></li>
+                    <ul class="menu">
+                        <ul class="kid-menu ">
+                            <li><a href="<?php echo site_url().'/index/product/changeCategory/Children';?>">Children's Book</a></li>
+                            <li ><a href="<?php echo site_url().'/index/product/changeCategory/Business';?>">Business and Money</a></li>
+                            <li><a href="<?php echo site_url().'/index/product/changeCategory/Computer';?>">Computer and Technology</a></li>
+                            <li><a href="<?php echo site_url().'/index/product/changeCategory/Cook';?>">Cook Books</a></li>
+                            <li ><a href="<?php echo site_url().'/index/product/changeCategory/Comics';?>">Comics and Novels</a></li>
+                            <li><a href="<?php echo site_url().'/index/product/changeCategory/Health';?>">Health and Dieting</a></li>
+                            <li><a href="<?php echo site_url().'/index/product/changeCategory/Medical';?>">Medical Books</a></li>
+                            <li><a href="<?php echo site_url().'/index/product/changeCategory/Law';?>">Law</a></li>
+                            <li><a href="<?php echo site_url().'/index/product/changeCategory/Social';?>">Social Science</a></li>
+                            <li><a href="<?php echo site_url().'/index/product/changeCategory/Engineering';?>">Engineering</a></li>
+                            <li class="menu-kid-left"><a href="<?php echo site_url().'/index/contact';?>">Contact us</a></li>
+                        </ul>
                     </ul>
-                </ul>
                 </div>
                 <!--initiate accordion-->
                 <script type="text/javascript">
@@ -158,6 +173,7 @@
 
                             });
                 </script>
+               
                 <a class="view-all all-product" href="<?php echo site_url().'/index/product';?>">VIEW ALL PRODUCTS<span> </span></a> 	
             </div>
             <div class="clearfix"> </div>

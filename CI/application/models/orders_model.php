@@ -51,9 +51,9 @@ class Orders_Model extends CI_Model {
         $format = 'yyyy-mm-dd hh24:mi:ss';
         $items = $this->cart_model->getCart($user);
         foreach ($items as $item) {
-            $pid =  intval($item['PID']);
+            $pid =  $item['PID'];
             $amount = intval($item['AMOUNT']);
-            $sql = 'insert into orders values(SEQ_order.nextval, to_date(?, ?), 0, null , ?, ?, ?, ?)';
+            $sql = 'insert into orders values(SEQ_order.nextval, to_date(?, ?), 0,  ?, ?, ?, ?)';
             $this->db->query($sql, array($date, $format, $user, $pid, $amount, $order_number));            
         }
         $this->cart_model->emptyCart($user);

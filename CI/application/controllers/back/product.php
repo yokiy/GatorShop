@@ -30,33 +30,50 @@ class Product extends CI_Controller {
             echo $product['TITLE'];
         }
     }
-    
-   public function sortProductBySalesCategory(){
-       $cate = 'Book';
-       $result = $this->product_model->sortProductBySalesCategory($cate);
-       var_dump($result);
-   }
+
+    public function sortProductBySalesCategory() {
+        $cate = 'Children';
+        $result = $this->product_model->sortProductBySalesCategory($cate, 5);
+        var_dump($result);
+    }
+
 //    public function sortProductDesc() {
 //        $cate = 'Book';
 //         $this->product_model->sortProductByPriceDesc($cate);
 //    }
 
-public function  sortProductByRate() {
-    $cate = 'Book';
-    $result = $this->product_model-> sortProductByRate($cate);
-    var_dump($result);
-}
-   
-public function checkProductStock() {
-    $id = 201404041;
-    $stock = $this->product_model->checkProductStock($id);
-    var_dump($stock);
-}
-public function searchByRecommend(){
-    $pid =20140401;
-    $result=$this->product_model->recommend($pid);
-    var_dump($result);
-}
+    public function sortProductByRate() {
+        $cate = 'Book';
+        $result = $this->product_model->sortProductByRate($cate);
+        var_dump($result);
+    }
 
-}
+    public function checkProductStock() {
+        $id = 201404041;
+        $stock = $this->product_model->checkProductStock($id);
+        var_dump($stock);
+    }
 
+    public function searchByRecommend() {
+        $pid = 20140401;
+        $result = $this->product_model->recommend($pid);
+        var_dump($result);
+    }
+
+    public function SimilarUser() {
+        $user = 'insert@test.com';
+        $result = $this->product_model->SimilarUser($user);
+        var_dump($result);
+    }
+
+    public function getTheBestSellerOfThisMonth() {
+//    $user = 'insert@test.com';
+        $result = $this->product_model->getTheBestSellerOfThisMonth();
+        var_dump($result);
+    }
+
+    public function getAllCustomerCount() {
+        $result = $this->product_model->getAllCustomerCount();
+        var_dump($result);
+    }
+}

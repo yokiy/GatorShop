@@ -248,6 +248,9 @@ ul.support li a {
     margin-top:9px;
   
 }
+
+
+
 .header-bottom-right{
 	float: right;
 	width: 45%;
@@ -294,11 +297,16 @@ ul.men-grid1 li a:hover{
 }
 
 /*----*/
+
+
+
+
+
 .search {
 	background:#fff;
-	border: 1px solid #ddd;
+	border: 0px solid #ddd;
 	position: relative;
-	width: 47%;
+	width:60%;
 	float: right;
 	margin: 1.7em 0 0;
 }
@@ -308,7 +316,7 @@ ul.men-grid1 li a:hover{
 	background: none;
 	font-size:1em;
 	color:#777;
-	width:68%;
+	width:60%;
 	padding:7px;
 	-webkit-apperance:none;
 	margin:0;
@@ -331,6 +339,56 @@ ul.men-grid1 li a:hover{
 }	
 .search input[type="submit"]:active {
 	position:relative;
+}
+
+.search1 {
+	background:#fff;
+	border: 1px solid #ddd;
+	position: relative;
+	
+	float: right;
+	margin: 0 0 0 0;
+}
+
+.search1 input[type="text"] {
+                          float: right;
+	border: none;
+	outline: none;
+	background: none;
+	font-size:1em;
+	color:#777;
+	width:70%;
+	
+	-webkit-apperance:none;
+	margin:0;
+	-webkit-transition: all 0.5s ease-out;
+	-moz-transition: all 0.5s ease-out;
+	-ms-transition: all 0.5s ease-out;
+	-o-transition: all 0.5s ease-out;
+}
+.search1 input[type="submit"] {
+                         float: right;
+	border-left: 1px solid #ddd;
+	outline: none;
+	cursor: pointer;
+	width: 30%;
+	height: 35px;
+	
+	background: none;
+	border-bottom: none;
+	border-top: none;
+	border-right: none;
+}	
+.search1 input[type="submit"]:active {
+	position:relative;
+}
+.newselect 
+{
+	position: relative;
+	width: 20%;
+	float: left;
+	margin: 0 0 0 0 ;
+	
 }
 /*----*/
 h3.cate {
@@ -857,7 +915,7 @@ h3.m_3 {
 }
 .sky-form .rating {
 	margin-bottom: 4px;
-	font-size: 15px;
+	font-size: 100px;
 	line-height: 27px;
 	color: #404040;
 }
@@ -938,7 +996,7 @@ h3.m_3 {
 .w_nav {
 	float:right;
 	color:#555555;
-	font-size:0.8125em;
+	font-size:1em;
 	padding:0.8em 0 0;
 	list-style:none;
 	margin: 0
@@ -952,6 +1010,25 @@ h3.m_3 {
 	text-transform:capitalize;
 }
 .w_nav li a:hover{
+	color: #0000FF;
+}
+.w_nav1 {
+	float:right;
+	color:#555555;
+	font-size:1.2em;
+	padding:0.8em 0 0.8em;
+	list-style:none;
+	margin: 0
+}
+.w_nav1 li{
+	display: inline-block;
+}
+.w_nav1 li a{
+	display: block;
+	color:#555555;
+	text-transform:capitalize;
+}
+.w_nav1 li a:hover{
 	color: #0000FF;
 }
 .grid-product{
@@ -978,6 +1055,7 @@ h3.m_3 {
 .product-grid{
 	float: left;
 	width: 33.333%;
+                        height: 350px;
 }
 .left-grid-view {
    overflow: hidden;
@@ -1324,6 +1402,7 @@ a.forgot {
 	float:left;
 	width: 36%;
 }
+
 .latter-right{
 	float:right;
 }
@@ -1377,10 +1456,10 @@ ul.face-in-to li a span.facebook-in{
 	-webkit-apperance:none;
 }	
 .sub-left-right{
-	float: left;
+	float: right;
 	position: relative;
 	width: 56%;
-	padding: 1.1em 0;
+	padding:0.5em 0;
 }
 .footer-bottom-cate{
 	float: left;
@@ -1479,7 +1558,12 @@ ul.face-in-to li a span.facebook-in{
 .logo {
 	width: 31%;
     
+}
+.logo ul li{
+
+
 }	
+	width: 31%;	
 .header-bottom-right {
 
 	margin: 10em 0em 0em 2em;

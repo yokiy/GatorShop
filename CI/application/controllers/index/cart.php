@@ -20,7 +20,7 @@ class Cart extends CI_Controller {
             redirect('/index/login', 'refresh');
         } else {
             $this->load->library('pagination');
-            $perPage = 1;
+            $perPage = 2;
             $config['base_url'] = site_url('index/cart/index');
             $config['total_rows'] = 5;
             $config['per_page'] = $perPage;
@@ -32,7 +32,8 @@ class Cart extends CI_Controller {
             $this->pagination->initialize($config);
             $data['links'] = $this->pagination->create_links();
             $offset = $this->uri->segment(4);
-            $this->db->limit($perPage, $offset);
+            $srow=$offset*$perPage+1;
+            $erow=$srow+$perPage;
             $this->load->model('cart_model');
             $data ['product'] = $this->cart_model->getCart($_SESSION['email']);
             $data ['total'] = $_SESSION['total'];
