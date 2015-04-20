@@ -1,289 +1,260 @@
 <!DOCTYPE html>
 <html>
-<head>
-<title>Login</title>
-<link href="<?php echo base_url().'style/css/bootstrap.css';?>" rel="stylesheet" type="text/css" media="all" />
-<!--theme-style-->
-<link href="<?php echo base_url().'style/css/style.css';?>" rel="stylesheet" type="text/css" media="all" />	
-<!--//theme-style-->
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
-<!--fonts-->
-<link href='http://fonts.useso.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'>
-<!--//fonts-->
-<script src="<?php echo base_url().'style/js/jquery.min.js';?>"></script>
+    <head>
+        <title>Login</title>
+        <link href="<?php echo base_url().'style/css/bootstrap.css';?>" rel="stylesheet" type="text/css" media="all" />
+        <!--theme-style-->
+        <link href="<?php echo base_url().'style/css/style.css';?>" rel="stylesheet" type="text/css" media="all" />	
+        <!--//theme-style-->
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+        <!--fonts-->
+        <link href='http://fonts.useso.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'>
+        <!--//fonts-->
+        <script src="<?php echo base_url().'style/js/jquery.min.js';?>"></script>
 
-<script src="<?php echo base_url().'style/js/jquery.easydropdown.js';?>"></script>
-</head>
-<body> 
-	<!--header-->
-	<div class="header">
-    <div class="top-header">
-    <div class="container">
-      <h2 ><a href="<?php echo site_url().'/index/product';?>" style="color:white">GatorShop</a></h2>
-    </div>
-    
-    </div>
-		<div class="bottom-header">
-			<div class="container">
-				<div class="header-bottom-left">
-                <div class="logo">
-                <a href="<?php echo site_url().'/index/product';?>"><img src="<?php echo base_url().'images/logo.jpg'?>" alt=" " style="width:150px;height:100px"/></a>
+        <script src="<?php echo base_url().'style/js/jquery.easydropdown.js';?>"></script>
+    </head>
+    <body> 
+        <!--header-->
+        <div class="header">
+            <div class="top-header">
+                <div class="container">
+                    <h2 ><a href="<?php echo site_url().'/index/product';?>" style="color:white">GatorShop</a></h2>
                 </div>
-					<div class="search">
-						<form action="<?php echo site_url('index/search/find'); ?>" method="POST">
-					  		<input type="text" name="search_value" value="<?php echo set_value('search_value'); ?>">
-					  		<input type="submit"  value="SEARCH">
-					  	</form>
-					</div>
-					<div class="clearfix"> </div>
-				</div>
-				<div class="header-bottom-right">
-					<ul class="men-grid">
-						<li><a href="<?php echo site_url().'/index/account';?>"><span> </span>YOUR ACCOUNT</a></li>
-						<li>|</li>
-						<li ><a href="<?php echo site_url().'/index/cart';?>"><span> </span>CART</a></li>
-						<li>|</li>
-						<li ><a href="<?php echo site_url().'/index/login';?>"><span> </span>LOGIN/OUT</a></li>
-						<li>|</li>
-						<li ><a href="<?php echo site_url().'/index/register';?>">SIGNUP</a></li>
-					</ul>
-				</div>
-				<div class="clearfix"> </div>	
-			</div>
-		</div>
-	</div>
-	<!---->
-	<div class="container">
-    
-		       <div class="account_grid">
-                
-			      <div  class="account_grid-left"> 
-			      	    <table border="0" align="center">
-			      	    	<tr>
-			    	        <th rowspan="4" align="center" width="300">
-			    	        <img src="<?php echo base_url().'images/profile.jpg'?>" width="180" height="200">	
-			    	        </th>
-                	        <th align="left"><font size="4"><font color="#FF6600">USER NAME:</font></font>&nbsp <?php echo $USERNAME ?></th>
-                            </tr>
-                            <tr>
-                	        <th align="left"><font size="4"><font color="#FF6600">GENDER:</font></font>&nbsp <?php echo $GENDER ?></th>
-                            </tr>
-                             <tr>
-                	         <th align="left"><font size="4"><font color="#FF6600">ADDRESS:</font></font>&nbsp <?php echo $ADDRESS ?></th>
-                             </tr>
-                              <tr>
-                	          <th align="left"><font size="4"><font color="#FF6600">CELLPHONE:</font></font>&nbsp <?php echo $CELLPHONE ?></th>
-                	          <td align="center"> <a class="acount-btn" href="<?php echo site_url().'/index/account/modify';?>">Modify</a></td>
-                              </tr>
-                              <div class="clearfix"> </div>
-                              </table>
-                   <div class="clearfix"> </div>
-			      </div>
-                 
-                <div class="clearfix"> </div>
-            
-                <div class="account_grid-bottom">
-                	<div class="login-right">
-                	<h3><font size="5">Purchase History</font></h3></div>
-            	<table border="1" cellpadding="5" align="center" width="800" height="300">
-  				<tr>
-                <td align="center"> <h4>Order number</h4></td>
-                <td align="center"> <h4>Image</h4></td>
-            	<td align="center"> <h4>Description</h4></td>
-            	<td align="center"> <h4>Price</h4></td>
-            	<td align="center"> <h4>Quantity</h4></td>
-            	<td align="center"> <h4>Date</h4></td>
-                </tr>
-                <?php foreach($order as $o): ?>
-  				<tr>
-                <td align="center"><h4><?php echo $o['ORDER_NUMBER']?></h4></td>
-                <td width="200" height="200" align="center"> <a href="<?php echo site_url().'/index/single';?>"> <img src="<?php echo base_url().'images/bag1.jpg'?>" width="100" height="120" /> </a> </td>
-                <td > <h4> <div style="padding-left:10px;padding-right:4px;text-align:left;"><?php echo $o['TITLE']?></div></h4> </td>
-                <td align="center"><h4 ><?php echo $o['PRICE']?></h4></td>
-                <td align="center"><h4><?php echo $o['AMOUNT']?></h4> </td>
-                <td align="center" ><h4><?php echo $o['DT']?></h4></td>
-                </tr>
-                <?php endforeach ?>
-				</table>
-            	<div class="clearfix"> </div>
+
             </div>
-            
+            <div class="bottom-header">
+                <div class="container">
+                    <div class="header-bottom-left">
+                        <div class="logo">
+                            <a href="<?php echo site_url().'/index/product';?>"><img src="<?php echo base_url().'images/logo.jpg'?>" alt=" " style="width:150px;height:100px"/></a>
+                        </div>
+                        <div class="search">
+                            <form action="<?php echo site_url('index/search/find'); ?>" method="POST">
+                                <div class="search1">
+                                    <input type="submit"  value="SEARCH">
+                                    <input type="text" name="search_value" value="<?php echo set_value('search_value'); ?>"> 
+
+                                </div>
+                                <div class="newselect">
+                                    <select name="select">
+                                        <option value="title"> Title </option>
+                                        <option value="author"> Author </option>
+                                        <option value="publisher"> Publisher </option>
+                                    </select>
+                                </div>    
+                            </form>
+                        </div>
+                        <div class="clearfix"> </div>
+                    </div>
+                    <div class="header-bottom-right">
+                        <ul class="men-grid1">
+                            <li><a href="<?php echo site_url().'/index/account';?>"><span> </span>YOUR ACCOUNT</a></li>
+                            <li>|</li>
+                            <li ><a href="<?php echo site_url().'/index/cart';?>"><span> </span>CART</a></li>
+                            <li>|</li>
+                            <li ><a href="<?php echo site_url().'/index/login';?>"><span> </span>LOGIN/OUT</a></li>
+                            <li>|</li>
+                            <li ><a href="<?php echo site_url().'/index/register';?>">SIGNUP</a></li>
+                            <li>|</li>
+                            <li ><a href="<?php echo site_url().'/index/quicksearch';?>">QUICK SEARCH</a></li>
+                        </ul>
+                    </div>
+                    <div class="clearfix"> </div>	
+                </div>
+            </div>
+        </div>
+        <!---->
+        <div class="container">
+
+            <div class="account_grid">
+
+                <div  class="account_grid-left"> 
+                    <table border="0" align="center">
+                        <tr>
+                            <th rowspan="4" align="center" width="300">
+                                <img src="<?php echo base_url().'images/'. $PORTRAIT.'.jpg'?>" width="180" height="200">	
+                            </th>
+                            <th align="left"><font size="4"><font color="#FF6600">USER NAME:</font></font>&nbsp <?php echo $USERNAME ?></th>
+                        </tr>
+                        <tr>
+                            <th align="left"><font size="4"><font color="#FF6600">GENDER:</font></font>&nbsp<?php echo $GENDER ?></th>
+                        </tr>
+                        <tr>
+                            <th align="left"><font size="4"><font color="#FF6600">ADDRESS:</font></font>&nbsp <?php echo $ADDRESS ?></th>
+                        </tr>
+                        <tr>
+                            <th align="left"><font size="4"><font color="#FF6600">CELLPHONE:</font></font>&nbsp <?php echo $CELLPHONE ?></th>
+                            <td align="center"> <a class="acount-btn" href="<?php echo site_url().'/index/account/modify';?>">Modify</a></td>
+                        </tr>
+                        <div class="clearfix"> </div>
+                    </table>
+                    <div class="clearfix"> </div>
+                </div>
+
+                <div class="clearfix"> </div>
+
+                <div class="account_grid-bottom">
+                    <div class="single_grid">
+                        <!-- user -->
+                        <div class="login-right">
+                            <table border="0" align="center" width="800" height="300">
+                                <tr>
+                                    <th colspan="5">
+                                <h3 align="left"><div style="padding-top:35px;"><b><font size="5">similar users</font></b></div></h3>
+                                </th>
+
+                                </tr>
+                                <tr height="100">
+                                         <?php foreach($suser as $su): ?>
+                                    <td align="center" height="100"><img src="<?php echo base_url(). 'images/abs.jpg'?>" width="120" height="120"/>
+                                        <h4><div style="padding-left:20px;padding-right:10px;text-align:center;"><font size="4"><a href="<?php echo site_url().'/index/account';?>"><?php echo $su['USERNAME']?></a></font></div></h4> 
+                                          <?php endforeach ?>
+                                    </td>
+
+                                </tr>
+                            </table>
+                            <div class="clearfix"> </div>
+                        </div>
+                        <!-- top 5 -->
+                        <div style="margin-top:10px;">
+                            <table border="0" cellpadding="5" align="center" width="800" height="100">
+                                <tr>
+                                    <th colspan="5" align="left" ><font size="5"><font color="#FF6600">Your favourite top 5  categories</font></font></td>
+                                </tr>
+                                <tr>
+                                     <?php foreach($topcategory as $c): ?>
+                                    <td align="center"><font size="5"><?php echo $c['CATEGORY']?></font></td>
+                                     <?php endforeach ?>
+                                </tr>
+                            </table>
+
+
+
+                            <div class="clearfix"></div>
+                        </div>
+                        <!--purchase history  -->
+                        <div>
+                            <font size="5"><font color="#FF6600"><b>Purchase History</b></font></font></div>
+                        <table border="1" cellpadding="5" align="center" width="800" height="300">
+                            <tr>
+                                <td align="center"> <h4>Order number</h4></td>
+                                <td align="center"> <h4>Image</h4></td>
+                                <td align="center"> <h4>Description</h4></td>
+                                <td align="center"> <h4>Price</h4></td>
+                                <td align="center"> <h4>Quantity</h4></td>
+                                <td align="center"> <h4>Date</h4></td>
+                                <td align="center" width="120"> <h4>Rate</h4></td>
+                            </tr>
+                              <?php foreach($order as $o): ?>
+                            <tr>
+                                <td align="center"><h4><?php echo $o['ORDER_NUMBER']?></h4></td>
+                                <td width="200" height="200" align="center"> <a href="<?php echo site_url().'/index/single/findSingle/'.$o['PID'];?>"> <img src="<?php echo base_url().'IMG/'.$o['IMG']?>" width="100" height="120" /> </a> </td>
+                                <td > <h4> <div style="padding-left:10px;padding-right:4px;text-align:left;"><?php echo $o['TITLE']?></div></h4> </td>
+                                <td align="center"><h4 >$ <?php echo $o['PRICE']?></h4></td>
+                                <td align="center"><h4><?php echo $o['AMOUNT']?></h4> </td>
+                                <td align="center" ><h4><?php echo $o['DT']?></h4></td>
+                                <td align="center"> <form> <input type="number" name="rate" min="1" max="5"> 
+                                        <input type="submit" value="save"/></form>
+                                </td>
+                            </tr>
+                            <?php endforeach ?>
+                          
+                        </table>
+                        <div class="clearfix"> </div>
+                    </div>
+
+                    <div class="clearfix"> </div>
+                </div>
+
+
+            </div>
+
+
+            <div class="sub-cate">
+
+                <div class=" top-nav rsidebar span_1_of_left">
+                    <h3 class="cate">CATEGORIES</h3>
+                    <ul class="menu">
+                        <ul class="kid-menu ">
+                            <li><a href="<?php echo site_url().'/index/product/changeCategory/Children';?>">Children's Book</a></li>
+                            <li ><a href="<?php echo site_url().'/index/product/changeCategory/Business';?>">Business and Money</a></li>
+                            <li><a href="<?php echo site_url().'/index/product/changeCategory/Computer';?>">Computer and Technology</a></li>
+                            <li><a href="<?php echo site_url().'/index/product/changeCategory/Cook';?>">Cook Books</a></li>
+                            <li ><a href="<?php echo site_url().'/index/product/changeCategory/Comics';?>">Comics and Novels</a></li>
+                            <li><a href="<?php echo site_url().'/index/product/changeCategory/Health';?>">Health and Dieting</a></li>
+                            <li><a href="<?php echo site_url().'/index/product/changeCategory/Medical';?>">Medical Books</a></li>
+                            <li><a href="<?php echo site_url().'/index/product/changeCategory/Law';?>">Law</a></li>
+                            <li><a href="<?php echo site_url().'/index/product/changeCategory/Social';?>">Social Science</a></li>
+                            <li><a href="<?php echo site_url().'/index/product/changeCategory/Engineering';?>">Engineering</a></li>
+                            <li class="menu-kid-left"><a href="<?php echo site_url().'/index/contact';?>">Contact us</a></li>
+                        </ul>
+                    </ul>
+                </div>
+
+                <!--initiate accordion-->
+                <script type="text/javascript">
+                            $(function () {
+                                var menu_ul = $('.menu > li > ul'),
+                                        menu_a = $('.menu > li > a');
+                                menu_ul.hide();
+                                menu_a.click(function (e) {
+                                    e.preventDefault();
+                                    if (!$(this).hasClass('active')) {
+                                        menu_a.removeClass('active');
+                                        menu_ul.filter(':visible').slideUp('normal');
+                                        $(this).addClass('active').next().stop(true, true).slideDown('normal');
+                                    } else {
+                                        $(this).removeClass('active');
+                                        $(this).next().stop(true, true).slideUp('normal');
+                                    }
+                                });
+
+                            });
+                </script>
+                <a class="view-all all-product" href="<?php echo site_url().'/index/product';?>">VIEW ALL PRODUCTS<span> </span></a> 	
+            </div>
             <div class="clearfix"> </div>
         </div>
-			 <div class="sub-cate">
-				<div class=" top-nav rsidebar span_1_of_left">
-					<h3 class="cate">CATEGORIES</h3>
-		 <ul class="menu">
-		<li class="item1"><a href="#">Curabitur sapien<img class="arrow-img" src="<?php echo base_url().'images/arrow1.png'?>" alt=""/> </a>
-			<ul class="cute">
-				<li class="subitem1"><a href="product.html">Cute Kittens </a></li>
-				<li class="subitem2"><a href="product.html">Strange Stuff </a></li>
-				<li class="subitem3"><a href="product.html">Automatic Fails </a></li>
-			</ul>
-		</li>
-		<li class="item2"><a href="#">Dignissim purus <img class="arrow-img " src="<?php echo base_url().'images/arrow1.png'?>" alt=""/></a>
-			<ul class="cute">
-				<li class="subitem1"><a href="product.html">Cute Kittens </a></li>
-				<li class="subitem2"><a href="product.html">Strange Stuff </a></li>
-				<li class="subitem3"><a href="product.html">Automatic Fails </a></li>
-			</ul>
-		</li>
-		<li class="item3"><a href="#">Ultrices id du<img class="arrow-img img-arrow" src="<?php echo base_url().'images/arrow1.png'?>" alt=""/> </a>
-			<ul class="cute">
-				<li class="subitem1"><a href="product.html">Cute Kittens </a></li>
-				<li class="subitem2"><a href="product.html">Strange Stuff </a></li>
-				<li class="subitem3"><a href="product.html">Automatic Fails</a></li>
-			</ul>
-		</li>
-		<li class="item4"><a href="#">Cras iacaus rhone <img class="arrow-img img-left-arrow" src="<?php echo base_url().'images/arrow1.png'?>" alt=""/></a>
-			<ul class="cute">
-				<li class="subitem1"><a href="product.html">Cute Kittens </a></li>
-				<li class="subitem2"><a href="product.html">Strange Stuff </a></li>
-				<li class="subitem3"><a href="product.html">Automatic Fails </a></li>
-			</ul>
-		</li>
-				<li>
-			<ul class="kid-menu">
-				<li><a href="product.html">Tempus pretium</a></li>
-				<li ><a href="product.html">Dignissim neque</a></li>
-				<li ><a href="product.html">Ornared id aliquet</a></li>
-			</ul>
-		</li>
-		<ul class="kid-menu ">
-				<li><a href="product.html">Commodo sit</a></li>
-				<li ><a href="product.html">Urna ac tortor sc</a></li>
-				<li><a href="product.html">Ornared id aliquet</a></li>
-				<li><a href="product.html">Urna ac tortor sc</a></li>
-				<li ><a href="product.html">Eget nisi laoreet</a></li>
-				<li><a href="product.html">Faciisis ornare</a></li>
-				<li class="menu-kid-left"><a href="<?php echo site_url().'/index/contact';?>">Contact us</a></li>
-			</ul>
-		
-	</ul>
-					</div>
-				<!--initiate accordion-->
-		<script type="text/javascript">
-			$(function() {
-			    var menu_ul = $('.menu > li > ul'),
-			           menu_a  = $('.menu > li > a');
-			    menu_ul.hide();
-			    menu_a.click(function(e) {
-			        e.preventDefault();
-			        if(!$(this).hasClass('active')) {
-			            menu_a.removeClass('active');
-			            menu_ul.filter(':visible').slideUp('normal');
-			            $(this).addClass('active').next().stop(true,true).slideDown('normal');
-			        } else {
-			            $(this).removeClass('active');
-			            $(this).next().stop(true,true).slideUp('normal');
-			        }
-			    });
-			
-			});
-		</script>
-					<div class=" chain-grid menu-chain">
-	   		     		<a href="single.html"><img class="img-responsive chain" src="<?php echo base_url().'images/wat.jpg'?>" alt=" " /></a>	   		     		
-	   		     		<div class="grid-chain-bottom chain-watch">
-		   		     		<span class="actual dolor-left-grid">300$</span>
-		   		     		<span class="reducedfrom">500$</span>  
-		   		     		<h6>Lorem ipsum dolor</h6>  		     			   		     										
-	   		     		</div>
-	   		     	</div>
-	   		     	 <a class="view-all all-product" href="<?php echo site_url().'/index/product';?>">VIEW ALL PRODUCTS<span> </span></a> 	
-			</div>
-			  <div class="clearfix"> </div>
-      	 </div>
-	<!---->
-	<div class="footer">
-		<div class="footer-top">
-			<div class="container">
-				<div class="latter">
-					<h6>NEWS-LATTER</h6>
-					<div class="sub-left-right">
-						<form>
-							<input type="text" value="Enter email here"onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Enter email here';}" />
-							<input type="submit" value="SUBSCRIBE" />
-						</form>
-					</div>
-					<div class="clearfix"> </div>
-				</div>
-				<div class="latter-right">
-					<p>FOLLOW US</p>
-					<ul class="face-in-to">
-						<li><a href="#"><span> </span></a></li>
-						<li><a href="#"><span class="facebook-in"> </span></a></li>
-						<div class="clearfix"> </div>
-					</ul>
-					<div class="clearfix"> </div>
-				</div>
-				<div class="clearfix"> </div>
-			</div>
-		</div>
-		<div class="footer-bottom">
-			<div class="container">
-				<div class="footer-bottom-cate">
-					<h6>CATEGORIES</h6>
-					<ul>
-						<li><a href="#">Curabitur sapien</a></li>
-						<li><a href="#">Dignissim purus</a></li>
-						<li><a href="#">Tempus pretium</a></li>
-						<li ><a href="#">Dignissim neque</a></li>
-						<li ><a href="#">Ornared id aliquet</a></li>
-						<li><a href="#">Ultrices id du</a></li>
-						<li><a href="#">Commodo sit</a></li>
-						<li ><a href="#">Urna ac tortor sc</a></li>
-						<li><a href="#">Ornared id aliquet</a></li>
-						<li><a href="#">Urna ac tortor sc</a></li>
-						<li ><a href="#">Eget nisi laoreet</a></li>
-						<li ><a href="#">Faciisis ornare</a></li>
-					</ul>
-				</div>
-				<div class="footer-bottom-cate bottom-grid-cat">
-					<h6>FEATURE PROJECTS</h6>
-					<ul>
-						<li><a href="#">Curabitur sapien</a></li>
-						<li><a href="#">Dignissim purus</a></li>
-						<li><a href="#">Tempus pretium</a></li>
-						<li ><a href="#">Dignissim neque</a></li>
-						<li ><a href="#">Ornared id aliquet</a></li>
-						<li><a href="#">Ultrices id du</a></li>
-						<li><a href="#">Commodo sit</a></li>
-					</ul>
-				</div>
-				<div class="footer-bottom-cate">
-					<h6>TOP BRANDS</h6>
-					<ul>
-						<li><a href="#">Curabitur sapien</a></li>
-						<li><a href="#">Dignissim purus</a></li>
-						<li><a href="#">Tempus pretium</a></li>
-						<li ><a href="#">Dignissim neque</a></li>
-						<li ><a href="#">Ornared id aliquet</a></li>
-						<li><a href="#">Ultrices id du</a></li>
-						<li><a href="#">Commodo sit</a></li>
-						<li><a href="#">Urna ac tortor sc</a></li>
-						<li><a href="#">Ornared id aliquet</a></li>
-						<li><a href="#">Urna ac tortor sc</a></li>
-						<li ><a href="#">Eget nisi laoreet</a></li>
-						<li ><a href="#">Faciisis ornare</a></li>
-					</ul>
-				</div>
-				<div class="footer-bottom-cate cate-bottom">
-					<h6>OUR ADDERSS</h6>
-					<ul>
-						<li>Aliquam metus  dui. </li>
-						<li>orci, ornareidquet</li>
-						<li> ut,DUI.</li>
-						<li >nisi, dignissim</li>
-						<li >gravida at.</li>
-						<li class="phone">PH : 6985792466</li>
-						
-					</ul>
-				</div>
-				<div class="clearfix"> </div>
-			</div>
-		</div>
-	</div>
-<div style="display:none"><script src='http://v7.cnzz.com/stat.php?id=155540&web_id=155540' language='JavaScript' charset='gb2312'></script></div>
-</body>
+        <!---->
+        <div class="footer">
+            <div class="footer-top">
+                <div class="container">
+                    <div class="latter">
+
+                        <div class="sub-left-right">
+
+                        </div>
+                        <div class="clearfix"> </div>
+
+                    </div>
+                    <div class="latter-right">
+                        <p ><font size="3.5">© 1996-2015, Gatorshop.com, Inc. or its affiliates</font> </p>
+                        <p><font size="3.5">contact us:1-800-800-800</font> </p>
+                        <div class="clearfix"> </div>
+                    </div>
+                    <div class="clearfix"> </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="container">
+                    <div class="footer-bottom-cate">
+
+                    </div>
+                    <div class="footer-bottom-cate bottom-grid-cat">
+
+                    </div>
+                    <div class="footer-bottom-cate">
+
+                    </div>
+                    <div class="footer-bottom-cate cate-bottom">
+
+                    </div>
+                    <div class="clearfix"> </div>
+                </div>
+            </div>
+        </div>
+        <div style="display:none"><script src='http://v7.cnzz.com/stat.php?id=155540&web_id=155540' language='JavaScript' charset='gb2312'></script></div>
+    </body>
 </html>

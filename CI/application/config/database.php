@@ -49,12 +49,14 @@ $active_group = 'default';
 $active_record = TRUE;
 
 $db['default']['hostname'] = 'oracle.cise.ufl.edu/orcl';
+//$db['default']['username'] = 'yuyue';
+//$db['default']['password'] = 'oracleCOP5725';
 $db['default']['username'] = 'yan';
 $db['default']['password'] = 'dbmsoracle';
 $db['default']['database'] = 'orcl';
 $db['default']['dbdriver'] = 'oci8';
 $db['default']['dbprefix'] = '';
-$db['default']['pconnect'] = TRUE;
+$db['default']['pconnect'] =TRUE;
 $db['default']['db_debug'] = TRUE;
 $db['default']['cache_on'] = FALSE;
 $db['default']['cachedir'] = '';
@@ -63,6 +65,7 @@ $db['default']['dbcollat'] = 'utf8_general_ci';
 $db['default']['swap_pre'] = '';
 $db['default']['autoinit'] = TRUE;
 $db['default']['stricton'] = FALSE;
+//$db['default']['port'] = "";
 
 
 /* End of file database.php */

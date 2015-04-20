@@ -14,7 +14,7 @@ class User_Model extends CI_Model {
     }
 
     //register new user with username(primary key), and password
-    public function createNewUser($uname, $pass, $fname, $lname, $gender, $addr, $city, $state, $zipcode, $tel) {
+    public function createNewUser($uname, $pass, $fname, $lname, $gender, $addr, $city, $state, $zipcode, $tel, $img) {
 
         if ($this->IsValidUserName($uname)) {
             $data = array(
@@ -28,9 +28,10 @@ class User_Model extends CI_Model {
                 'province' => $state,
                 'zipcode' => $zipcode,
                 'cellphone' => $tel,
+                'img' => $img
             );
 //            $sql = "INSERT INTO Customer (username, password,  gender)  VALUES (?, ?,?)";
-            $sql = "INSERT INTO Customer (username, password,  gender, fname, lname, address, cellphone, city, province, zipcode)  VALUES (?, ?,?,?,?,?,?,?,?,?)";
+            $sql = "INSERT INTO Customer (username, password,  gender, fname, lname, address, cellphone, city, province, zipcode, portrait)  VALUES (?, ?,?,?,?,?,?,?,?,?, ?)";
             $this->db->query($sql, $data);
             return true;
         } else {
@@ -73,6 +74,26 @@ class User_Model extends CI_Model {
            $this->db->query($sql, array($data['password'], $data['gender'], $data['fname'], $data['lname'], $data['address'], $data['cellphone'], $data['city'], $data['zipcode'], $data['province'], $data['username']));
         }
     }
+    
+      public function SimilarUser($username) {
+        $sql = 'select * from(select *  from Customer c, (select username as suser,count(*) as tot from orders where username !=? and pid in (select distinct pid from orders where username=?) group by username order by count(*) desc) where c.username=suser) where rownum<=5';
+        $result = $this->db->query($sql, array($username, $username));
+        $users = $result->result_array();
+        return $users;
+    }
+    
+     public function topFiveCategory($username){
+        $sql='select * from
+                                (select category,count(*) as catnum
+                                from product 
+                                where pid in( select pid
+                                              from orders  
+                                             where username=?) 
+                                group by category order by count(*) desc) where rownum <=5 ';
+        $result = $this->db->query($sql, array($username));
+        $data= $result->result_array();
+        return $data;}
+        
 
 //    public function changePass($uname, $newpass) {
 //        if ($newpass != null || strlen($newpass) != 0) {

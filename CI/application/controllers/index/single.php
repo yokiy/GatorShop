@@ -18,6 +18,9 @@ class Single extends CI_Controller {
     public function findSingle($pid) {
         //look up single product 
         $data['p'] = $this->product_model->getProductById($pid);
+        $data['recommend']=$this->product_model->Recommend($pid);
+        $data['bestseller']=$this->product_model->getTheBestSellerOfThisMonth();
+        $data['rebycategory']=$this->product_model->RecommendByCategory( $data['p']['CATEGORY']);
         $this->load->view('single.html', $data);
     }
 
@@ -25,6 +28,10 @@ class Single extends CI_Controller {
         if (!isset($_SESSION)) {
             session_start();
         }
+        if(empty($_SESSION['email']))
+        {
+            redirect('/index/login', 'refresh');
+        } 
         $user = $_SESSION['email'];
         $pid = $_POST['pid'];
         $amount = $_POST['amount'];

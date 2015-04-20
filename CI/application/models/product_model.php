@@ -15,22 +15,10 @@ class product_model extends CI_Model {
 
     //get product by promaykey for later use
     public function getProductById($id) {
-        $sql = 'select * from PRODUCT where pid =' . $id;
-        $result = $this->db->query($sql);
+        $sql = 'select * from PRODUCT where pid = ? ';
+        $result = $this->db->query($sql, array($id));
         if ($result->num_rows() > 0) {
             $product = $result->row_array();
-        } else {
-            $product = NULL;
-        }
-        return $product;
-    }
-
-    //search product title contained $name
-    public function getProductByName($name) {
-        $sql = 'select * from PRODUCT where lower(title) like lower(?)';
-        $result = $this->db->query($sql, array($name));
-        if ($result->num_rows() > 0) {
-            $product = $result->result_array();
         } else {
             $product = NULL;
         }
@@ -99,13 +87,13 @@ class product_model extends CI_Model {
 
     //decrease product amount by 1
     public function decreaseProductAmount($id) {
-        $sql = 'update Product set amount = amount-1  where pid='.$id;
-        $this->db->query($sql);
+        $sql = 'update Product set amount = amount-1  where pid= ? ';
+        $this->db->query($sql, array($id));
     }
 
     //add product amount when cart changes with amount
     public function AddProductAmount($pid, $amount) {
-        $pid = intval($pid);
+//        $pid = intval($pid);
         $amount = intval($amount);
         $sql = 'update Product set amount = amount + ?  where pid=?';
         $this->db->query($sql, array($amount, $pid));
@@ -128,15 +116,15 @@ class product_model extends CI_Model {
 
     //check product stock
     public function checkProductStock($id) {
-        $sql = 'select amount from PRODUCT where pid ='.$id;
-        $stock = $this->db->query($sql);
+        $sql = 'select amount from PRODUCT where pid = ? ';
+        $stock = $this->db->query($sql, array($id));
         $result = $stock->result_array();
         return $result;
     }
 
     //sort product in a category by order of sales amount in recent three month
     public function sortProductBySalesCategory($cate) {
-        $sql = ' select product.*  from (select orders.pid as op,  sum(orders.amount) as count from orders group by orders.PID), product where op= product.pid and product.category = ?  order by count DESC';
+        $sql = 'select  product.*  from (select orders.pid as op,  sum(orders.amount) as countnum from orders group by orders.PID), product where op= product.pid and product.category = ?  order by countnum DESC';
         $result = $this->db->query($sql, array($cate));
         $products = $result->result_array();
         return $products;
@@ -150,4 +138,114 @@ class product_model extends CI_Model {
         return $ret;
     }
 
+    //product with rate between price range
+    public function selectProductwithRateBetweenPriceRange($rate, $category, $lowprice, $highprice) {
+        $sql = 'select *  from product
+                                   where rate >= ? and price <= ? and price >= ? and category = ? order by rate desc';
+        $result = $this->db->query($sql, array($rate, $highprice, $lowprice, $category));
+        $select = $result->result_array();
+        return $select;
+    }
+
+    public function Recommend($pid) {
+        $sql = 'select * from(select * from product p,(select pid as inpid,sum(amount) as tot from orders where orders.username in (select distinct username from orders where orders.pid= ?) and pid != ? group by pid) where p.pid=inpid order by tot) where rownum<=5';
+        $result = $this->db->query($sql, array($pid, $pid));
+        $recommend = $result->result_array();
+
+        return $recommend;
+    }
+
+    //search product title contained $name
+    public function getProductByName($name) {
+        $name = '%' . $name . '%';
+        $sql = 'select * from PRODUCT where lower(title) like lower(?)';
+        $result = $this->db->query($sql, array($name));
+        if ($result->num_rows() > 0) {
+            $product = $result->result_array();
+        } else {
+            $product = NULL;
+        }
+        return $product;
+    }
+
+    // publisher and author
+
+    public function getProductByAuthor($name) {
+        $name = '%' . $name . '%';
+        $sql = 'select * from PRODUCT where lower(author) like lower(?)';
+        $result = $this->db->query($sql, array($name));
+        if ($result->num_rows() > 0) {
+            $product = $result->result_array();
+        } else {
+            $product = NULL;
+        }
+        return $product;
+    }
+
+    public function getProductByPublisher($name) {
+        $name = '%' . $name . '%';
+        $sql = 'select * from PRODUCT where lower(publisher) like lower(?)';
+        $result = $this->db->query($sql, array($name));
+        if ($result->num_rows() > 0) {
+            $product = $result->result_array();
+        } else {
+            $product = NULL;
+        }
+        return $product;
+    }
+
+    public function getTheBestSellerOfThisMonth() {
+        // get the month of current time
+//        $month = date('ym');
+        $format = 'yyyy-mm-dd';
+        $begin = date('Ymd', strtotime('-3 month'));
+        $end = date('Ymd', strtotime('+1 month'));
+
+        $sql = 'select * from product, (select  orders.PID as op, sum(orders.amount) as countnum  from product, orders where product.PID = orders.pid 
+                        and orders.DT > to_date(?,  ?) 
+                        and orders.DT < to_date(?, ?)
+                        group by orders.PID) where product.PID = op and rownum = 1';
+
+        $result = $this->db->query($sql, array($begin, $format, $end, $format));
+        if ($result->num_rows() > 0) {
+            $product = $result->result_array();
+        } else {
+            $product = NULL;
+        }
+        return $product;
+    }
+    
+    public function RecommendByCategory($cate) {
+        $sql = 'select * from ( select  product.*  from (select orders.pid as op,  sum(orders.amount) as countnum from orders group by orders.PID), product where op= product.pid and product.category = ?  order by countnum DESC) where rownum <=5';
+        $result = $this->db->query($sql, array($cate));
+        $products = $result->result_array();
+        return $products;
+    }
+    
+     public function getAllProductCount(){
+        $sql = 'select count(*) as count from product';
+        $result = $this->db->query($sql);
+        $count = $result->result_array()[0]['COUNT'];
+        return $count;
+     }
+     
+     public function getAllCustomerCount() {
+         $sql = 'select count(*) as count from customer';
+         $result = $this->db->query($sql);
+         $count = $result->result_array()[0]['COUNT'];
+         return $count;
+     }
+
+     public function getAllOrdersCount() {
+         $sql = 'select count(*) as count from orders';
+         $result = $this->db->query($sql);
+         $count = $result->result_array()[0]['COUNT'];
+         return $count;
+     }
+         public function getAllCartCount() {
+         $sql = 'select count(*) as count from cart';
+         $result = $this->db->query($sql);
+         $count = $result->result_array()[0]['COUNT'];
+         return $count;
+     }
 }
