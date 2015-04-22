@@ -39,7 +39,7 @@
         <div class="header">
             <div class="top-header">
                 <div class="container">
-                    <h2 ><a href="<?php echo site_url().'/index/product';?>" style="color:white">GatorShop</a></h2>
+                    <h2 ><a href="<?php echo site_url().'/index/product';?>" style="color:white">Gator BookStore!</a></h2>
                 </div>
 
             </div>
@@ -142,9 +142,9 @@
 
                             <tr>
                                 <?php foreach($recommend as $r): ?>
-                                <td align="center" > <img src="<?php echo base_url().'IMG/'.$r['IMG'];?>" width="75" height="100"/>
+                                <td align="center" width="170"> <img src="<?php echo base_url().'IMG/'.$r['IMG'];?>" width="75" height="100"/>
                                     <h4><div style="padding-left:20px;padding-right:10px;text-align:center;"><a href="<?php echo site_url().'/index/single/findSingle/'.$r['PID'];?>"><?php echo $r['AMOUNT'] ?>left. </a></div></h4> 
-                                    <div ><h4 style="padding:10px 75px;"> $ <?php echo $r['PRICE']?></h4>
+                                    <div ><h4> $ <?php echo $r['PRICE']?></h4>
                                     </div>
                                 </td>
                                 <?php endforeach ?>
@@ -156,9 +156,9 @@
                        
                             <tr>
                                  <?php foreach($rebycategory as $rb): ?>
-                                <td align="center" > <img src="<?php echo base_url().'IMG/'.$rb['IMG'];?>" width="75" height="100"/>
+                                <td align="center"  width="170"> <img src="<?php echo base_url().'IMG/'.$rb['IMG'];?>" width="75" height="100"/>
                                     <h4><div style="padding-left:20px;padding-right:10px;text-align:center;"><a href="<?php echo site_url().'/index/single/findSingle/'.$rb['PID'];?>"><?php echo $rb['AMOUNT'] ?>left. </a></div></h4> 
-                                    <div><h4 style="padding:10px 75px;"> $ <?php echo $rb['PRICE']?> </h4>
+                                    <div><h4> $ <?php echo $rb['PRICE']?> </h4>
                                     </div>
                                 </td>
                                 <?php endforeach ?>

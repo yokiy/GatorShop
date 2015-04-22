@@ -20,7 +20,7 @@
         <div class="header">
             <div class="top-header">
                 <div class="container">
-                    <h2 ><a href="<?php echo site_url().'/index/product';?>" style="color:white">GatorShop</a></h2>
+                    <h2 ><a href="<?php echo site_url().'/index/product';?>" style="color:white">Gator BookStore!</a></h2>
                 </div>
 
             </div>
@@ -74,7 +74,7 @@
                     <table border="0" align="center">
                         <tr>
                             <th rowspan="4" align="center" width="300">
-                                <img src="<?php echo base_url().'images/'. $PORTRAIT.'.jpg'?>" width="180" height="200">	
+                                <img src="<?php echo base_url().'images/'.$PORTRAIT;?>" width="180" height="200">	
                             </th>
                             <th align="left"><font size="4"><font color="#FF6600">USER NAME:</font></font>&nbsp <?php echo $USERNAME ?></th>
                         </tr>
@@ -108,7 +108,7 @@
                                 </tr>
                                 <tr height="100">
                                          <?php foreach($suser as $su): ?>
-                                    <td align="center" height="100"><img src="<?php echo base_url(). 'images/abs.jpg'?>" width="120" height="120"/>
+                                    <td align="center" height="100"><img src="<?php echo base_url(). 'images/'.$su['PORTRAIT'].'.jpg'?>" width="120" height="120"/>
                                         <h4><div style="padding-left:20px;padding-right:10px;text-align:center;"><font size="4"><a href="<?php echo site_url().'/index/account';?>"><?php echo $su['USERNAME']?></a></font></div></h4> 
                                           <?php endforeach ?>
                                     </td>
@@ -155,7 +155,9 @@
                                 <td align="center"><h4 >$ <?php echo $o['PRICE']?></h4></td>
                                 <td align="center"><h4><?php echo $o['AMOUNT']?></h4> </td>
                                 <td align="center" ><h4><?php echo $o['DT']?></h4></td>
-                                <td align="center"> <form> <input type="number" name="rate" min="1" max="5"> 
+                                <td align="center"><form action="<?php echo site_url('index/account/rate'); ?>" method="POST">
+                                        <input type="hidden" name="oid" value="<?php echo $o['ORDER_ID']?>">
+                                        <input type="number" name="rate" min="1" max="5"  value="<?php echo $o['RATE']?>"> 
                                         <input type="submit" value="save"/></form>
                                 </td>
                             </tr>

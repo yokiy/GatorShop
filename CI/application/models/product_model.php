@@ -86,9 +86,9 @@ class product_model extends CI_Model {
     }
 
     //decrease product amount by 1
-    public function decreaseProductAmount($id) {
-        $sql = 'update Product set amount = amount-1  where pid= ? ';
-        $this->db->query($sql, array($id));
+    public function decreaseProductAmount($id, $am) {
+        $sql = 'update Product set amount = amount- ?  where pid= ? ';
+        $this->db->query($sql, array($am, $id));
     }
 
     //add product amount when cart changes with amount

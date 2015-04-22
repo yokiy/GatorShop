@@ -12,6 +12,7 @@ class Orders_Model extends CI_Model {
         parent::__construct();
         $this->load->database();
         $this->load->model('cart_model');
+        $this->load->model('product_model');
     }
 
     public function isExisted($od) {
@@ -54,21 +55,23 @@ class Orders_Model extends CI_Model {
             $pid =  $item['PID'];
             $amount = intval($item['AMOUNT']);
             $sql = 'insert into orders values(SEQ_order.nextval, to_date(?, ?), 0,  ?, ?, ?, ?)';
-            $this->db->query($sql, array($date, $format, $user, $pid, $amount, $order_number));            
+            $this->db->query($sql, array($date, $format, $user, $pid, $amount, $order_number));     
+            $this->product_model->decreaseProductAmount( $pid, $amount);
         }
         $this->cart_model->emptyCart($user);
+        
         return $order_number;
     }
 
 //user can rate  comment item with every order
-    public function rateOrder($order_id, $rate, $review) {
-        $sql = 'update orders set rate = ?, review = ? where order_id = ' . $rate;
-        $this->db->query($sql, array($rate, $review, $order_id));
+    public function rateOrder($order_id, $rate) {
+        $sql = 'update orders set rate = ? where order_id = ' . $rate;
+        $this->db->query($sql, array($rate, $order_id));
     }
 
 // retrieve order history of a user
     public function orderHistory($user) {
-        $sql = 'select orders.order_number, product.pid,  product.title, product.price, product.img, orders.amount, orders.dt from orders,  product where orders.pid = product.pid and orders.username = ?';
+        $sql = 'select orders.order_number, product.pid,  product.title, product.price, product.img, orders.amount, orders.dt, orders.order_id, orders.rate from orders,  product where orders.pid = product.pid and orders.username = ?';
         $result = $this->db->query($sql, array($user));
         if ($result->num_rows() > 0) {
             $ret = $result->result_array();

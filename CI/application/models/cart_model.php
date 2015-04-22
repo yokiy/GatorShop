@@ -18,6 +18,7 @@ class Cart_Model extends CI_Model {
         $time = new DateTime('now');
         $num = $this->existItem($user, $pid);
         $am = intval($am);
+        $pid = strval($pid);
 //check if item is in cart, if yes change the amount; if no inset into cart;
         $date = $time->format('Y-m-d H:i:s');
         $format = 'yyyy-mm-dd hh24:mi:ss';

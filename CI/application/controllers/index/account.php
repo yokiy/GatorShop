@@ -20,6 +20,8 @@ class Account extends CI_Controller {
             redirect('/index/login', 'refresh');
         } else {
             $data = $this->user_model->getUserAccount($_SESSION['email']);
+            $img=$data['PORTRAIT'].'.jpg';
+            $data['PORTRAIT']=$img;
             //order_history is also a big array, including mutiple orders
             $data['suser']=$this->user_model->SimilarUser($_SESSION['email']);       
             $data['topcategory']=$this->user_model->topFiveCategory($_SESSION['email']);
@@ -98,8 +100,16 @@ class Account extends CI_Controller {
             redirect('/index/product', 'refresh');
         }
     }
-
+    
+    public function rate(){
+        $oid=$_POST['oid'];
+        $rate=$_POST['rate'];
+        $rate = intval($rate);
+        $this->orders_model->rateOrder($oid, $rate);
+       redirect('/index/account','refresh');
+    }
 }
+
 
 /* End of file welcome.php */
 /* Location: ./application/controllers/welcome.php */

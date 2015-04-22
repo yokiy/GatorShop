@@ -41,7 +41,7 @@ class Single extends CI_Controller {
             redirect('/index/single/findSingle/' . $pid, 'refresh');
         } else {
             $this->cart_model->addToCart($user, $pid, $amount);
-            $this->product_model->decreaseProductAmount($pid);
+            $this->product_model->decreaseProductAmount($pid, $amount);
             $data['PID'] = $pid;
             $this->load->view('confirm.html', $data);
         }
